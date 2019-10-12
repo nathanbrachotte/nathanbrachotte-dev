@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "pdfjs-dist": "^1.8.432",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {
