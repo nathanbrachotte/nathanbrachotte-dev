@@ -35,6 +35,7 @@ const AppBody = styled.div`
   right: 0;
   top: 60px;
   bottom: 0;
+  background-color: ${colors.BACKGROUND};
 `
 
 class App extends Component {
@@ -73,7 +74,7 @@ class App extends Component {
         <AppHeader>
           <TextHeader>
             My personal website is under construction, for now you may already
-            want to take a look at my resume.{'\n'}Thank you for passing by :)
+            want to take a look at my resume. Thank you for passing by 👨🏼‍💻
           </TextHeader>
         </AppHeader>
         <Toolbar

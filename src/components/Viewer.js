@@ -5,9 +5,11 @@ import { PDFJS as PDFJSViewer } from 'pdfjs-dist/web/pdf_viewer.js'
 import styled from 'styled-components'
 
 import 'pdfjs-dist/web/pdf_viewer.css'
+import { colors } from '../styles/colors'
 
 const ViewerWrapper = styled.div`
-  background-color: #444;
+  padding-top: 10px;
+  background-color: ${colors.BACKGROUND};
   width: 100%;
   height: 100%;
   position: relative;
@@ -22,6 +24,33 @@ class Viewer extends Component {
       doc: null,
       scale: undefined,
     }
+  }
+
+  componentDidMount() {
+    let viewerContainer = ReactDOM.findDOMNode(this)
+    this._pdfViewer = new PDFJSViewer.PDFViewer({
+      container: viewerContainer,
+      eventBus: this._eventBus,
+    })
+  }
+
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
+    if (this.state.doc !== nextState.doc) {
+      this._pdfViewer.setDocument(nextState.doc)
+    }
+    if (this.state.scale !== nextState.scale) {
+      this._pdfViewer.currentScale = nextState.scale
+    }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      this.state.doc !== nextState.doc ||
+      this.state.scale !== nextState.scale
+    ) {
+      return true
+    }
+    return false
   }
 
   initEventBus() {
@@ -44,30 +73,7 @@ class Viewer extends Component {
     })
     this._eventBus = eventBus
   }
-  componentDidMount() {
-    let viewerContainer = ReactDOM.findDOMNode(this)
-    this._pdfViewer = new PDFJSViewer.PDFViewer({
-      container: viewerContainer,
-      eventBus: this._eventBus,
-    })
-  }
-  componentWillUpdate(nextProps, nextState) {
-    if (this.state.doc !== nextState.doc) {
-      this._pdfViewer.setDocument(nextState.doc)
-    }
-    if (this.state.scale !== nextState.scale) {
-      this._pdfViewer.currentScale = nextState.scale
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    if (
-      this.state.doc !== nextState.doc ||
-      this.state.scale !== nextState.scale
-    ) {
-      return true
-    }
-    return false
-  }
+
   render() {
     return (
       <ViewerWrapper>
