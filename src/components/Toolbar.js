@@ -51,11 +51,13 @@ class Toolbar extends Component {
       scale: 0,
     }
   }
+
   zoomIn(e) {
     if (this.props.onZoomIn) {
       this.props.onZoomIn(e)
     }
   }
+
   zoomOut(e) {
     if (this.props.onZoomOut) {
       this.props.onZoomOut(e)

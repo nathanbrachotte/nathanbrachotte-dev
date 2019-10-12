@@ -6,6 +6,7 @@
     "pdfjs-dist": "^1.8.432",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-ga": "^2.7.0",
     "styled-components": "^4.4.0"
   },
   "devDependencies": {

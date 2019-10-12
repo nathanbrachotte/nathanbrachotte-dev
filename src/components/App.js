@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import pdfjsLib from 'pdfjs-dist/webpack'
 import styled from 'styled-components'
+import ReactGA from 'react-ga'
 
 import Viewer from './Viewer'
 import Toolbar from './Toolbar'
 
 import { colors } from '../styles/colors'
+import { isMobile } from '../utils/web'
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -40,6 +42,9 @@ const AppBody = styled.div`
 
 class App extends Component {
   componentDidMount() {
+    ReactGA.initialize('UA-149903423-1')
+    ReactGA.pageview(window.location.pathname + window.location.search)
+
     let loadingTask = pdfjsLib.getDocument(this.props.url)
     loadingTask.promise.then(
       doc => {
@@ -47,27 +52,45 @@ class App extends Component {
         this.viewer.setState({
           doc,
         })
+        // Hack to set toom
+        isMobile &&
+          setTimeout(() => {
+            this.zoomOut()
+            this.zoomOut()
+            this.zoomOut()
+            this.zoomOut()
+            this.zoomOut()
+            this.zoomOut()
+            this.zoomOut()
+            this.zoomOut()
+          }, 0)
       },
       reason => {
         console.error(`Error during ${this.props.url} loading: ${reason}`)
       },
     )
   }
+
   zoomIn(e) {
+    console.log({ scale: this.viewer.state.scale, e })
+
     this.viewer.setState({
       scale: this.viewer.state.scale * 1.1,
     })
   }
+
   zoomOut(e) {
     this.viewer.setState({
       scale: this.viewer.state.scale / 1.1,
     })
   }
+
   displayScaleChanged(e) {
     this.toolbar.setState({
       scale: e.scale,
     })
   }
+
   render() {
     return (
       <AppWrapper>
