@@ -8,7 +8,6 @@ import Viewer from './Viewer'
 import Toolbar from './Toolbar'
 
 import { colors } from '../styles/colors'
-import { isMobile } from '../utils/web'
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -91,7 +90,8 @@ class App extends Component {
         <Toolbar
           ref={ref => (this.toolbar = ref)}
           onZoomIn={e => this.zoomIn(e)}
-          onZoomOut={e => this.zoomOut(e)}></Toolbar>
+          onZoomOut={e => this.zoomOut(e)}
+        />
         <AppBody>
           <Viewer
             ref={ref => (this.viewer = ref)}

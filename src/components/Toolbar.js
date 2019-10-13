@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { colors } from '../styles/colors'
+import { DownloadSection } from './DownloadSection'
 
-const ToolbarWrapper = styled.div`
+const ZoomWrapper = styled.div`
   position: fixed;
   right: 2%;
-  bottom: 20px;
+  top: 80px;
   width: 100px;
   height: 50px;
   background-color: ${colors.DARK_BACKGROUND};
@@ -71,13 +72,16 @@ class Toolbar extends Component {
   }
   render() {
     return (
-      <ToolbarWrapper>
-        <div>
-          <Zoom onClick={e => this.zoomIn(e)}>+</Zoom>
-          <Zoom onClick={e => this.zoomOut(e)}>-</Zoom>
-        </div>
-        <ZoomPercent>{(this.state.scale * 100).toFixed(1)}%</ZoomPercent>
-      </ToolbarWrapper>
+      <Fragment>
+        <DownloadSection />
+        <ZoomWrapper>
+          <div>
+            <Zoom onClick={e => this.zoomIn(e)}>+</Zoom>
+            <Zoom onClick={e => this.zoomOut(e)}>-</Zoom>
+          </div>
+          <ZoomPercent>{(this.state.scale * 100).toFixed(1)}%</ZoomPercent>
+        </ZoomWrapper>
+      </Fragment>
     )
   }
 }
