@@ -52,18 +52,6 @@ class App extends Component {
         this.viewer.setState({
           doc,
         })
-        // Hack to set toom
-        isMobile &&
-          setTimeout(() => {
-            this.zoomOut()
-            this.zoomOut()
-            this.zoomOut()
-            this.zoomOut()
-            this.zoomOut()
-            this.zoomOut()
-            this.zoomOut()
-            this.zoomOut()
-          }, 0)
       },
       reason => {
         console.error(`Error during ${this.props.url} loading: ${reason}`)
