@@ -71,9 +71,10 @@ class Toolbar extends Component {
     return false
   }
   render() {
+    const { url } = this.props
     return (
       <Fragment>
-        <DownloadSection />
+        <DownloadSection url={url} />
         <ZoomWrapper>
           <div>
             <Zoom onClick={e => this.zoomIn(e)}>+</Zoom>

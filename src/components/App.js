@@ -79,6 +79,8 @@ class App extends Component {
   }
 
   render() {
+    const { url } = this.props
+
     return (
       <AppWrapper>
         <AppHeader>
@@ -88,6 +90,7 @@ class App extends Component {
           </TextHeader>
         </AppHeader>
         <Toolbar
+          url={url}
           ref={ref => (this.toolbar = ref)}
           onZoomIn={e => this.zoomIn(e)}
           onZoomOut={e => this.zoomOut(e)}

@@ -15,9 +15,10 @@ const DownloadWrapper = styled.div`
 
 class DownloadComponent extends PureComponent {
   render() {
+    const { url } = this.props
     return (
       <DownloadWrapper>
-        <Button href="/public/BRACHOTTE_NATHAN_RESUME.pdf" download>
+        <Button href={url} download>
           <Download size={50} />
         </Button>
       </DownloadWrapper>
