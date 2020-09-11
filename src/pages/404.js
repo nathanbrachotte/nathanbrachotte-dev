@@ -1,8 +1,8 @@
-import React from 'react';
-import { Heading, Box } from 'rebass/styled-components';
-import Layout from '../components/Layout';
-import Section from '../components/Section';
-import Triangle from '../components/Triangle';
+import React from 'react'
+import { Heading, Box } from 'rebass/styled-components'
+import Layout from '../components/Layout'
+import Section from '../components/Section'
+import Triangle from '../components/Triangle'
 
 const Background = () => (
   <div>
@@ -27,7 +27,7 @@ const Background = () => (
       invertY
     />
   </div>
-);
+)
 
 const NotFoundPage = () => (
   <Layout>
@@ -36,8 +36,7 @@ const NotFoundPage = () => (
         <Heading
           color="primaryDark"
           fontSize={['8rem', '12rem', '14rem']}
-          as="h1"
-        >
+          as="h1">
           404
         </Heading>
         <Heading color="secondary" fontSize={['4rem', '5rem', '6rem']} as="h2">
@@ -46,6 +45,6 @@ const NotFoundPage = () => (
       </Box>
     </Section.Container>
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

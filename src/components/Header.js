@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
-import Headroom from 'react-headroom';
-import { Flex, Image } from 'rebass/styled-components';
-import styled from 'styled-components';
-import { SectionLinks } from 'react-scroll-section';
-import RouteLink from './RouteLink';
-import Logo from './Logo/Portfolio.svg';
+import React, { Fragment } from 'react'
+import Headroom from 'react-headroom'
+import { Flex, Image } from 'rebass/styled-components'
+import styled from 'styled-components'
+import { SectionLinks } from 'react-scroll-section'
+import RouteLink from './RouteLink'
+import Logo from './Logo/Portfolio.svg'
 
-const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1);
+const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1)
 
 const HeaderContainer = styled(Headroom)`
   * {
@@ -19,12 +19,12 @@ const HeaderContainer = styled(Headroom)`
 
   position: absolute;
   width: 100%;
-`;
+`
 
 const formatLinks = (allLinks) =>
   Object.entries(allLinks).reduce(
     (acc, [key, value]) => {
-      const isHome = key === 'home';
+      const isHome = key === 'home'
       return isHome
         ? {
             ...acc,
@@ -33,10 +33,10 @@ const formatLinks = (allLinks) =>
         : {
             ...acc,
             links: [...acc.links, { name: capitalize(key), value }],
-          };
+          }
     },
     { links: [], home: null },
-  );
+  )
 
 const Header = () => (
   <HeaderContainer>
@@ -44,11 +44,10 @@ const Header = () => (
       flexWrap="wrap"
       justifyContent="space-between"
       alignItems="center"
-      p={3}
-    >
+      p={3}>
       <SectionLinks>
         {({ allLinks }) => {
-          const { home, links } = formatLinks(allLinks);
+          const { home, links } = formatLinks(allLinks)
 
           const homeLink = home && (
             <Image
@@ -60,7 +59,7 @@ const Header = () => (
                 cursor: 'pointer',
               }}
             />
-          );
+          )
           const navLinks = links.map(({ name, value }) => (
             <RouteLink
               key={name}
@@ -68,18 +67,18 @@ const Header = () => (
               selected={value.isSelected}
               name={name}
             />
-          ));
+          ))
 
           return (
             <Fragment>
               {homeLink}
               <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
             </Fragment>
-          );
+          )
         }}
       </SectionLinks>
     </Flex>
   </HeaderContainer>
-);
+)
 
-export default Header;
+export default Header

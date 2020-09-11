@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const LinkAnimated = styled.span`
   text-decoration: none;
@@ -31,6 +31,6 @@ const LinkAnimated = styled.span`
     right: auto;
     width: 100%;
   }
-`;
+`
 
-export default LinkAnimated;
+export default LinkAnimated

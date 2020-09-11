@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby';
-import { Text, Box, Link, Flex } from 'rebass/styled-components';
-import Fade from 'react-reveal/Fade';
-import SocialLink from './SocialLink';
+import React from 'react'
+import styled from 'styled-components'
+import { StaticQuery, graphql } from 'gatsby'
+import { Text, Box, Link, Flex } from 'rebass/styled-components'
+import Fade from 'react-reveal/Fade'
+import SocialLink from './SocialLink'
 
 const FooterContainer = styled.div`
   max-width: 1366px;
@@ -20,7 +20,7 @@ const FooterContainer = styled.div`
       margin-bottom: 10px;
     }
   }
-`;
+`
 
 const TextFooter = styled(Text)`
   color: ${(props) => props.theme.colors.background};
@@ -33,7 +33,7 @@ const TextFooter = styled(Text)`
       color: ${(props) => props.theme.colors.primaryLight};
     }
   }
-`;
+`
 
 const Footer = () => (
   <StaticQuery
@@ -52,7 +52,7 @@ const Footer = () => (
       }
     `}
     render={(data) => {
-      const { name, socialLinks } = data.contentfulAbout;
+      const { name, socialLinks } = data.contentfulAbout
 
       return (
         <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
@@ -85,9 +85,9 @@ const Footer = () => (
             </Flex>
           </FooterContainer>
         </Box>
-      );
+      )
     }}
   />
-);
+)
 
-export default Footer;
+export default Footer

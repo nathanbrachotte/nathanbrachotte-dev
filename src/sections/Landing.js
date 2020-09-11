@@ -1,19 +1,20 @@
-import React, { Fragment } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import { Heading, Flex, Box, Text } from 'rebass/styled-components';
-import TextLoop from 'react-text-loop';
-import { SectionLink } from 'react-scroll-section';
-import Section from '../components/Section';
-import SocialLink from '../components/SocialLink';
-import MouseIcon from '../components/MouseIcon';
-import Triangle from '../components/Triangle';
+import React, { Fragment } from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import { Heading, Flex, Box, Text } from 'rebass/styled-components'
+import TextLoop from 'react-text-loop'
+import { SectionLink } from 'react-scroll-section'
+import Section from '../components/Section'
+import SocialLink from '../components/SocialLink'
+import MouseIcon from '../components/MouseIcon'
+import Triangle from '../components/Triangle'
 
 const Background = () => (
   <div>
     <Triangle
       color="backgroundDark"
-      height={['35vh', '80vh']}
+      height={['35vh', '60vh']}
       width={['95vw', '60vw']}
+      invertX
     />
 
     <Triangle
@@ -26,20 +27,25 @@ const Background = () => (
       color="primaryDark"
       height={['25vh', '35vh']}
       width={['75vw', '60vw']}
-      invertX
     />
 
     <Triangle
       color="backgroundDark"
       height={['20vh', '20vh']}
       width={['100vw', '100vw']}
-      invertX
       invertY
     />
+    <Triangle
+      color="secondary"
+      height={['38vh', '80vh']}
+      width={['50vw', '35vw']}
+      invertY
+      invertX
+    />
   </div>
-);
+)
 
-const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' };
+const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' }
 
 const LandingPage = () => (
   <Section.Container id="home" Background={Background}>
@@ -64,8 +70,8 @@ const LandingPage = () => (
         }
       `}
       render={({ contentfulAbout, site }) => {
-        const { name, socialLinks, roles } = contentfulAbout;
-        const { deterministicBehaviour } = site.siteMetadata;
+        const { name, socialLinks, roles } = contentfulAbout
+        const { deterministicBehaviour } = site.siteMetadata
 
         return (
           <Fragment>
@@ -74,8 +80,7 @@ const LandingPage = () => (
               as="h1"
               color="primary"
               fontSize={[6, 7]}
-              mb={[3, 4, 5]}
-            >
+              mb={[3, 4, 5]}>
               {`Hello, I'm ${name}!`}
             </Heading>
 
@@ -85,9 +90,8 @@ const LandingPage = () => (
               fontSize={[5, 6]}
               mb={[3, 5]}
               textAlign="center"
-              style={centerHorizontally}
-            >
-              <TextLoop interval={5000}>
+              style={centerHorizontally}>
+              <TextLoop interval={1000}>
                 {roles
                   .sort(() => deterministicBehaviour || Math.random() - 0.5)
                   .map((text) => (
@@ -109,10 +113,10 @@ const LandingPage = () => (
               {({ onClick }) => <MouseIcon onClick={onClick} />}
             </SectionLink>
           </Fragment>
-        );
+        )
       }}
     />
   </Section.Container>
-);
+)
 
-export default LandingPage;
+export default LandingPage
