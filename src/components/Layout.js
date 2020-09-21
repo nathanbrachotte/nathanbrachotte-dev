@@ -38,15 +38,11 @@ const loadScript = (src) => {
 }
 
 const Layout = ({ children }) => {
-  // TODO: Make dark mode default once it's ready
   const darkMode = useDarkMode(false)
 
   useEffect(() => {
     loadScript('https://use.fontawesome.com/fd58d214b9.js')
   }, [])
-
-  console.log({ darkMode })
-  console.log({ darkModeValue: darkMode.value })
 
   const theme = {
     ...preset,
@@ -60,14 +56,6 @@ const Layout = ({ children }) => {
 
   return (
     <main>
-      <div>
-        <button type="button" onClick={darkMode.disable}>
-          ☀
-        </button>
-        <button type="button" onClick={darkMode.enable}>
-          ☾
-        </button>
-      </div>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <ScrollingProvider>

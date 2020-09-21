@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 'off',
     'react/require-default-props': 'off',
+    'react/jsx-closing-bracket-location': 'off',
   },
   parser: 'babel-eslint',
   env: {
@@ -10,4 +11,4 @@ module.exports = {
     node: true,
     jest: true,
   },
-};
+}
