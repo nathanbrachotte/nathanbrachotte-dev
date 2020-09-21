@@ -1,8 +1,7 @@
 {
-  "name": "gatsby-starter-mate",
-  "version": "2.5.3",
-  "description": "Gatsby v2 starter to create a top notch portfolio!",
-  "main": "index.js",
+  "name": "nathanbrachotte",
+  "version": "0.1.0",
+  "description": "my personal website",
   "scripts": {
     "pre-build": "node scripts/get-about",
     "build": "yarn pre-build && gatsby build",
@@ -39,12 +38,14 @@
     "@rebass/preset": "^4.0.5",
     "@tippy.js/react": "^3.1.1",
     "contentful": "^7.14.3",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.24.55",
     "gatsby-plugin-google-analytics": "^2.3.13",
     "gatsby-plugin-manifest": "^2.4.26",
     "gatsby-plugin-offline": "^3.2.26",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-styled-components": "^3.3.10",
+    "gatsby-plugin-use-dark-mode": "^1.1.2",
     "gatsby-source-contentful": "^2.3.41",
     "gatsby-source-medium": "^2.3.10",
     "gatsby-transformer-remark": "^2.8.34",
@@ -60,7 +61,7 @@
     "react-text-loop": "^2.0.1",
     "rebass": "^4.0.7",
     "styled-components": "^5.2.0",
-    "dotenv": "^8.2.0"
+    "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
     "@percy/cypress": "^2.1.1",

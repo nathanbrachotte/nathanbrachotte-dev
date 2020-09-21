@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import useDarkMode from 'use-dark-mode'
+
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
 import { ScrollingProvider } from 'react-scroll-section'
@@ -35,23 +37,37 @@ const loadScript = (src) => {
   document.getElementsByTagName('body')[0].appendChild(tag)
 }
 
-const theme = {
-  ...preset,
-  colors,
-  fonts: {
-    body: 'Cabin, Open Sans, sans-serif',
-    heading: 'inherit',
-    monospace: 'monospace',
-  },
-}
-
 const Layout = ({ children }) => {
+  // TODO: Make dark mode default once it's ready
+  const darkMode = useDarkMode(false)
+
   useEffect(() => {
     loadScript('https://use.fontawesome.com/fd58d214b9.js')
   }, [])
 
+  console.log({ darkMode })
+  console.log({ darkModeValue: darkMode.value })
+
+  const theme = {
+    ...preset,
+    colors: darkMode.value ? colors.dark : colors.light,
+    fonts: {
+      body: 'Cabin, Open Sans, sans-serif',
+      heading: 'inherit',
+      monospace: 'monospace',
+    },
+  }
+
   return (
     <main>
+      <div>
+        <button type="button" onClick={darkMode.disable}>
+          ☀
+        </button>
+        <button type="button" onClick={darkMode.enable}>
+          ☾
+        </button>
+      </div>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <ScrollingProvider>

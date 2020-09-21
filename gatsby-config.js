@@ -1,9 +1,11 @@
-const colors = require('./colors');
-const about = require('./about.json');
+const colors = require('./colors')
+const about = require('./about.json')
 
-require('dotenv').config();
+require('dotenv').config()
 
-const { ACCESS_TOKEN, SPACE_ID, ANALYTICS_ID, DETERMINISTIC } = process.env;
+const { ACCESS_TOKEN, SPACE_ID, ANALYTICS_ID, DETERMINISTIC } = process.env
+
+console.log({ ACCESS_TOKEN, SPACE_ID, ANALYTICS_ID, DETERMINISTIC })
 
 const plugins = [
   'gatsby-plugin-react-helmet',
@@ -35,7 +37,8 @@ const plugins = [
       username: about.mediumUser || '@medium',
     },
   },
-];
+  'gatsby-plugin-use-dark-mode',
+]
 
 if (ANALYTICS_ID) {
   plugins.push({
@@ -43,7 +46,7 @@ if (ANALYTICS_ID) {
     options: {
       trackingId: ANALYTICS_ID,
     },
-  });
+  })
 }
 
 module.exports = {
@@ -52,4 +55,4 @@ module.exports = {
     isMediumUserDefined: !!about.mediumUser,
     deterministicBehaviour: !!DETERMINISTIC,
   },
-};
+}
