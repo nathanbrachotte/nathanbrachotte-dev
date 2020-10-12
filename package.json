@@ -1,7 +1,8 @@
 {
   "name": "nathanbrachotte",
-  "version": "0.1.0",
+  "author": "Nathan Brachotte",
   "description": "my personal website",
+  "version": "0.1.0",
   "scripts": {
     "pre-build": "node scripts/get-about",
     "build": "yarn pre-build && gatsby build",
@@ -26,12 +27,6 @@
     "PWA",
     "portfolio"
   ],
-  "author": "Ema Suriano",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EmaSuriano/gatsby-starter-mate/issues"
-  },
-  "homepage": "https://github.com/EmaSuriano/gatsby-starter-mate#readme",
   "dependencies": {
     "@babel/preset-env": "^7.11.5",
     "@fortawesome/fontawesome-free": "^5.14.0",

@@ -38,20 +38,23 @@ Container.propTypes = {
   Background: PropTypes.func,
 }
 
-const Header = ({ name, icon = '', label = '' }) => (
-  <Slide left>
-    <Heading color="secondaryDark" mb={4}>
-      <LinkAnimated selected>
-        {name}
-        {icon && (
-          <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-            {icon}
-          </span>
-        )}
-      </LinkAnimated>
-    </Heading>
-  </Slide>
-)
+const Header = ({ name, icon = '', label = '' }) => {
+  console.log({ name, icon, label })
+  return (
+    <Slide left>
+      <Heading color="secondaryDark" mb={4}>
+        <LinkAnimated selected>
+          {name}
+          {icon && (
+            <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+              {icon}
+            </span>
+          )}
+        </LinkAnimated>
+      </Heading>
+    </Slide>
+  )
+}
 
 Header.propTypes = {
   name: PropTypes.string.isRequired,
