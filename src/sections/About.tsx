@@ -8,7 +8,7 @@ import Section from '../components/Section'
 import Triangle from '../components/Triangle'
 import markdownRenderer from '../components/MarkdownRenderer'
 
-const Background = () => (
+const Background: React.FC = () => (
   <div>
     <Triangle
       color="secondaryLight"

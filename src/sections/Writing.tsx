@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import { Heading, Text, Flex, Box } from 'rebass/styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
 import FontAwesomeIcon from 'react-fontawesome'
 import Section from '../components/Section'
 import { CardContainer, Card } from '../components/Card'
 import Triangle from '../components/Triangle'
 import ImageSubtitle from '../components/ImageSubtitle'
+
+const Fade = require('react-reveal/Fade')
 
 const MEDIUM_CDN = 'https://cdn-images-1.medium.com/max/400'
 const MEDIUM_URL = 'https://medium.com'
