@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 import useDarkMode from 'use-dark-mode'
+// @ts-ignore
+import config from 'react-reveal/globals'
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import preset from '@rebass/preset'
 import colors from '../../colors'
 import Helmet from './Helmet'
 
-const { ScrollingProvider }= require('react-scroll-section')
-const config = require('react-reveal/globals')
+const { ScrollingProvider } = require('react-scroll-section')
+
+const preset = require('@rebass/preset')
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -30,7 +32,7 @@ const GlobalStyle = createGlobalStyle`
 
 config({ ssrFadeout: true })
 
-const loadScript = (src) => {
+const loadScript = (src: string) => {
   const tag = document.createElement('script')
   tag.src = src
   tag.defer = true
@@ -38,7 +40,7 @@ const loadScript = (src) => {
   document.getElementsByTagName('body')[0].appendChild(tag)
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.FC }) => {
   const darkMode = useDarkMode(false)
 
   useEffect(() => {

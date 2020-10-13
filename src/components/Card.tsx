@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import { Card as CardRebass } from 'rebass/styled-components'
 
-export const CardContainer = styled.div`
+interface CardProps {
+  minWidth: string
+}
+
+export const CardContainer = styled.div<CardProps>`
   display: grid;
   grid-gap: 30px;
 

@@ -1,6 +1,15 @@
 import styled from 'styled-components'
 
-const Triangle = styled.div`
+interface TriangleProps {
+  color: string
+  height: string[]
+  width: string[]
+  invertX?: boolean
+  invertY?: boolean
+};
+
+
+const Triangle = styled.div<TriangleProps>`
   position: absolute;
   width: 0;
   height: 0;

@@ -14,6 +14,15 @@ const Fade = require('react-reveal/Fade')
 const MEDIUM_CDN = 'https://cdn-images-1.medium.com/max/400'
 const MEDIUM_URL = 'https://medium.com'
 
+interface PostProps {
+  title: string
+  text: string
+  image: string
+  url: string
+  date: string
+  time: number
+}
+
 const Background = () => (
   <div>
     <Triangle
@@ -54,7 +63,7 @@ const EllipsisHeading = styled(Heading)`
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `
 
-const Post = ({ title, text, image, url, date, time }) => (
+const Post: React.FC<PostProps> = ({ title, text, image, url, date, time }) => (
   <a
     href={url}
     target="__blank"
@@ -84,7 +93,10 @@ Post.propTypes = {
   time: PropTypes.number.isRequired,
 }
 
-const parsePost = (author) => (postFromGraphql) => {
+const parsePost = (author: { username: string; name: string }) => (
+  postFromGraphql: any,
+) => {
+  console.log({ postFromGraphql })
   const { id, uniqueSlug, createdAt, title, virtuals } = postFromGraphql
   const image =
     virtuals.previewImage.imageId &&
@@ -102,8 +114,15 @@ const parsePost = (author) => (postFromGraphql) => {
   }
 }
 
-const MorePosts = ({ username, name, number }) => (
+interface MorePostsProps {
+  username: string
+  name: string
+  number?: number
+}
+
+const MorePosts: React.FC<MorePostsProps> = ({ username, name, number }) => (
   <Card
+    //@ts-ignore
     onClick={() => window.open(`${MEDIUM_URL}/${username}/`, '_blank')}
     p={4}>
     <Flex
@@ -131,13 +150,10 @@ const MorePosts = ({ username, name, number }) => (
   </Card>
 )
 
-MorePosts.propTypes = {
-  username: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  number: PropTypes.number,
+const edgeToArray = (data: { edges: { node: any }[]; totalCount: number }) => {
+  console.log({ data })
+  return data.edges.map((edge) => edge.node)
 }
-
-const edgeToArray = (data) => data.edges.map((edge) => edge.node)
 
 const Writing = () => (
   <StaticQuery
