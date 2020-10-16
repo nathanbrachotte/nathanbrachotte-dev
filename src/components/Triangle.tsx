@@ -6,8 +6,7 @@ interface TriangleProps {
   width: string[]
   invertX?: boolean
   invertY?: boolean
-};
-
+}
 
 const Triangle = styled.div<TriangleProps>`
   position: absolute;

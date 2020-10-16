@@ -11,12 +11,6 @@
     "target": "es2019",
     "jsx": "react"
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
-  "include": [
-    "src/**/*",
-    "generated"
-  ]
+  "exclude": ["node_modules", "dist"],
+  "include": ["src/**/*", "generated", "Layout.tsx", "Helmet.tsx"]
 }

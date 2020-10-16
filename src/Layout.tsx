@@ -5,7 +5,7 @@ import config from 'react-reveal/globals'
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
-import colors from '../../colors'
+import colors from '../colors'
 import Helmet from './Helmet'
 
 const { ScrollingProvider } = require('react-scroll-section')

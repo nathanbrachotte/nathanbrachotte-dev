@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading, Box } from 'rebass/styled-components'
-import Layout from '../components/Layout'
+import Layout from '../Layout'
 import Section from '../components/Section'
 import Triangle from '../components/Triangle'
 

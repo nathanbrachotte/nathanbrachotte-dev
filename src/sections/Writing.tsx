@@ -190,7 +190,7 @@ const Writing = () => (
     `}
     render={({ allMediumPost, site, author }) => {
       const posts = edgeToArray(allMediumPost).map(parsePost(author))
-
+      console.log({ posts })
       const diffAmountArticles = allMediumPost.totalCount - posts.length
       if (diffAmountArticles > 0) {
         posts.push({

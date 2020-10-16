@@ -4,9 +4,9 @@ import { Flex, Image } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { SectionLinks } from 'react-scroll-section'
 
-import DarkModeToggle from './DarkModeToggle.tsx'
-import RouteLink from './RouteLink'
-import Logo from './Logo/Portfolio.svg'
+import DarkModeToggle from './DarkModeToggle'
+import RouteLink from '../RouteLink'
+import Logo from '../Logo/Portfolio.svg'
 
 const capitalize = (s) => s && s[0].toUpperCase() + s.slice(1)
 

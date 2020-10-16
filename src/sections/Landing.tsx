@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Heading, Flex, Box, Text } from 'rebass/styled-components'
 import TextLoop from 'react-text-loop'
 import { SectionLink } from 'react-scroll-section'
 import Section from '../components/Section'
-import SocialLink from '../components/SocialLink'
-import MouseIcon from '../components/MouseIcon'
+import { SocialLink } from '../components/Landing/SocialLink'
+import MouseIcon from '../MouseIcon'
 import Triangle from '../components/Triangle'
+import { CentralInfo } from '../components/Landing/CentralInfo'
 
 const Background = () => (
   <div>
@@ -45,8 +46,6 @@ const Background = () => (
   </div>
 )
 
-const centerHorizontally = { marginRight: 'auto', marginLeft: 'auto' }
-
 const LandingPage = () => (
   <Section.Container id="home" Background={Background}>
     <StaticQuery
@@ -76,45 +75,12 @@ const LandingPage = () => (
         console.log({ name, socialLinks, roles, deterministicBehaviour })
 
         return (
-          <Fragment>
-            <Heading
-              textAlign="center"
-              as="h1"
-              color="primary"
-              fontSize={[6, 7]}
-              mb={[3, 4, 5]}>
-              {`Hello, I'm ${name}!`}
-            </Heading>
-
-            <Heading
-              as="h2"
-              color="primary"
-              fontSize={[5, 6]}
-              mb={[3, 5]}
-              textAlign="center"
-              style={centerHorizontally}>
-              <TextLoop interval={1000}>
-                {roles
-                  .sort(() => deterministicBehaviour || Math.random() - 0.5)
-                  .map((text) => (
-                    <Text width={[300, 500]} key={text}>
-                      {text}
-                    </Text>
-                  ))}
-              </TextLoop>
-            </Heading>
-
-            <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-              {socialLinks.map(({ id, ...rest }) => (
-                <Box mx={3} fontSize={[5, 6, 6]} key={id}>
-                  <SocialLink {...rest} />
-                </Box>
-              ))}
-            </Flex>
+          <>
+            <CentralInfo name={name} roles={roles} socialLinks={socialLinks} />
             <SectionLink section="about">
               {({ onClick }) => <MouseIcon onClick={onClick} />}
             </SectionLink>
-          </Fragment>
+          </>
         )
       }}
     />
