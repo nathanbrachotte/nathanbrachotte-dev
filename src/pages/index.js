@@ -1,11 +1,11 @@
 import React from 'react'
-import Layout from '../Layout'
-import Landing from '../sections/Landing'
-import About from '../sections/About'
-import Projects from '../sections/Projects'
-import Writing from '../sections/Writing'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
+import Layout from '../Layout.tsx'
+import Landing from '../screens/Landing.tsx'
+import About from '../screens/About.tsx'
+import Projects from '../screens/Projects.tsx'
+import Writing from '../screens/Writing.tsx'
+import Header from '../components/Header/Header.tsx'
+import Footer from '../components/Footer/Footer.tsx'
 
 const IndexPage = () => (
   <Layout>

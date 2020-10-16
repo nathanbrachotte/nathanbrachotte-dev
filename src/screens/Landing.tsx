@@ -6,7 +6,8 @@ import Section from '../components/Section'
 import MouseIcon from '../shared/MouseIcon'
 import { CentralInfo } from '../components/Landing/CentralInfo'
 import { Background } from '../components/Landing/Background'
-import { Mouse } from '../components/Landing/Mouse'
+import { Mouse } from '../shared/Mouse'
+import { WebsiteScreen } from '../screens/types'
 
 const LandingPage = () => (
   <Section.Container id="home" Background={Background}>
@@ -39,7 +40,7 @@ const LandingPage = () => (
         return (
           <>
             <CentralInfo name={name} roles={roles} socialLinks={socialLinks} />
-            <Mouse />
+            <Mouse to={WebsiteScreen.about} />
           </>
         )
       }}

@@ -10,6 +10,7 @@ import { SocialLink } from '../components/Landing/SocialLink'
 import Triangle from '../shared/Triangle'
 import ImageSubtitle from '../components/ImageSubtitle'
 import Hide from '../components/Hide'
+import { Mouse } from '../shared/Mouse'
 
 const Background = () => (
   <div>

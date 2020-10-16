@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import PropTypes from 'prop-types'
 
 const MouseContainer = styled.svg`
   max-width: 2.5rem;
@@ -37,7 +36,7 @@ const ScrollAnimation = keyframes`
 `
 
 const Mouse = styled.rect.attrs((props) => ({
-  stroke: props.theme.colors.primary,
+  stroke: props.theme.colors.textDark,
   strokeWidth: '3',
 }))``
 
@@ -48,12 +47,12 @@ const Scroll = styled.circle`
   animation-iteration-count: infinite;
   transform-origin: 50% 20.5px;
   will-change: transform;
-  fill: ${(props) => props.theme.colors.primary};
+  fill: ${(props) => props.theme.colors.textDark};
 `
 
-const MouseIcon = ({ onClick }) => (
+const MouseIcon = ({ onClick }: { onClick: () => void }) => (
   <ScrollLink onClick={onClick}>
-    <MouseContainer xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 130">
+    <MouseContainer viewBox="0 0 76 130">
       <g fill="none">
         <Mouse width="70" height="118" x="1.5" y="1.5" rx="36" />
         <Scroll cx="36.5" cy="31.5" r="4.5" />
@@ -61,9 +60,5 @@ const MouseIcon = ({ onClick }) => (
     </MouseContainer>
   </ScrollLink>
 )
-
-MouseIcon.propTypes = {
-  onClick: PropTypes.func,
-}
 
 export default MouseIcon
