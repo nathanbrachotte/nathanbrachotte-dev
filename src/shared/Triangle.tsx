@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Color } from '../typings/colors'
 
 interface TriangleProps {
   color: string
@@ -15,7 +16,7 @@ const Triangle = styled.div<TriangleProps>`
   z-index: -2;
 
   ${(props) => {
-    const color = props.theme.colors[props.color] || props.color
+    const color = props.theme.colors[props.color as Color] || props.color
     const border = `${props.height[0]} solid ${color};`
     return props.invertY
       ? `border-bottom: ${border}; bottom: 0;`

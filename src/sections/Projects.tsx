@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade'
 import Section from '../components/Section'
 import { CardContainer, Card } from '../components/Card'
 import { SocialLink } from '../components/Landing/SocialLink'
-import Triangle from '../components/Triangle'
+import Triangle from '../shared/Triangle'
 import ImageSubtitle from '../components/ImageSubtitle'
 import Hide from '../components/Hide'
 

@@ -5,8 +5,6 @@ require('dotenv').config()
 
 const { ACCESS_TOKEN, SPACE_ID, ANALYTICS_ID, DETERMINISTIC } = process.env
 
-console.log({ ACCESS_TOKEN, SPACE_ID, ANALYTICS_ID, DETERMINISTIC })
-
 const plugins = [
   'gatsby-plugin-react-helmet',
   {

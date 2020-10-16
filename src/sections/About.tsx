@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
 import Section from '../components/Section'
-import Triangle from '../components/Triangle'
+import Triangle from '../shared/Triangle'
 import markdownRenderer from '../components/MarkdownRenderer'
 
 const Fade = require('react-reveal/Fade')
@@ -66,7 +66,6 @@ const About = () => (
       `}
       render={(data) => {
         const { aboutMe, profile } = data.contentfulAbout
-        console.log({ aboutMe, profile })
         return (
           <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
             <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>

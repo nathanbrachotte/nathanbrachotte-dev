@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import FontAwesomeIcon from 'react-fontawesome'
 import Section from '../components/Section'
 import { CardContainer, Card } from '../components/Card'
-import Triangle from '../components/Triangle'
+import Triangle from '../shared/Triangle'
 import ImageSubtitle from '../components/ImageSubtitle'
 
 const Fade = require('react-reveal/Fade')
@@ -96,7 +96,6 @@ Post.propTypes = {
 const parsePost = (author: { username: string; name: string }) => (
   postFromGraphql: any,
 ) => {
-  console.log({ postFromGraphql })
   const { id, uniqueSlug, createdAt, title, virtuals } = postFromGraphql
   const image =
     virtuals.previewImage.imageId &&
@@ -151,7 +150,6 @@ const MorePosts: React.FC<MorePostsProps> = ({ username, name, number }) => (
 )
 
 const edgeToArray = (data: { edges: { node: any }[]; totalCount: number }) => {
-  console.log({ data })
   return data.edges.map((edge) => edge.node)
 }
 
@@ -190,7 +188,6 @@ const Writing = () => (
     `}
     render={({ allMediumPost, site, author }) => {
       const posts = edgeToArray(allMediumPost).map(parsePost(author))
-      console.log({ posts })
       const diffAmountArticles = allMediumPost.totalCount - posts.length
       if (diffAmountArticles > 0) {
         posts.push({

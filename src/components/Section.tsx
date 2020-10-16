@@ -39,7 +39,6 @@ Container.propTypes = {
 }
 
 const Header = ({ name, icon = '', label = '' }) => {
-  console.log({ name, icon, label })
   return (
     <Slide left>
       <Heading color="secondaryDark" mb={4}>

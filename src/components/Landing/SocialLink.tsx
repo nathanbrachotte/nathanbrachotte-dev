@@ -56,15 +56,12 @@ export const SocialLinksWrapper = ({
   socialLinks,
 }: {
   socialLinks: Links[]
-}) => {
-  console.log({ socialLinks })
-  return (
-    <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
-      {socialLinks.map(({ id, ...rest }) => (
-        <Box mx={3} fontSize={[5, 6, 6]} key={id}>
-          <SocialLink {...rest} />
-        </Box>
-      ))}
-    </Flex>
-  )
-}
+}) => (
+  <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
+    {socialLinks.map(({ id, ...rest }) => (
+      <Box mx={3} fontSize={[5, 6, 6]} key={id}>
+        <SocialLink {...rest} />
+      </Box>
+    ))}
+  </Flex>
+)

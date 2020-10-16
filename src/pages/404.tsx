@@ -2,7 +2,7 @@ import React from 'react'
 import { Heading, Box } from 'rebass/styled-components'
 import Layout from '../Layout'
 import Section from '../components/Section'
-import Triangle from '../components/Triangle'
+import Triangle from '../shared/Triangle'
 
 const Background = () => (
   <div>
@@ -33,13 +33,10 @@ const NotFoundPage = () => (
   <Layout>
     <Section.Container id="404" Background={Background}>
       <Box width={[320, 400, 600]} m="auto">
-        <Heading
-          color="primaryDark"
-          fontSize={['8rem', '12rem', '14rem']}
-          as="h1">
+        <Heading color="textDark" fontSize={['8rem', '12rem', '14rem']} as="h1">
           404
         </Heading>
-        <Heading color="secondary" fontSize={['4rem', '5rem', '6rem']} as="h2">
+        <Heading color="text" fontSize={['4rem', '5rem', '6rem']} as="h2">
           There isn&apos;t anything here
         </Heading>
       </Box>

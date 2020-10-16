@@ -2,12 +2,14 @@ module.exports = {
   light: {
     background: '#FFF',
     backgroundDark: '#EDDCD2',
-    text: '#333333',
-    textDark: '#333333',
 
-    primary: '#FDE2E4',
-    primaryLight: '#ffc8dd',
-    primaryDark: '#cdb4db',
+    textLight: '#85b1c4',
+    text: '#487c93',
+    textDark: '#29314C',
+
+    primaryLight: '#ffe2e2',
+    primary: '#ffc8dd',
+    primaryDark: '#c3aed6',
 
     secondaryLight: '#D6E2E9',
     secondary: '#BCD4E6',

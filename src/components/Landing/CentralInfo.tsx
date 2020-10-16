@@ -15,7 +15,7 @@ export const CentralInfo: React.FC<CentralInfoProps> = ({
       <Heading
         textAlign="center"
         as="h1"
-        color="text"
+        color="textDark"
         fontSize={[6, 7]}
         mb={[3, 4, 5]}>
         {`Hello, I'm ${name}!`}
@@ -28,9 +28,7 @@ export const CentralInfo: React.FC<CentralInfoProps> = ({
         mb={[3, 5]}
         textAlign="center"
         style={centerHorizontally}>
-        <TextLoop
-          springConfig={{ stiffness: 100, damping: 15 }}
-          interval={1000}>
+        <TextLoop interval={1000}>
           {roles.map((text) => (
             <Text width={[300, 500]} key={text}>
               {text}
