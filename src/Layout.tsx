@@ -1,16 +1,17 @@
+/* eslint-disable import/extensions */
+
 import React, { useEffect } from 'react'
 import useDarkMode from 'use-dark-mode'
-// @ts-ignore
 import config from 'react-reveal/globals'
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import PropTypes from 'prop-types'
+import { ScrollingProvider } from 'react-scroll-section'
+import preset from '@rebass/preset'
 import colors from '../colors'
+
+// eslint-disable-next-line import/no-unresolved
 import Helmet from './Helmet'
-
-const { ScrollingProvider } = require('react-scroll-section')
-
-const preset = require('@rebass/preset')
 
 const GlobalStyle = createGlobalStyle`
   *,

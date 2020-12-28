@@ -2,9 +2,12 @@ import React from 'react'
 import { Helmet as ReactHelmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { withTheme } from 'styled-components'
-import PropTypes from 'prop-types'
 
-const Helmet = ({ theme = {} }) => (
+interface Props {
+  theme?: Record<any, any>
+}
+
+const Helmet: React.FC<Props> = ({ theme = {} }) => (
   <StaticQuery
     query={graphql`
       query HelmetQuery {
@@ -80,9 +83,5 @@ const Helmet = ({ theme = {} }) => (
   />
 )
 
-Helmet.propTypes = {
-  // eslint-disable-next-line
-  theme: PropTypes.object,
-}
-
-export default withTheme(Helmet)
+// as never lol wtf
+export default withTheme(Helmet as never)
