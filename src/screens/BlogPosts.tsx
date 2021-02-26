@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Heading, Text, Flex, Box } from 'rebass/styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import FontAwesomeIcon from 'react-fontawesome'
 import Fade from 'react-reveal/Fade'
@@ -9,6 +9,7 @@ import Section from '../components/Section'
 import { CardContainer, Card } from '../components/Card'
 import Triangle from '../shared/Triangle'
 import ImageSubtitle from '../components/ImageSubtitle'
+import { allBlogPostsQuery } from '../api/queries'
 
 const MEDIUM_CDN = 'https://cdn-images-1.medium.com/max/400'
 const MEDIUM_URL = 'https://medium.com'
@@ -153,37 +154,7 @@ const edgeToArray = (data: { edges: { node: any }[]; totalCount: number }) => {
 
 const Writing: React.FC = () => (
   <StaticQuery
-    query={graphql`
-      query MediumPostQuery {
-        site {
-          siteMetadata {
-            isMediumUserDefined
-          }
-        }
-        allMediumPost(limit: 7, sort: { fields: createdAt, order: DESC }) {
-          totalCount
-          edges {
-            node {
-              id
-              uniqueSlug
-              title
-              createdAt(formatString: "MMM YYYY")
-              virtuals {
-                subtitle
-                readingTime
-                previewImage {
-                  imageId
-                }
-              }
-            }
-          }
-        }
-        author: mediumUser {
-          username
-          name
-        }
-      }
-    `}
+    query={allBlogPostsQuery}
     render={({ allMediumPost, site, author }) => {
       const posts = edgeToArray(allMediumPost).map(parsePost(author))
       const diffAmountArticles = allMediumPost.totalCount - posts.length

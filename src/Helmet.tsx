@@ -83,5 +83,4 @@ const Helmet: React.FC<Props> = ({ theme = {} }) => (
   />
 )
 
-// as never lol wtf
-export default withTheme(Helmet as never)
+export default withTheme(Helmet as any)

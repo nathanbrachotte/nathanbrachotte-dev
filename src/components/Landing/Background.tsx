@@ -1,7 +1,7 @@
 import React from 'react'
 import Triangle from '../../shared/Triangle'
 
-export const Background = () => (
+const Background: React.FC = () => (
   <div>
     <Triangle
       color="backgroundDark"
@@ -37,3 +37,5 @@ export const Background = () => (
     />
   </div>
 )
+
+export default Background

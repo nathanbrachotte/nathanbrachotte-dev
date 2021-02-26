@@ -4,10 +4,10 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Section from '../components/Section'
 import MouseIcon from '../shared/MouseIcon'
-import { CentralInfo } from '../components/Landing/CentralInfo'
-import { Background } from '../components/Landing/Background'
+import CentralInfo from '../components/Landing/CentralInfo'
+import Background from '../components/Landing/Background'
 import { Mouse } from '../shared/Mouse'
-import { WebsiteScreen } from '../screens/types'
+import { WebsiteScreen } from './types'
 
 const LandingPage = () => (
   <Section.Container id="home" Background={Background}>

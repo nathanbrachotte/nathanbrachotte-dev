@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const LinkAnimated = styled.span`
+const LinkAnimated: React.FC = styled.span<{ selected: boolean }>`
   text-decoration: none;
   position: relative;
   margin-bottom: 0;

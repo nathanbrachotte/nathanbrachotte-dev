@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { FunctionComponent } from 'react'
+import Slide from 'react-reveal/Slide'
 import { Section } from 'react-scroll-section'
 import { Heading } from 'rebass/styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import Slide from 'react-reveal/Slide'
 import LinkAnimated from './LinkAnimated'
 
 const SectionContainer = styled.div`
@@ -25,7 +25,16 @@ const SectionContainer = styled.div`
 
 const DefaultBackground = () => <div />
 
-const Container = ({ id, children, Background = DefaultBackground }) => (
+interface ContainerProps {
+  id: string
+  Background: FunctionComponent
+}
+
+const Container: React.FC<ContainerProps> = ({
+  id,
+  children,
+  Background = DefaultBackground,
+}) => (
   <Section id={id} style={{ position: 'relative' }}>
     <Background />
     <SectionContainer>{children}</SectionContainer>
@@ -38,7 +47,13 @@ Container.propTypes = {
   Background: PropTypes.func,
 }
 
-const Header = ({ name, icon = '', label = '' }) => {
+interface HeaderProps {
+  name: string
+  icon?: string
+  label?: string
+}
+
+const Header: React.FC<HeaderProps> = ({ name, icon = '', label = '' }) => {
   return (
     <Slide left>
       <Heading color="secondaryDark" mb={4}>

@@ -41,7 +41,8 @@ const loadScript = (src: string) => {
   document.getElementsByTagName('body')[0].appendChild(tag)
 }
 
-const Layout = ({ children }: { children: React.FC }) => {
+
+const Layout: React.FC = ({ children }) => {
   const darkMode = useDarkMode(false)
 
   useEffect(() => {

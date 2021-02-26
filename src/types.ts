@@ -1,0 +1,6 @@
+export enum MAIN_PAGES {
+  LANDING = 'LANDING',
+  ABOUT = 'ABOUT',
+  PROJECT = 'PROJECT',
+  WRITING = 'WRITING',
+}

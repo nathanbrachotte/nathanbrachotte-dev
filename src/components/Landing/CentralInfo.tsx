@@ -5,7 +5,7 @@ import { Heading, Text } from 'rebass/styled-components'
 import { centerHorizontally } from '../../styles/helpers'
 import { SocialLinksWrapper } from './SocialLink'
 
-export const CentralInfo: React.FC<CentralInfoProps> = ({
+const CentralInfo: React.FC<CentralInfoProps> = ({
   roles,
   socialLinks,
   name,
@@ -40,3 +40,5 @@ export const CentralInfo: React.FC<CentralInfoProps> = ({
     </>
   )
 }
+
+export default CentralInfo
