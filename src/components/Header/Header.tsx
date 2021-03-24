@@ -1,15 +1,14 @@
 import React, { Fragment } from 'react'
 import Headroom from 'react-headroom'
-import {
-  Flex,
-  // Image
-} from 'rebass/styled-components'
+import FontAwesomeIcon from 'react-fontawesome'
+import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { SectionLinks } from 'react-scroll-section'
 
 import DarkModeToggle from './DarkModeToggle'
 import RouteLink from '../RouteLink'
-// import Logo from '../Logo/Portfolio.svg'
+import useTheme from '../../hooks/useTheme'
+// import Logo from '../Logo/Contenful.svg'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
 
@@ -43,7 +42,9 @@ const formatLinks = (allLinks) =>
     { links: [], home: null },
   )
 
-const Header = () => {
+const Header: React.FC = () => {
+  const theme = useTheme()
+
   return (
     <HeaderContainer>
       <Flex
@@ -53,7 +54,19 @@ const Header = () => {
         p={3}>
         <SectionLinks>
           {({ allLinks }) => {
+            console.log({ allLinks })
             const { home, links } = formatLinks(allLinks)
+            const homeLink = home && (
+              <FontAwesomeIcon
+                name="home"
+                size="2x"
+                onClick={home.onClick}
+                style={{
+                  color: theme.colors.alwaysWhite,
+                  cursor: 'pointer',
+                }}
+              />
+            )
             // const homeLink = home && (
             //   <Image
             //     src={Logo}
@@ -66,21 +79,21 @@ const Header = () => {
             //   />
             // )
 
-            const navLinks = links.map(
-              ({ name, value }: { name: string; value: string }) => (
-                <RouteLink
-                  key={name}
-                  onClick={value.onClick}
-                  selected={value.isSelected}
-                  name={name}
-                />
-              ),
-            )
+            const navLinks = links.map(({ name, value }) => (
+              <RouteLink
+                key={name}
+                onClick={value.onClick}
+                isSelected={value.isSelected}
+                name={name}
+              />
+            ))
 
             return (
               <Fragment>
-                {/* {homeLink} */}
-                <Flex mr={[0, 3, 5]}>{navLinks}</Flex>
+                {homeLink}
+                <Flex mb={10} mr={[0, 3, 5]}>
+                  {navLinks}
+                </Flex>
                 <DarkModeToggle />
               </Fragment>
             )

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { Text, Box, Link, Flex } from 'rebass/styled-components'
-import { SocialLink } from '../Landing/SocialLink'
+import { SocialLink } from '../../screens/Landing/SocialLink'
 
 const Fade = require('react-reveal/Fade')
 
@@ -36,7 +36,7 @@ const TextFooter = styled(Text)`
   }
 `
 
-const Footer = () => (
+const Footer: React.FC = () => (
   <StaticQuery
     query={graphql`
       query FooterQuery {

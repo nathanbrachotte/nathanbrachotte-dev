@@ -2,6 +2,7 @@ import React from 'react'
 import TextLoop from 'react-text-loop'
 
 import { Heading, Text } from 'rebass/styled-components'
+import useTheme from '../../hooks/useTheme'
 import { centerHorizontally } from '../../styles/helpers'
 import { SocialLinksWrapper } from './SocialLink'
 
@@ -15,7 +16,7 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
       <Heading
         textAlign="center"
         as="h1"
-        color="textDark"
+        color="text"
         fontSize={[6, 7]}
         mb={[3, 4, 5]}>
         {`Hello, I'm ${name}!`}

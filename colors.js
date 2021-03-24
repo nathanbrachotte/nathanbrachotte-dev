@@ -14,6 +14,8 @@ module.exports = {
     secondaryLight: '#D6E2E9',
     secondary: '#BCD4E6',
     secondaryDark: '#99C1DE',
+
+    alwaysWhite: '#FFF',
   },
   dark: {
     background: '#000000',
@@ -27,5 +29,7 @@ module.exports = {
     secondary: '#ff4081',
     secondaryLight: '#ff79b0',
     secondaryDark: '#c60055',
+
+    alwaysWhite: '#FFF',
   },
 }

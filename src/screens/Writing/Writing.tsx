@@ -1,58 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Heading, Text, Flex, Box } from 'rebass/styled-components'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import FontAwesomeIcon from 'react-fontawesome'
 import Fade from 'react-reveal/Fade'
-import Section from '../components/Section'
-import { CardContainer, Card } from '../components/Card'
-import Triangle from '../shared/Triangle'
-import ImageSubtitle from '../components/ImageSubtitle'
-import { allBlogPostsQuery } from '../api/queries'
+import Section from '../../components/Section'
+import { CardContainer, Card } from '../../components/Card'
+import Background from './Background'
+import Post from '../../components/Article/Article'
 
 const MEDIUM_CDN = 'https://cdn-images-1.medium.com/max/400'
 const MEDIUM_URL = 'https://medium.com'
-
-interface PostProps {
-  title: string
-  text: string
-  image: string
-  url: string
-  date: string
-  time: number
-}
-
-const Background = () => (
-  <div>
-    <Triangle
-      color="backgroundDark"
-      height={['15vh', '10vh']}
-      width={['100vw', '100vw']}
-      invertX
-    />
-
-    <Triangle
-      color="secondary"
-      height={['50vh', '40vh']}
-      width={['70vw', '40vw']}
-      invertY
-    />
-
-    <Triangle
-      color="primaryDark"
-      height={['40vh', '15vh']}
-      width={['100vw', '100vw']}
-      invertX
-      invertY
-    />
-  </div>
-)
-
-const CoverImage = styled.img`
-  width: 100%;
-  object-fit: cover;
-`
 
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
@@ -62,37 +20,6 @@ const EllipsisHeading = styled(Heading)`
   -webkit-box-orient: vertical;
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `
-
-const Post: React.FC<PostProps> = ({ title, text, image, url, date, time }) => (
-  <a
-    href={url}
-    target="__blank"
-    title={title}
-    style={{ textDecoration: 'none' }}>
-    <Card pb={4}>
-      <EllipsisHeading m={3} p={1} color="text">
-        {title}
-      </EllipsisHeading>
-      {image && <CoverImage src={image} height="200px" alt={title} />}
-      <Text m={3} color="text">
-        {text}
-      </Text>
-      <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-        {`${date} - ${Math.ceil(time)} min`}
-      </ImageSubtitle>
-    </Card>
-  </a>
-)
-
-Post.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  time: PropTypes.number.isRequired,
-}
-
 const parsePost = (author: { username: string; name: string }) => (
   postFromGraphql: any,
 ) => {
@@ -100,6 +27,8 @@ const parsePost = (author: { username: string; name: string }) => (
   const image =
     virtuals.previewImage.imageId &&
     `${MEDIUM_CDN}/${virtuals.previewImage.imageId}`
+
+  console.log(createdAt)
 
   return {
     id,
@@ -154,7 +83,37 @@ const edgeToArray = (data: { edges: { node: any }[]; totalCount: number }) => {
 
 const Writing: React.FC = () => (
   <StaticQuery
-    query={allBlogPostsQuery}
+    query={graphql`
+      query MediumPostQuery {
+        site {
+          siteMetadata {
+            isMediumUserDefined
+          }
+        }
+        allMediumPost(limit: 7, sort: { fields: createdAt, order: DESC }) {
+          totalCount
+          edges {
+            node {
+              id
+              uniqueSlug
+              title
+              createdAt(formatString: "MMM YYYY")
+              virtuals {
+                subtitle
+                readingTime
+                previewImage {
+                  imageId
+                }
+              }
+            }
+          }
+        }
+        author: mediumUser {
+          username
+          name
+        }
+      }
+    `}
     render={({ allMediumPost, site, author }) => {
       const posts = edgeToArray(allMediumPost).map(parsePost(author))
       const diffAmountArticles = allMediumPost.totalCount - posts.length

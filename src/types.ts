@@ -4,3 +4,11 @@ export enum MAIN_PAGES {
   PROJECT = 'PROJECT',
   WRITING = 'WRITING',
 }
+
+export interface Post {
+  id: string
+  body: string
+  createdAt: string
+  heroImageUrl: string
+  title: string
+}

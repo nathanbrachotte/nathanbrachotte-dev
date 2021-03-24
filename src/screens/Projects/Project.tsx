@@ -1,49 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Image, Text, Flex, Box } from 'rebass/styled-components'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
-import Section from '../components/Section'
-import { CardContainer, Card } from '../components/Card'
-import { SocialLink } from '../components/Landing/SocialLink'
-import Triangle from '../shared/Triangle'
-import ImageSubtitle from '../components/ImageSubtitle'
-import Hide from '../components/Hide'
-import { Mouse } from '../shared/Mouse'
-
-const Background = () => (
-  <div>
-    <Triangle
-      color="secondaryLight"
-      height={['80vh', '80vh']}
-      width={['100vw', '100vw']}
-      invertX
-    />
-
-    <Triangle
-      color="background"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      invertX
-    />
-
-    <Triangle
-      color="primaryDark"
-      height={['25vh', '40vh']}
-      width={['75vw', '60vw']}
-      invertX
-      invertY
-    />
-
-    <Triangle
-      color="backgroundDark"
-      height={['25vh', '20vh']}
-      width={['100vw', '100vw']}
-      invertY
-    />
-  </div>
-)
+import { Card } from '../../components/Card'
+import { SocialLink } from '../Landing/SocialLink'
+import ImageSubtitle from '../../components/ImageSubtitle'
+import Hide from '../../components/Hide'
 
 const CARD_HEIGHT = '200px'
 
@@ -95,16 +56,29 @@ const ProjectImage = styled(Image)`
 const ProjectTag = styled.div`
   position: relative;
   height: ${CARD_HEIGHT};
-  top: calc(
-    -${CARD_HEIGHT} - 3.5px
-  ); /*don't know why I have to add 3.5px here ... */
+  top: calc(-${CARD_HEIGHT} - 3.5px);
 
   ${MEDIA_QUERY_SMALL} {
     top: calc(-${CARD_HEIGHT} - 3.5px + (${CARD_HEIGHT} / 4));
   }
 `
 
-const Project = ({
+interface ProjectProps {
+  name: string
+  description: string
+  projectUrl: string
+  repositoryUrl: string
+  type: string
+  publishedDate: string
+  logo: {
+    image: {
+      src: string
+    }
+    title: string
+  }
+}
+
+const Project: React.FC<ProjectProps> = ({
   name,
   description,
   projectUrl,
@@ -160,57 +134,4 @@ const Project = ({
   </Card>
 )
 
-Project.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  projectUrl: PropTypes.string.isRequired,
-  repositoryUrl: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  publishedDate: PropTypes.string.isRequired,
-  logo: PropTypes.shape({
-    image: PropTypes.shape({
-      src: PropTypes.string,
-    }),
-    title: PropTypes.string,
-  }).isRequired,
-}
-
-const Projects = () => (
-  <Section.Container id="projects" Background={Background}>
-    <Section.Header name="Projects" icon="💻" label="notebook" />
-    <StaticQuery
-      query={graphql`
-        query ProjectsQuery {
-          contentfulAbout {
-            projects {
-              id
-              name
-              description
-              projectUrl
-              repositoryUrl
-              publishedDate(formatString: "YYYY")
-              type
-              logo {
-                title
-                image: resize(width: 200, quality: 100) {
-                  src
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={({ contentfulAbout }) => (
-        <CardContainer minWidth="350px">
-          {contentfulAbout.projects.map((p, i) => (
-            <Fade bottom delay={i * 200} key={p.id}>
-              <Project {...p} />
-            </Fade>
-          ))}
-        </CardContainer>
-      )}
-    />
-  </Section.Container>
-)
-
-export default Projects
+export default Project

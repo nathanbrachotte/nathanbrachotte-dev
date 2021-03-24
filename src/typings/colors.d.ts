@@ -11,6 +11,8 @@ export interface ThemeType {
   secondaryLight: string
   secondary: string
   secondaryDark: string
+
+  alwaysWhite: string
 }
 
 export type Color = keyof ThemeType

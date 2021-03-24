@@ -5,7 +5,6 @@ import useDarkMode from 'use-dark-mode'
 import config from 'react-reveal/globals'
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import PropTypes from 'prop-types'
 import { ScrollingProvider } from 'react-scroll-section'
 import preset from '@rebass/preset'
 import colors from '../colors'
@@ -41,7 +40,6 @@ const loadScript = (src: string) => {
   document.getElementsByTagName('body')[0].appendChild(tag)
 }
 
-
 const Layout: React.FC = ({ children }) => {
   const darkMode = useDarkMode(false)
 
@@ -70,10 +68,6 @@ const Layout: React.FC = ({ children }) => {
       </ThemeProvider>
     </main>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

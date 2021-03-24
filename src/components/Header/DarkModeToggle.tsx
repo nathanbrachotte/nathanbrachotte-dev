@@ -1,23 +1,81 @@
 import React from 'react'
+import { Box } from 'rebass/styled-components'
+
 import useDarkMode from 'use-dark-mode'
 
-interface Props {}
+interface SwitchProps {
+  isToggled: boolean
+  onClick: () => void
+}
 
-const DarkModeToggle: React.FC<Props> = () => {
-  const darkMode = useDarkMode()
+const Switch: React.FC<SwitchProps> = ({ isToggled, onClick }) => {
+  const width = 40
+  const height = 20
   return (
-    <div>
-      {darkMode.value ? (
-        <a type="button" onClick={darkMode.disable}>
-          ☀
-        </a>
-      ) : (
-        <a type="button" onClick={darkMode.enable}>
-          ☾
-        </a>
-      )}
-    </div>
+    <Box
+      as="button"
+      type="button"
+      role="switch"
+      tx="forms"
+      variant="switch"
+      aria-checked={isToggled}
+      onClick={onClick}
+      sx={{
+        appearance: 'none',
+        m: 0,
+        p: 0,
+        width,
+        height,
+        color: 'primary',
+        bg: 'transparent',
+        border: '1px solid',
+        borderColor: 'primary',
+        borderRadius: 9999,
+        '&[aria-checked=true]': {
+          bg: 'primary',
+        },
+        ':focus': {
+          outline: 'none',
+          boxShadow: '0 0 0 2px',
+        },
+      }}>
+      <Box
+        aria-hidden
+        style={{
+          transform: isToggled
+            ? `translateX(${width - height}px)`
+            : 'translateX(0)',
+        }}
+        sx={{
+          mt: '-1px',
+          ml: '-1px',
+          width: height,
+          height,
+          borderRadius: 9999,
+          border: '1px solid',
+          borderColor: 'primary',
+          bg: 'background',
+          transitionProperty: 'transform',
+          transitionTimingFunction: 'ease-out',
+          transitionDuration: '0.1s',
+          variant: 'forms.switch.thumb',
+        }}
+      />
+    </Box>
   )
+}
+const DarkModeToggle: React.FC = () => {
+  const darkMode = useDarkMode()
+
+  const toggleSwitch = () => {
+    if (darkMode.value) {
+      darkMode.disable()
+    } else {
+      darkMode.enable()
+    }
+  }
+
+  return <Switch isToggled={darkMode.value} onClick={toggleSwitch} />
 }
 
 export default DarkModeToggle

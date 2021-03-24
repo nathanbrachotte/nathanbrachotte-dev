@@ -1,11 +1,14 @@
 import styled from 'styled-components'
 
-const LinkAnimated: React.FC = styled.span<{ selected: boolean }>`
+const LinkAnimated = styled.span<{ selected: boolean }>`
+  outline: 0; // removes pink outline
+
   text-decoration: none;
   position: relative;
   margin-bottom: 0;
   padding-bottom: 5px;
-  color: inherit;
+  color: ${(props) => `${props.theme.colors.alwaysWhite}}`};
+
   ${(props) =>
     props.selected &&
     `border-bottom:  5px solid ${props.theme.colors.primaryLight}`};
