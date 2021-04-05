@@ -268,15 +268,3 @@ $ yarn
 # Build the project to see if everything is working as expected
 $ yarn build
 ```
-
-## Contributing 💪
-
-I came with the idea of creating the starter after the positive feedback I received when I deployed [my website](https://emasuriano.com/). Therefore this starter is not perfect! I tried my best to remove all the personal information, also improve the code to make it easier to understand.
-
-I'm totally open for pull requests with bug fixes, changes in Documentation, or new features to the starter 🙌
-
-Please check the [Contribution guidelines](CONTRIBUTING.md) before opening yours 🙏
-
-## License 📝
-
-MIT.

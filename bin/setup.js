@@ -35,8 +35,8 @@ const setup = async () => {
   const envData = [`SPACE_ID=${spaceId}`, `ACCESS_TOKEN=${deliveryToken}`]
   writeFileSync(CONFIG_FILE_PATH, envData.join(os.EOL))
 
-  console.log('Importing content into your Contentful ...')
-  await spaceImport({ spaceId, managementToken, content: exportFile })
+  // console.log('Importing content into your Contentful ...')
+  // await spaceImport({ spaceId, managementToken, content: exportFile })
 
   console.log(
     `All set! You can now run ${chalk.yellow(

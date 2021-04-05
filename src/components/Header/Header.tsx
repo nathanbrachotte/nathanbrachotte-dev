@@ -25,7 +25,12 @@ const HeaderContainer = styled(Headroom)`
   width: 100%;
 `
 
-const formatLinks = (allLinks) =>
+interface Link {
+  onClick: () => void
+  isSelected: boolean
+}
+
+const formatLinks = (allLinks: unknown): unknown =>
   Object.entries(allLinks).reduce(
     (acc, [key, value]) => {
       const isHome = key === 'home'
@@ -53,9 +58,16 @@ const Header: React.FC = () => {
         alignItems="center"
         p={3}>
         <SectionLinks>
+          {/* TODO: Type react-scroll-section SectionLinks component */}
           {({ allLinks }) => {
-            console.log({ allLinks })
-            const { home, links } = formatLinks(allLinks)
+            const { home, links } = formatLinks(allLinks) as {
+              home: Link
+              links: {
+                name: string
+                value: Link
+              }[]
+            }
+
             const homeLink = home && (
               <FontAwesomeIcon
                 name="home"
@@ -67,17 +79,6 @@ const Header: React.FC = () => {
                 }}
               />
             )
-            // const homeLink = home && (
-            //   <Image
-            //     src={Logo}
-            //     width="50px"
-            //     alt="Portfolio Logo"
-            //     onClick={home.onClick}
-            //     style={{
-            //       cursor: 'pointer',
-            //     }}
-            //   />
-            // )
 
             const navLinks = links.map(({ name, value }) => (
               <RouteLink

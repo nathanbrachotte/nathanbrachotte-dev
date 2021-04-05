@@ -7,7 +7,8 @@ import PropTypes from 'prop-types'
 import LinkAnimated from './LinkAnimated'
 
 const SectionContainer = styled.div`
-  min-height: 100vh;
+  // This broke everything, set it back to 100vh
+  min-height: 50vh;
   min-width: 320px;
   max-width: 1366px;
   display: flex;
@@ -57,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ name, icon = '', label = '' }) => {
   return (
     <Slide left>
       <Heading color="secondaryDark" mb={4}>
-        <LinkAnimated selected>
+        <LinkAnimated color="secondaryDark" selected>
           {name}
           {icon && (
             <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
@@ -68,12 +69,6 @@ const Header: React.FC<HeaderProps> = ({ name, icon = '', label = '' }) => {
       </Heading>
     </Slide>
   )
-}
-
-Header.propTypes = {
-  name: PropTypes.string.isRequired,
-  icon: PropTypes.string,
-  label: PropTypes.string,
 }
 
 export default {

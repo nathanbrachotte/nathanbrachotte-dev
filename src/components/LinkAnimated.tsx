@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-const LinkAnimated = styled.span<{ selected: boolean }>`
+const LinkAnimated = styled.span<{ selected: boolean; color?: string }>`
   outline: 0; // removes pink outline
 
   text-decoration: none;
   position: relative;
   margin-bottom: 0;
   padding-bottom: 5px;
-  color: ${(props) => `${props.theme.colors.alwaysWhite}}`};
+  color: ${(props) => `${props.color || props.theme.colors.alwaysWhite}}`};
 
   ${(props) =>
     props.selected &&

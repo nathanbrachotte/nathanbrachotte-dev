@@ -1,9 +1,7 @@
 import React from 'react'
-import { SectionLink } from 'react-scroll-section'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Section from '../../components/Section'
-import MouseIcon from '../../shared/MouseIcon'
 import CentralInfo from './CentralInfo'
 import Background from './Background'
 import { Mouse } from '../../shared/Mouse'

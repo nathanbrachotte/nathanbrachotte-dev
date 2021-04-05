@@ -11,6 +11,7 @@ interface SwitchProps {
 const Switch: React.FC<SwitchProps> = ({ isToggled, onClick }) => {
   const width = 40
   const height = 20
+
   return (
     <Box
       as="button"
@@ -27,7 +28,7 @@ const Switch: React.FC<SwitchProps> = ({ isToggled, onClick }) => {
         width,
         height,
         color: 'primary',
-        bg: 'transparent',
+        bg: 'primary',
         border: '1px solid',
         borderColor: 'primary',
         borderRadius: 9999,
@@ -67,15 +68,7 @@ const Switch: React.FC<SwitchProps> = ({ isToggled, onClick }) => {
 const DarkModeToggle: React.FC = () => {
   const darkMode = useDarkMode()
 
-  const toggleSwitch = () => {
-    if (darkMode.value) {
-      darkMode.disable()
-    } else {
-      darkMode.enable()
-    }
-  }
-
-  return <Switch isToggled={darkMode.value} onClick={toggleSwitch} />
+  return <Switch isToggled={darkMode.value} onClick={() => darkMode.toggle()} />
 }
 
 export default DarkModeToggle
