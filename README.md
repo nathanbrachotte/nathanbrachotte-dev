@@ -173,7 +173,7 @@ module.exports = {
   secondary: '#ff4081',
   secondaryLight: '#ff79b0',
   secondaryDark: '#c60055',
-};
+}
 ```
 
 Some examples I made by using palettes from [Color Hunt](https://colorhunt.co/):
