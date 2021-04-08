@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Fade from 'react-reveal/Fade'
+
 import Section from '../../components/Section'
 import { CardContainer } from '../../components/Card'
 import Triangle from '../../shared/Triangle'
@@ -14,14 +15,12 @@ const Background = () => (
       width={['100vw', '100vw']}
       invertX
     />
-
     <Triangle
       color="background"
       height={['50vh', '20vh']}
       width={['50vw', '50vw']}
       invertX
     />
-
     <Triangle
       color="primaryDark"
       height={['25vh', '40vh']}
@@ -29,7 +28,6 @@ const Background = () => (
       invertX
       invertY
     />
-
     <Triangle
       color="backgroundDark"
       height={['25vh', '20vh']}

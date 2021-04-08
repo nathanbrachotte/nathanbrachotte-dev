@@ -70,7 +70,7 @@ const Writing: React.FC = () => (
       return (
         <Section.Container id="blog-posts" Background={Background}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
-          <CardContainer minWidth="300px" maxWidth="200px">
+          <CardContainer>
             {blogPosts.map((post) => {
               console.log({ post })
 

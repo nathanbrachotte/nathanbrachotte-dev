@@ -132,7 +132,7 @@ const Writing: React.FC = () => (
         isMediumUserDefined && (
           <Section.Container id="writing" Background={Background}>
             <Section.Header name="Writing" icon="✍️" label="writing" />
-            <CardContainer minWidth="300px">
+            <CardContainer>
               {posts.map(({ Component, ...rest }) => (
                 <Fade bottom key={rest.id}>
                   <Component {...rest} key={rest.id} />

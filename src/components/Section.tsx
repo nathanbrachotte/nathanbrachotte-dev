@@ -8,7 +8,8 @@ import LinkAnimated from './LinkAnimated'
 
 const SectionContainer = styled.div`
   // This broke everything, set it back to 100vh
-  min-height: 50vh;
+  /* min-height: 50vh; */
+  min-height: 100vh;
   min-width: 320px;
   max-width: 1366px;
   display: flex;
