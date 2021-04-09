@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade'
 import Section from '../../components/Section'
 import { CardContainer, Card } from '../../components/Card'
 import Background from './Background'
-import Post from '../../components/Article/Article'
+import { ExternalArticle } from '../../components/Article/Article'
 
 const MEDIUM_CDN = 'https://cdn-images-1.medium.com/max/400'
 const MEDIUM_URL = 'https://medium.com'
@@ -38,7 +38,7 @@ const parsePost = (author: { username: string; name: string }) => (
     text: virtuals.subtitle,
     image,
     url: `${MEDIUM_URL}/@${author.username}/${uniqueSlug}`,
-    Component: Post,
+    Component: ExternalArticle,
   }
 }
 

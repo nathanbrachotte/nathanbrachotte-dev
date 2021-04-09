@@ -16,13 +16,20 @@ const EllipsisHeading = styled(Heading)`
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `
 
-interface ArticleProps {
+interface SharedArticleProps {
   title: string
   text: string
   image: string
-  url?: string
   date: string
   time: number
+}
+
+interface ExternalArticleProps extends SharedArticleProps {
+  url: string
+}
+
+interface InternalArticleProps extends SharedArticleProps {
+  onClick: () => void
 }
 
 const CoverImage = styled.img`
@@ -30,7 +37,7 @@ const CoverImage = styled.img`
   object-fit: cover;
 `
 
-const Article: React.FC<ArticleProps> = ({
+export const ExternalArticle: React.FC<ExternalArticleProps> = ({
   title,
   text,
   image,
@@ -43,7 +50,7 @@ const Article: React.FC<ArticleProps> = ({
     target="__blank"
     title={title}
     style={{ textDecoration: 'none' }}>
-    <Card pb={4}>
+    <Card pb={4} onClick={() => null}>
       <EllipsisHeading m={3} p={1} color="text">
         {title}
       </EllipsisHeading>
@@ -58,4 +65,24 @@ const Article: React.FC<ArticleProps> = ({
   </a>
 )
 
-export default Article
+export const InternalArticle: React.FC<InternalArticleProps> = ({
+  title,
+  text,
+  image,
+  onClick,
+  date,
+  time,
+}) => (
+  <Card pb={4} onClick={onClick}>
+    <EllipsisHeading m={3} p={1} color="text">
+      {title}
+    </EllipsisHeading>
+    {image && <CoverImage src={image} height="200px" alt={title} />}
+    <Text m={3} color="text">
+      {text}
+    </Text>
+    <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
+      {`${date} - ${Math.ceil(time)} min`}
+    </ImageSubtitle>
+  </Card>
+)

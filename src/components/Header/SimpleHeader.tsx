@@ -14,14 +14,7 @@ import useTheme from '../../hooks/useTheme'
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
 
 const HeaderContainer = styled(Headroom)`
-  * {
-    transition: background-color 0.1s ease;
-  }
-
-  .headroom--pinned {
-    background-color: ${(props) => props.theme.colors.primaryDark};
-  }
-
+  background-color: ${(props) => props.theme.colors.primaryDark};
   position: absolute;
   width: 100%;
 `
@@ -61,7 +54,8 @@ const Header: React.FC = () => {
         <SectionLinks>
           {/* TODO: Type react-scroll-section SectionLinks component */}
           {({ allLinks }) => {
-            const { home, links } = formatLinks(allLinks) as {
+            console.log({ allLinks })
+            const { links } = formatLinks(allLinks) as {
               home: Link
               links: {
                 name: string
@@ -69,19 +63,9 @@ const Header: React.FC = () => {
               }[]
             }
 
-            const homeLink = home ? (
+            const homeLink = (
               <FontAwesomeIcon
-                name="home"
-                size="2x"
-                onClick={home.onClick}
-                style={{
-                  color: theme.colors.alwaysWhite,
-                  cursor: 'pointer',
-                }}
-              />
-            ) : (
-              <FontAwesomeIcon
-                name="home"
+                name="arrow-left"
                 size="2x"
                 onClick={() => navigate('/')}
                 style={{
