@@ -5,6 +5,7 @@ import { Heading } from 'rebass/styled-components'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import LinkAnimated from './LinkAnimated'
+import { breakpoints } from '../styles/sizes'
 
 const SectionContainer = styled.div`
   // This broke everything, set it back to 100vh
@@ -20,7 +21,7 @@ const SectionContainer = styled.div`
   padding: 5em 1em;
   scroll-behavior: smooth;
 
-  @media (max-width: 400px) {
+  ${breakpoints.xs} {
     padding: 2em 1em;
   }
 `

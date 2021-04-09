@@ -5,10 +5,9 @@ import { Card } from '../../components/Card'
 import { SocialLink } from '../Landing/SocialLink'
 import ImageSubtitle from '../../components/ImageSubtitle'
 import Hide from '../../components/Hide'
+import { breakpoints } from '../../styles/sizes'
 
 const CARD_HEIGHT = '200px'
-
-const MEDIA_QUERY_SMALL = '@media (max-width: 400px)'
 
 const Title = styled(Text)`
   font-size: 14px;
@@ -25,7 +24,7 @@ const TextContainer = styled.div`
   width: 100%;
   width: calc(100% - ${CARD_HEIGHT});
 
-  ${MEDIA_QUERY_SMALL} {
+  ${breakpoints.xs} {
     width: calc(100% - (${CARD_HEIGHT} / 2));
   }
 `
@@ -34,7 +33,7 @@ const ImageContainer = styled.div`
   margin: auto;
   width: ${CARD_HEIGHT};
 
-  ${MEDIA_QUERY_SMALL} {
+  ${breakpoints.xs} {
     width: calc(${CARD_HEIGHT} / 2);
   }
 `
@@ -45,7 +44,7 @@ const ProjectImage = styled(Image)`
   padding: 40px;
   margin-top: 0px;
 
-  ${MEDIA_QUERY_SMALL} {
+  ${breakpoints.xs} {
     height: calc(${CARD_HEIGHT} / 2);
     width: calc(${CARD_HEIGHT} / 2);
     margin-top: calc(${CARD_HEIGHT} / 4);
@@ -58,7 +57,7 @@ const ProjectTag = styled.div`
   height: ${CARD_HEIGHT};
   top: calc(-${CARD_HEIGHT} - 3.5px);
 
-  ${MEDIA_QUERY_SMALL} {
+  ${breakpoints.xs} {
     top: calc(-${CARD_HEIGHT} - 3.5px + (${CARD_HEIGHT} / 4));
   }
 `
@@ -125,7 +124,7 @@ const Project: React.FC<ProjectProps> = ({
           <ImageSubtitle bg="primary" color="white" y="bottom" x="right" round>
             {type}
           </ImageSubtitle>
-          <Hide query={MEDIA_QUERY_SMALL}>
+          <Hide query={breakpoints.xs}>
             <ImageSubtitle bg="backgroundDark">{publishedDate}</ImageSubtitle>
           </Hide>
         </ProjectTag>

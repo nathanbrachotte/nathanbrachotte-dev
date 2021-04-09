@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { Text, Box, Link, Flex } from 'rebass/styled-components'
 import { SocialLink } from '../../screens/Landing/SocialLink'
+import { breakpoints } from '../../styles/sizes'
 
 const Fade = require('react-reveal/Fade')
 
@@ -14,7 +15,7 @@ const FooterContainer = styled.div`
   align-items: center;
   margin: auto;
 
-  @media (max-width: 400px) {
+  ${breakpoints.xs} {
     flex-direction: column-reverse;
 
     & > * {

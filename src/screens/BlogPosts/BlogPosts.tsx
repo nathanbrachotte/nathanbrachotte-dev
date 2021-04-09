@@ -1,20 +1,13 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, navigate } from 'gatsby'
 
 import Fade from 'react-reveal/Fade'
 import Section from '../../components/Section'
 import { CardContainer } from '../../components/Card'
 import Background from './Background'
-import Article from '../../components/Article/Article'
+import { InternalArticle } from '../../components/Article/Article'
 
-interface Post {
-  id: string
-  body: string
-  description: string
-  createdAt: string
-  image: string
-  title: string
-}
+import { Post } from '../../types'
 
 const getBlogPostsFromData = (data: any): Post[] => {
   const {
@@ -76,8 +69,10 @@ const Writing: React.FC = () => (
 
               return (
                 <Fade bottom key="rest.id">
-                  <Article
-                    // url={post.url}
+                  <InternalArticle
+                    onClick={() =>
+                      navigate(`/posts/`, { state: { blogPosts, id: post.id } })
+                    }
                     time={3}
                     title={post.title}
                     image={post.image}
@@ -91,20 +86,6 @@ const Writing: React.FC = () => (
           </CardContainer>
         </Section.Container>
       )
-      //   return (
-      //     isMediumUserDefined && (
-      //       <Section.Container id="writing" Background={Background}>
-      //         <Section.Header name="Writing" icon="✍️" label="writing" />
-      //         <CardContainer minWidth="300px">
-      //           {posts.map(({ Component, ...rest }) => (
-      //             <Fade bottom key={rest.id}>
-      //               <Component {...rest} key={rest.id} />
-      //             </Fade>
-      //           ))}
-      //         </CardContainer>
-      //       </Section.Container>
-      //     )
-      //   )
     }}
   />
 )

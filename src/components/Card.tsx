@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Card as CardRebass } from 'rebass/styled-components'
+import { breakpoints } from '../styles/sizes'
 
 interface CardContainerProps {
   minWidth?: string
@@ -13,8 +14,8 @@ export const CardContainer = styled.div<CardContainerProps>`
     minmax(${(props) => props.minWidth || '300px'}, 1fr)
   );
   justify-items: center;
-  @media only screen and (max-width: 400px) {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  ${breakpoints.xs} {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 `
 
