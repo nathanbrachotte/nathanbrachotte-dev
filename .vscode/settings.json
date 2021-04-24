@@ -5,5 +5,6 @@
     "statusBar.foreground": "#15202b",
     "tab.activeBorder": "#ffffff"
   },
-  "peacock.color": "#FFE1D0"
+  "peacock.color": "#FFE1D0",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
