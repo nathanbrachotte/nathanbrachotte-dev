@@ -13,9 +13,9 @@ const IndexPage: React.FC = () => (
     <Header />
     <Landing />
     <About />
-    <Projects />
     <BlogPosts />
-    <Writing />
+    <Projects />
+    {/* <Writing /> */}
     <Footer />
   </Layout>
 )

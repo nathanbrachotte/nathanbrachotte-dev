@@ -9,24 +9,23 @@ import { InternalArticle } from '../../components/Article/Article'
 
 import { Post } from '../../types'
 
-const getBlogPostsFromData = (data: any): Post[] => {
-  const {
-    allContentfulBlogPost: { edges },
-  } = data
-  const res = edges.map(({ node }: { node: any }) => {
-    console.log({ node })
+const getBlogPostsFromData = (data: any): Post[] =>
+  data.allContentfulBlogPost.edges.map(({ node }: { node: any }) => {
     const post: Post = {
       id: node.id,
       body: node?.body?.body,
+      bodyAst: node?.body?.childMarkdownRemark?.htmlAst,
       description: node?.description?.description,
       createdAt: node?.createdAt,
       image: node?.heroImage?.file?.url,
       title: node?.title,
+      tags: node?.tags,
+      video: node?.video?.video,
     }
+    console.log({ node, post })
+
     return post
   })
-  return res
-}
 
 const Writing: React.FC = () => (
   <StaticQuery
@@ -41,6 +40,9 @@ const Writing: React.FC = () => (
               createdAt
               body {
                 body
+                childMarkdownRemark {
+                  htmlAst
+                }
               }
               description {
                 description
@@ -51,6 +53,9 @@ const Writing: React.FC = () => (
                   fileName
                   url
                 }
+              }
+              video {
+                video
               }
             }
           }
@@ -65,8 +70,6 @@ const Writing: React.FC = () => (
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <CardContainer>
             {blogPosts.map((post) => {
-              console.log({ post })
-
               return (
                 <Fade bottom key="rest.id">
                   <InternalArticle

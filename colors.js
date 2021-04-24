@@ -3,9 +3,9 @@ module.exports = {
     background: '#FFF',
     backgroundDark: '#EDDCD2',
 
-    textLight: '#85b1c4',
-    text: '#487c93',
-    textDark: '#29314C',
+    textLight: '#464e66',
+    text: '#29314C',
+    textDark: '#222426',
 
     primaryLight: '#ffe2e2',
     primary: '#ffc8dd',
@@ -20,7 +20,10 @@ module.exports = {
   dark: {
     background: '#000000',
     backgroundDark: '#333333',
+
+    textLight: '#FFF',
     text: '#FFF',
+    textDark: '#FFF',
 
     primary: '#7c37ad',
     primaryLight: '#ae66df',
