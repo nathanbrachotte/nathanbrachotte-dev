@@ -69,7 +69,11 @@ const PostPage: React.FC<PageProps> = ({ location, path, ...rest }) => {
   // @ts-expect-error location type is unknown
   const postId = location?.state?.id as string
 
-  const currentPost = blogPosts.find((post) => post.id === postId)
+  const currentPost = blogPosts && blogPosts.find((post) => post.id === postId)
+
+  if (!currentPost) {
+    return null
+  }
 
   const dateTimeFormat = new Intl.DateTimeFormat('en', {
     year: 'numeric',
@@ -90,12 +94,22 @@ const PostPage: React.FC<PageProps> = ({ location, path, ...rest }) => {
             {currentPost?.title}
           </Heading>
           <Spacer height="30px" />
-          {currentPost?.video ? (
-            <VideoBox video={currentPost.video} title={currentPost.title} />
-          ) : (
-            <Image alt={currentPost?.title} sx={{}} src={currentPost?.image} />
+          {currentPost?.image && (
+            <>
+              <Image
+                alt={currentPost?.title}
+                sx={{}}
+                src={currentPost?.image}
+              />
+              <Spacer height="10px" />
+            </>
           )}
-          <Spacer height="10px" />
+          {currentPost?.video && (
+            <>
+              <VideoBox video={currentPost.video} title={currentPost.title} />
+              <Spacer height="10px" />
+            </>
+          )}
           {currentPost?.tags?.map((text) => (
             <Badge>{text}</Badge>
           ))}
