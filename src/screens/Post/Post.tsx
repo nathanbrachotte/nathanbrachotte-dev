@@ -23,7 +23,13 @@ const renderAst = new RehypeReact({
   createElement: React.createElement,
   components: {
     h1: (props: any) => (
-      <Heading fontSize={[3, 4, 5]} color="textDark" {...props} />
+      <Heading
+        fontSize={[3, 4, 5]}
+        mt={[3, 3]}
+        mb={[2, 3]}
+        color="textDark"
+        {...props}
+      />
     ),
     h2: (props: any) => (
       <Heading
@@ -87,13 +93,7 @@ const PostPage: React.FC<PageProps> = ({ location, path, ...rest }) => {
           {currentPost?.video ? (
             <VideoBox video={currentPost.video} title={currentPost.title} />
           ) : (
-            <Image
-              // className={heroStyles.heroImage}
-              // alt={post.title}
-              // fluid={post.heroImage.fluid}
-              sx={{}}
-              src={currentPost?.image}
-            />
+            <Image alt={currentPost?.title} sx={{}} src={currentPost?.image} />
           )}
           <Spacer height="10px" />
           {currentPost?.tags?.map((text) => (
@@ -101,12 +101,9 @@ const PostPage: React.FC<PageProps> = ({ location, path, ...rest }) => {
           ))}
           <Spacer height="10px" />
           {renderAst(currentPost?.bodyAst)}
-          <p
-            style={{
-              display: 'block',
-            }}>
+          <Text style={{ textAlign: 'right' }} color="text">
             {createdAt2}
-          </p>
+          </Text>
         </Box>
       </Flex>
     </Section.Container>
