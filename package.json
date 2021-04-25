@@ -11,12 +11,21 @@
     "clean": "gatsby clean",
     "serve": "yarn build && gatsby serve -p 9000",
     "lint": "eslint ./src",
-    "setup": "node ./bin/setup.js"
+    "setup": "node ./bin/setup.js",
+    "test": "percy exec -t 350 -h cdn-images-1.medium.com -- cypress run",
+    "test:open": "percy exec -t 350 -h cdn-images-1.medium.com -- cypress open",
+    "test:ci": "DETERMINISTIC=true start-server-and-test 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmaSuriano/gatsby-starter-mate.git"
   },
   "keywords": [
-    "nathan",
-    "brachotte",
-    "dev"
+    "gatsby",
+    "starter",
+    "contentful",
+    "PWA",
+    "portfolio"
   ],
   "dependencies": {
     "@babel/preset-env": "^7.11.5",
@@ -53,7 +62,7 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
-    "@percy/cypress": "^3.1.0",
+    "@percy/cypress": "^2.1.1",
     "@types/react": "^16.9.49",
     "@types/react-fontawesome": "^1.6.4",
     "@types/react-helmet": "^6.1.0",
@@ -65,8 +74,8 @@
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.0",
     "contentful-import": "^7.9.6",
-    "cypress": "^7.1.0",
-    "cypress-axe": "^0.12.2",
+    "cypress": "^4.12.1",
+    "cypress-axe": "^0.8.1",
     "eslint": "^7.8.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^6.11.0",
