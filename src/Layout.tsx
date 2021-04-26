@@ -41,7 +41,7 @@ const loadScript = (src: string) => {
 }
 
 const Layout: React.FC = ({ children }) => {
-  const darkMode = useDarkMode(false)
+  const darkMode = useDarkMode()
 
   useEffect(() => {
     loadScript('https://use.fontawesome.com/fd58d214b9.js')
