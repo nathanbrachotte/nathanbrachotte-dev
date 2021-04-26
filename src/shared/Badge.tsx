@@ -11,8 +11,8 @@ export const Badge: React.FC<BadgeProps> = ({ children }) => {
     <Box
       sx={{
         display: 'inline-block',
-        px: 2,
-        py: 1,
+        px: 3,
+        py: 2,
         mx: 1,
         my: 1,
         borderRadius: 9999,

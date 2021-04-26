@@ -84,6 +84,20 @@ const PostPage: React.FC<PageProps> = ({ location, path, ...rest }) => {
   const createdAt = new Date('2020-10-13T15:51:52.796Z')
   const createdAt2 = dateTimeFormat.format(createdAt)
 
+  const AssetComponent = currentPost?.video ? (
+    <>
+      <VideoBox video={currentPost.video} title={currentPost.title} />
+      <Spacer height="10px" />
+    </>
+  ) : (
+    currentPost?.image && (
+      <>
+        <Image alt={currentPost?.title} sx={{}} src={currentPost?.image} />
+        <Spacer height="10px" />
+      </>
+    )
+  )
+
   return (
     <Section.Container
       id={currentPost?.title || 'error'}
@@ -94,22 +108,7 @@ const PostPage: React.FC<PageProps> = ({ location, path, ...rest }) => {
             {currentPost?.title}
           </Heading>
           <Spacer height="30px" />
-          {currentPost?.image && (
-            <>
-              <Image
-                alt={currentPost?.title}
-                sx={{}}
-                src={currentPost?.image}
-              />
-              <Spacer height="10px" />
-            </>
-          )}
-          {currentPost?.video && (
-            <>
-              <VideoBox video={currentPost.video} title={currentPost.title} />
-              <Spacer height="10px" />
-            </>
-          )}
+          {AssetComponent}
           {currentPost?.tags?.map((text) => (
             <Badge>{text}</Badge>
           ))}
