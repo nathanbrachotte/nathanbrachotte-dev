@@ -3,7 +3,6 @@ import { PageProps } from 'gatsby'
 import { Image, Text, Flex, Box, Heading } from 'rebass/styled-components'
 
 import RehypeReact from 'rehype-react'
-import styled from 'styled-components'
 import Section from '../components/Section'
 import Background from './Background'
 import { BlogPost } from '../types'
@@ -12,6 +11,7 @@ import VideoBox from '../components/VideoBox'
 import Layout from '../Layout'
 import SimpleHeader from '../components/Header/SimpleHeader'
 import Footer from '../components/Footer/Footer'
+import Spacer from '../shared/Spacer'
 
 function getBlogPostFromContext(pageContext: any) {
   const post: BlogPost = {
@@ -69,9 +69,6 @@ const renderAst = new RehypeReact({
   },
 }).Compiler
 
-const Spacer = styled.div<{ height: string }>`
-  height: ${(props) => props.height || '40px'};
-`
 const BlogPostTemplate: React.FC<PageProps> = ({ pageContext }) => {
   const currentPost = getBlogPostFromContext(pageContext)
 

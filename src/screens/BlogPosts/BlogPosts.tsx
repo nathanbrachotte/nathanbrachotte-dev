@@ -58,7 +58,7 @@ const Writing: React.FC = () => (
               return (
                 <InternalArticle
                   onClick={() =>
-                    navigate(`/${post.slug}`, {
+                    navigate(`blog/${post.slug}`, {
                       state: { blogPosts, id: post.id },
                     })
                   }
