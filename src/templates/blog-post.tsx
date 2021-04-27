@@ -9,7 +9,6 @@ import Background from './Background'
 import { BlogPost } from '../types'
 import { Badge } from '../shared/Badge'
 import VideoBox from '../components/VideoBox'
-import useTheme from '../hooks/useTheme'
 import Layout from '../Layout'
 import SimpleHeader from '../components/Header/SimpleHeader'
 import Footer from '../components/Footer/Footer'
@@ -102,8 +101,6 @@ const BlogPostTemplate: React.FC<PageProps> = ({ pageContext }) => {
       </>
     )
   )
-  const theme = useTheme()
-  console.log({ title: currentPost?.title, theme })
 
   return (
     <Layout>
@@ -118,7 +115,7 @@ const BlogPostTemplate: React.FC<PageProps> = ({ pageContext }) => {
             </Heading>
             <Spacer height="30px" />
             {AssetComponent}
-            {currentPost?.tags.map((text, id) => (
+            {currentPost?.tags?.map((text, id) => (
               <Badge key={`badge-${text}-${id}`}>{text}</Badge>
             ))}
             <Spacer height="10px" />
