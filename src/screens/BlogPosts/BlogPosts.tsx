@@ -7,36 +7,7 @@ import { CardContainer } from '../../components/Card'
 import Background from './Background'
 import { InternalArticle } from '../../components/Article/Article'
 
-import { Post } from '../../types'
-import { DEV } from '../../constants'
-
-const getBlogPostsFromData = (data: any): Post[] => {
-  const posts: Post[] = data.allContentfulBlogPost.edges.map(
-    ({ node }: { node: any }) => {
-      const post: Post = {
-        id: node.id,
-        body: node?.body?.body,
-        bodyAst: node?.body?.childMarkdownRemark?.htmlAst,
-        description: node?.description?.description,
-        createdAt: node?.createdAt,
-        image: node?.heroImage?.file?.url,
-        title: node?.title,
-        tags: node?.tags,
-        video: node?.video?.video,
-        showInDevOnly: node?.dev,
-      }
-      DEV && console.log({ node, post })
-
-      return post
-    },
-  )
-
-  const prodPost = posts.filter((post) => {
-    return DEV || !post.showInDevOnly
-  })
-
-  return prodPost
-}
+import { getBlogPostsFromData } from './getBlogPostsFromData'
 
 const Writing: React.FC = () => (
   <StaticQuery
@@ -69,6 +40,7 @@ const Writing: React.FC = () => (
                 video
               }
               dev
+              slug
             }
           }
         }
@@ -86,7 +58,9 @@ const Writing: React.FC = () => (
                 <Fade bottom key="rest.id">
                   <InternalArticle
                     onClick={() =>
-                      navigate(`/posts/`, { state: { blogPosts, id: post.id } })
+                      navigate(`/blog/${post.slug}`, {
+                        state: { blogPosts, id: post.id },
+                      })
                     }
                     time={3}
                     title={post.title}

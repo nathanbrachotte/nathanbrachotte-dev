@@ -9,6 +9,7 @@ export interface Post {
   tags: string[]
   video: string
   showInDevOnly: boolean
+  slug: string
 }
 
 export const MAIN_PAGES = {
