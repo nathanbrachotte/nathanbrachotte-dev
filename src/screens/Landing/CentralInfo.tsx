@@ -18,7 +18,11 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
         color="text"
         fontSize={[6, 7]}
         mb={[3, 4, 5]}>
-        {`Hello, I'm ${name}!`}
+        Hi there{' '}
+        <span role="img" aria-label="hand-emoji">
+          👋
+        </span>{' '}
+        {`I'm ${name}!`}
       </Heading>
 
       <Heading

@@ -33,8 +33,6 @@ const LandingPage = () => (
         const { name, socialLinks, roles } = contentfulAbout
         const { deterministicBehaviour } = site.siteMetadata
 
-        console.log({ name, socialLinks, roles, deterministicBehaviour })
-
         return (
           <>
             <CentralInfo name={name} roles={roles} socialLinks={socialLinks} />
