@@ -1,4 +1,4 @@
-export interface Post {
+export interface BlogPost {
   id: string
   body: string
   bodyAst: any[]

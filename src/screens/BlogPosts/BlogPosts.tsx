@@ -48,29 +48,29 @@ const Writing: React.FC = () => (
     `}
     render={(data) => {
       const blogPosts = getBlogPostsFromData(data)
-
+      console.log({ blogPosts })
       return (
         <Section.Container id="blog-posts" Background={Background}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <CardContainer>
-            {blogPosts.map((post) => {
+            {blogPosts.map((post, id) => {
+              // <Fade bottom key={`blogPosts${id}`}>
               return (
-                <Fade bottom key="rest.id">
-                  <InternalArticle
-                    onClick={() =>
-                      navigate(`/blog/${post.slug}`, {
-                        state: { blogPosts, id: post.id },
-                      })
-                    }
-                    time={3}
-                    title={post.title}
-                    image={post.image}
-                    text={post.description}
-                    date={post.createdAt}
-                    key={post.id}
-                  />
-                </Fade>
+                <InternalArticle
+                  onClick={() =>
+                    navigate(`/${post.slug}`, {
+                      state: { blogPosts, id: post.id },
+                    })
+                  }
+                  time={3}
+                  title={post.title}
+                  image={post.image}
+                  text={post.description}
+                  date={post.createdAt}
+                  key={post.id}
+                />
               )
+              // </Fade>
             })}
           </CardContainer>
         </Section.Container>

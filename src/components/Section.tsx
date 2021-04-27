@@ -3,7 +3,6 @@ import Slide from 'react-reveal/Slide'
 import { Section } from 'react-scroll-section'
 import { Heading } from 'rebass/styled-components'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import LinkAnimated from './LinkAnimated'
 import { breakpoints } from '../styles/sizes'
 
@@ -43,12 +42,6 @@ const Container: React.FC<ContainerProps> = ({
     <SectionContainer>{children}</SectionContainer>
   </Section>
 )
-
-Container.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  Background: PropTypes.func,
-}
 
 interface HeaderProps {
   name: string

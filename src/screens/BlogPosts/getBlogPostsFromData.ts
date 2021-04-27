@@ -1,10 +1,10 @@
 import { DEV } from '../../constants'
-import { Post } from '../../types'
+import { BlogPost } from '../../types'
 
-export const getBlogPostsFromData = (data: any): Post[] => {
-  const posts: Post[] = data.allContentfulBlogPost.edges.map(
+export const getBlogPostsFromData = (data: any): BlogPost[] => {
+  const posts: BlogPost[] = data.allContentfulBlogPost.edges.map(
     ({ node }: { node: any }) => {
-      const post: Post = {
+      const post: BlogPost = {
         id: node.id,
         body: node?.body?.body,
         bodyAst: node?.body?.childMarkdownRemark?.htmlAst,

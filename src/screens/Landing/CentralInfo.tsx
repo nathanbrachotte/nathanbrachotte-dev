@@ -2,7 +2,6 @@ import React from 'react'
 import TextLoop from 'react-text-loop'
 
 import { Heading, Text } from 'rebass/styled-components'
-import useTheme from '../../hooks/useTheme'
 import { centerHorizontally } from '../../styles/helpers'
 import { SocialLinksWrapper } from './SocialLink'
 

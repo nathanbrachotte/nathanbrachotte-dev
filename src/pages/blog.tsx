@@ -4,9 +4,9 @@ import SimpleHeader from '../components/Header/SimpleHeader'
 import Footer from '../components/Footer/Footer'
 
 import Layout from '../Layout'
-import Post from '../screens/Post/Post'
+import Post from '../templates/blog-post'
 
-const PostPage: React.FC<PageProps> = ({ ...pageProps }) => {
+const Blog: React.FC<PageProps> = ({ ...pageProps }) => {
   return (
     <Layout>
       <SimpleHeader />
@@ -16,4 +16,4 @@ const PostPage: React.FC<PageProps> = ({ ...pageProps }) => {
   )
 }
 
-export default PostPage
+export default Blog
