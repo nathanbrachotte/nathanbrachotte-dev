@@ -8,6 +8,7 @@ export interface Post {
   title: string
   tags: string[]
   video: string
+  showInDevOnly: boolean
 }
 
 export const MAIN_PAGES = {

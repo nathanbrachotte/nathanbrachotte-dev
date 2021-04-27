@@ -8,24 +8,35 @@ import Background from './Background'
 import { InternalArticle } from '../../components/Article/Article'
 
 import { Post } from '../../types'
+import { DEV } from '../../constants'
 
-const getBlogPostsFromData = (data: any): Post[] =>
-  data.allContentfulBlogPost.edges.map(({ node }: { node: any }) => {
-    const post: Post = {
-      id: node.id,
-      body: node?.body?.body,
-      bodyAst: node?.body?.childMarkdownRemark?.htmlAst,
-      description: node?.description?.description,
-      createdAt: node?.createdAt,
-      image: node?.heroImage?.file?.url,
-      title: node?.title,
-      tags: node?.tags,
-      video: node?.video?.video,
-    }
-    console.log({ node, post })
+const getBlogPostsFromData = (data: any): Post[] => {
+  const posts: Post[] = data.allContentfulBlogPost.edges.map(
+    ({ node }: { node: any }) => {
+      const post: Post = {
+        id: node.id,
+        body: node?.body?.body,
+        bodyAst: node?.body?.childMarkdownRemark?.htmlAst,
+        description: node?.description?.description,
+        createdAt: node?.createdAt,
+        image: node?.heroImage?.file?.url,
+        title: node?.title,
+        tags: node?.tags,
+        video: node?.video?.video,
+        showInDevOnly: node?.dev,
+      }
+      DEV && console.log({ node, post })
 
-    return post
+      return post
+    },
+  )
+
+  const prodPost = posts.filter((post) => {
+    return DEV || !post.showInDevOnly
   })
+
+  return prodPost
+}
 
 const Writing: React.FC = () => (
   <StaticQuery
@@ -57,6 +68,7 @@ const Writing: React.FC = () => (
               video {
                 video
               }
+              dev
             }
           }
         }
