@@ -28,6 +28,8 @@ const Layout: React.FC = ({ children }) => {
     storageKey: 'darkMode',
   })
 
+  console.log(darkMode.value)
+
   useEffect(() => {
     loadScript('https://use.fontawesome.com/fd58d214b9.js')
   }, [])
