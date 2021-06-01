@@ -31,7 +31,7 @@ const Background: React.FC = () => (
     {/* Top Left */}
     <Triangle
       color="secondary"
-      height={['5vh', '15vh']}
+      height={['5vh', '12vh']}
       width={['100vw', '100vw']}
     />
   </div>

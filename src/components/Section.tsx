@@ -42,6 +42,7 @@ const Container: React.FC<ContainerProps> = ({
     <SectionContainer>
       <Spacer />
       {children}
+      <Spacer />
     </SectionContainer>
   </Section>
 )
