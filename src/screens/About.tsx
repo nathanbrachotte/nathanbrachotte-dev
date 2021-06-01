@@ -30,7 +30,7 @@ const Background: React.FC = () => (
 
     {/* Top Left */}
     <Triangle
-      color="backgroundDark"
+      color="secondary"
       height={['5vh', '15vh']}
       width={['100vw', '100vw']}
     />

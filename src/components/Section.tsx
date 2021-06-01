@@ -55,7 +55,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ name, icon = '', label = '' }) => {
   return (
     <Slide left>
-      <Heading color="secondaryDark" mb={4}>
+      <Heading color="textDark" mb={4}>
         <LinkAnimated color="secondaryDark" selected>
           {name}
           {icon && (

@@ -48,7 +48,7 @@ const Writing: React.FC = () => (
     `}
     render={(data) => {
       const blogPosts = getBlogPostsFromData(data)
-      console.log({ blogPosts })
+
       return (
         <Section.Container id="blog-posts" Background={Background}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
