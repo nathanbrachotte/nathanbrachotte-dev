@@ -5,7 +5,7 @@ const Background: React.FC = () => (
   <div>
     {/* Top Right */}
     <Triangle
-      color="secondaryLight"
+      color="secondary"
       height={['15vh', '10vh']}
       width={['100vw', '100vw']}
       invertX
