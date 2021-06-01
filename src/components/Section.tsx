@@ -5,11 +5,11 @@ import { Heading } from 'rebass/styled-components'
 import styled from 'styled-components'
 import LinkAnimated from './LinkAnimated'
 import { breakpoints } from '../styles/sizes'
+import Spacer from '../shared/Spacer'
 
 const SectionContainer = styled.div`
-  // This broke everything, set it back to 100vh
-  /* min-height: 50vh; */
-  min-height: 100vh;
+  min-height: 70vh;
+  /* min-height: 100vh; */
   min-width: 320px;
   max-width: 1366px;
   display: flex;
@@ -39,7 +39,10 @@ const Container: React.FC<ContainerProps> = ({
 }) => (
   <Section id={id} style={{ position: 'relative' }}>
     <Background />
-    <SectionContainer>{children}</SectionContainer>
+    <SectionContainer>
+      <Spacer />
+      {children}
+    </SectionContainer>
   </Section>
 )
 
