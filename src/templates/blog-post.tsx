@@ -39,7 +39,7 @@ const renderAst = new RehypeReact({
     h1: (props: any) => (
       <Heading
         fontSize={[3, 4, 5]}
-        mt={[3, 3]}
+        mt={[3, 4]}
         mb={[2, 3]}
         color="textDark"
         {...props}
@@ -48,7 +48,7 @@ const renderAst = new RehypeReact({
     h2: (props: any) => (
       <Heading
         fontSize={[2, 3, 4]}
-        mt={[3, 3]}
+        mt={[3, 4]}
         mb={[2, 3]}
         color="text"
         {...props}
@@ -56,6 +56,11 @@ const renderAst = new RehypeReact({
     ),
     p: (props: any) => (
       <Text fontSize={[1, 2, 3]} color="textLight" {...props} />
+    ),
+    a: (props: any) => (
+      <a {...props}>
+        <Text fontSize={[1, 2, 3]} color="textDark" {...props} />
+      </a>
     ),
     // FIXME: some real styling for code should be added
     code: (props: any) => (
