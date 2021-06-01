@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                 <Flex mb={10} mr={[0, 3, 5]}>
                   {navLinks}
                 </Flex>
-                <DarkModeToggle />
+                {/* <DarkModeToggle /> */}
               </Fragment>
             )
           }}
