@@ -2,10 +2,11 @@ import React from 'react'
 import { SectionLink } from 'react-scroll-section'
 
 import MouseIcon from './MouseIcon'
-import { WebsiteScreen } from '../screens/types'
 
-export const Mouse = ({ to }: { to: WebsiteScreen }) => (
+export const Mouse = ({ to }: { to: string }) => (
   <SectionLink section={to}>
-    {({ onClick }: { onClick: any }) => <MouseIcon onClick={onClick} />}
+    {(section: any) => {
+      return <MouseIcon onClick={section.onClick} />
+    }}
   </SectionLink>
 )
