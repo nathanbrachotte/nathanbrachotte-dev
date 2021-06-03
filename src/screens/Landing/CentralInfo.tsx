@@ -18,7 +18,7 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
         color="text"
         fontSize={[6, 7]}
         mb={[3, 4, 5]}>
-        Hi there{' '}
+        Hi{' '}
         <span role="img" aria-label="hand-emoji">
           👋
         </span>{' '}
@@ -40,7 +40,7 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
           ))}
         </TextLoop>
       </Heading>
-      <SocialLinksWrapper socialLinks={socialLinks} />
+      <SocialLinksWrapper socialLinks={socialLinks} color="secondary" />
     </>
   )
 }

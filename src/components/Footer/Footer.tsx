@@ -80,7 +80,12 @@ const Footer: React.FC = () => (
               <Fade right>
                 {socialLinks.map(({ id, ...rest }) => (
                   <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
-                    <SocialLink {...rest} color="background" />
+                    <SocialLink
+                      fontAwesomeIcon={rest.fontAwesomeIcon}
+                      name={rest.name}
+                      url={rest.url}
+                      color="alwaysWhite"
+                    />
                   </Box>
                 ))}
               </Fade>
