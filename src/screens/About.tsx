@@ -46,7 +46,7 @@ const ProfilePicture = styled(Image)`
   }
 `
 
-const About = () => (
+const About: React.FC = () => (
   <Section.Container id="About Me" Background={Background}>
     <Section.Header name="About Me" icon="🙋‍♂️" label="person" />
     <StaticQuery
@@ -82,7 +82,10 @@ const About = () => (
 
             <Box
               width={[1, 1, 2 / 6]}
-              style={{ maxWidth: '300px', margin: 'auto' }}>
+              style={{
+                maxWidth: '300px',
+                margin: 'auto',
+              }}>
               <Fade right>
                 <ProfilePicture
                   src={profile.image.src}

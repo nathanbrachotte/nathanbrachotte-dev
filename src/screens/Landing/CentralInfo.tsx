@@ -40,7 +40,7 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
           ))}
         </TextLoop>
       </Heading>
-      <SocialLinksWrapper socialLinks={socialLinks} color="secondary" />
+      <SocialLinksWrapper socialLinks={socialLinks} color="primaryDark" />
     </>
   )
 }

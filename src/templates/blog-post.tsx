@@ -12,6 +12,7 @@ import Layout from '../Layout'
 import SimpleHeader from '../components/Header/SimpleHeader'
 import Footer from '../components/Footer/Footer'
 import Spacer from '../shared/Spacer'
+import { MarkdownLink } from '../components/MarkdownRenderer'
 
 function getBlogPostFromContext(pageContext: any) {
   const post: BlogPost = {
@@ -57,11 +58,11 @@ const renderAst = new RehypeReact({
     p: (props: any) => (
       <Text fontSize={[1, 2, 3]} color="textLight" {...props} />
     ),
-    a: (props: any) => (
-      <a {...props}>
-        <Text fontSize={[1, 2, 3]} color="textDark" {...props} />
-      </a>
-    ),
+    // a: (props: any) => (
+    //   <a {...props}>
+    //     <Text fontSize={[1, 2, 3]} color="textDark" {...props} />
+    //   </a>
+    // ),
     // FIXME: some real styling for code should be added
     code: (props: any) => (
       <Text
@@ -71,6 +72,7 @@ const renderAst = new RehypeReact({
         {...props}
       />
     ),
+    a: (props: amy) => <MarkdownLink {...props} />,
   },
 }).Compiler
 
@@ -122,7 +124,11 @@ const BlogPostTemplate: React.FC<PageProps> = ({ pageContext }) => {
             ))}
             <Spacer height="10px" />
             {renderAst(currentPost?.bodyAst)}
-            <Text style={{ textAlign: 'right' }} color="text">
+            <Text
+              mt={[4, 5, 6]}
+              fontSize={[1, 2, 3]}
+              style={{ textAlign: 'right' }}
+              color="text">
               {createdAt2}
             </Text>
           </Box>

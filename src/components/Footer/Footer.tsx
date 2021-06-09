@@ -60,8 +60,8 @@ const Footer: React.FC = () => (
         <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
           <FooterContainer>
             <Fade left>
-              <TextFooter fontSize={[2, 3]}>
-                <span> Powered by </span>
+              <TextFooter fontSize={[1, 2]}>
+                <span> Written with </span>
                 <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
                 <span>, </span>
                 <Link href="https://www.contentful.com/" mr={1}>
@@ -71,9 +71,9 @@ const Footer: React.FC = () => (
                 <Link href="https://www.netlify.com/" mr={1}>
                   Netlify
                 </Link>
-                <span role="img" aria-label="heart">
+                {/* <span role="img" aria-label="heart">
                   ❤️
-                </span>
+                </span> */}
               </TextFooter>
             </Fade>
             <Flex>
