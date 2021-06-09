@@ -1,11 +1,9 @@
 import React from 'react'
-import { Heading, Text, Flex, Box } from 'rebass/styled-components'
-import { StaticQuery, graphql } from 'gatsby'
+import { Heading, Text } from 'rebass/styled-components'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
 import ImageSubtitle from '../ImageSubtitle'
-import Section from '../Section'
-import { CardContainer, Card } from '../Card'
+import { Card } from '../Card'
+import { BORDER_RADIUS } from './constants'
 
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
@@ -34,6 +32,7 @@ interface InternalArticleProps extends SharedArticleProps {
 
 const CoverImage = styled.img`
   width: 100%;
+  border-radius: 20px;
   object-fit: cover;
 `
 
@@ -78,7 +77,7 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
       {title}
     </EllipsisHeading>
     {image && <CoverImage src={image} height="200px" alt={title} />}
-    <Text m={3} color="text">
+    <Text m={3} color="textLight">
       {text}
     </Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
