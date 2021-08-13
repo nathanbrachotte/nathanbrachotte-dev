@@ -18,13 +18,11 @@ export const Element = styled(
 ).attrs<VerticalTimelineElementStyledProps>((props) => ({
   type: 'text',
   contentStyle: {
-    marginTop: '-5px',
     borderRadius: BOX_BORDER_RADIUS,
     background: props.theme.colors.alwaysWhite,
-    color: props.theme.colors.secondaryDark,
+    color: props.theme.colors.textLight,
   },
   iconStyle: {
-    color: props.theme.colors.secondaryDark,
     backgroundColor: props.theme.colors.alwaysWhite,
   },
 }))``
@@ -34,7 +32,6 @@ export const PrimaryElement = styled(
 ).attrs<VerticalTimelineElementStyledProps>((props) => ({
   type: 'text',
   contentStyle: {
-    marginTop: '-5px',
     borderRadius: BOX_BORDER_RADIUS,
     background: props.theme.colors.secondaryDark,
     color: props.theme.colors.alwaysWhite,
@@ -44,6 +41,5 @@ export const PrimaryElement = styled(
   },
   iconStyle: {
     background: props.theme.colors.secondaryDark,
-    color: props.theme.colors.alwaysWhite,
   },
 }))``

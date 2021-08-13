@@ -1,6 +1,7 @@
 export interface ThemeType {
   background: string
   backgroundDark: string
+  textLight: string
   text: string
   textDark: string
 
