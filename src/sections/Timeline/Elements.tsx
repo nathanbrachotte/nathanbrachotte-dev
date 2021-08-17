@@ -5,10 +5,12 @@ import {
 import styled from 'styled-components'
 
 import 'react-vertical-timeline-component/style.min.css'
+import { Review } from './data'
 
 interface VerticalTimelineElementStyledProps
   extends VerticalTimelineElementProps {
   isCurrent: boolean
+  link?: Review['link']
 }
 
 const BOX_BORDER_RADIUS = '20px'
@@ -25,7 +27,24 @@ export const Element = styled(
   iconStyle: {
     backgroundColor: props.theme.colors.alwaysWhite,
   },
-}))``
+  ...(props.link
+    ? {
+        onTimelineElementClick: () => {
+          if (props?.link?.external) {
+            window.open(props.link.external)
+          }
+
+          if (props?.link?.internal) {
+            window.open(props.link.internal)
+          }
+        },
+      }
+    : null),
+}))`
+  .vertical-timeline-element-date {
+    color: var(--textDark);
+  }
+`
 
 export const PrimaryElement = styled(
   Element,
@@ -42,4 +61,10 @@ export const PrimaryElement = styled(
   iconStyle: {
     background: props.theme.colors.secondaryDark,
   },
-}))``
+}))`
+  @media only screen and (max-width: 1170px) {
+    .vertical-timeline-element-date {
+      color: var(--alwaysWhite);
+    }
+  }
+`
