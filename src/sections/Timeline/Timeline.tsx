@@ -64,7 +64,7 @@ const Timeline: React.FC = () => {
     //   `}
     //   render={() => {
     // return (
-    <Section.Container id="blog-posts" Background={Background}>
+    <Section.Container id="career" Background={Background}>
       <Section.Header name="Career" icon="⏳" label="hourglass" />
       <VerticalTimeline className="vertical-timeline-custom-line">
         {data.map((item) => {
