@@ -4,33 +4,20 @@ import { VerticalTimeline } from 'react-vertical-timeline-component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
-import styled from 'styled-components'
-import { Text, Heading } from 'rebass/styled-components'
+import { Text } from 'rebass/styled-components'
+import {
+  BlockQuote,
+  BottomRightSection,
+  EllipsisHeading,
+  TextEllipsis,
+} from './StyledComponents'
 
 import { JobIcon } from './JobIcon'
-import { PrimaryElement, Element } from './Elements'
+import { JobElement, RecommendationElement } from './Elements'
 import useTheme from '../../hooks/useTheme'
 
 import 'react-vertical-timeline-component/style.min.css'
-import './overides.css'
 import { data } from './data'
-
-const EllipsisHeading = styled(Heading)`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-inline-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
-  color: ${(props) => props.theme.colors.primary} 5px solid;
-`
-
-const BottomRightSection = styled.div`
-  position: absolute;
-  right: 3%;
-  bottom: 8%;
-  color: ${(props) => props.theme.colors.primary};
-`
 
 const Timeline: React.FC = () => {
   const theme = useTheme()
@@ -39,13 +26,10 @@ const Timeline: React.FC = () => {
     <div style={{ backgroundColor: theme.colors.primaryLight }}>
       <VerticalTimeline className="vertical-timeline-custom-line">
         {data.map((item) => {
-          const WrappingElement =
-            'isImportant' in item && item.isImportant ? PrimaryElement : Element
-
           switch (item.type) {
             case 'job':
               return (
-                <WrappingElement
+                <JobElement
                   className="vertical-timeline-element--work"
                   date={item.timeframe}
                   icon={<JobIcon icon="💻" />}>
@@ -60,11 +44,11 @@ const Timeline: React.FC = () => {
                   </h4>
                   <p>{item.keywords}</p>
                   <p>{item.location}</p>
-                </WrappingElement>
+                </JobElement>
               )
             case 'review':
               return (
-                <WrappingElement
+                <RecommendationElement
                   link={item.link}
                   className="vertical-timeline-element"
                   date={item.workedTogetherTimeframe}
@@ -75,16 +59,9 @@ const Timeline: React.FC = () => {
                     as="h3">
                     Recommendation
                   </EllipsisHeading>
-                  <Text
-                    m="2px"
-                    overflow="hidden"
-                    sx={{
-                      maxHeight: '100px',
-                      mx: 'auto',
-                      textOverflow: 'ellipsis',
-                    }}>
-                    {item.description}
-                  </Text>
+                  <BlockQuote>
+                    <TextEllipsis>{item.description}</TextEllipsis>
+                  </BlockQuote>
                   <Text>
                     {item.name}
                     {'\n'}-{'\n'}
@@ -97,7 +74,7 @@ const Timeline: React.FC = () => {
                       aria-label="Visit"
                     />
                   </BottomRightSection>
-                </WrappingElement>
+                </RecommendationElement>
               )
 
             default:

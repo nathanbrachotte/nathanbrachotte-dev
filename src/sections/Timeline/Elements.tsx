@@ -15,7 +15,7 @@ interface VerticalTimelineElementStyledProps
 
 const BOX_BORDER_RADIUS = '20px'
 
-export const Element = styled(
+export const RecommendationElement = styled(
   VerticalTimelineElement,
 ).attrs<VerticalTimelineElementStyledProps>((props) => ({
   type: 'text',
@@ -41,13 +41,19 @@ export const Element = styled(
       }
     : null),
 }))`
+  .vertical-timeline-element-icon,
+  .vertical-timeline-element-content,
+  .vertical-timeline-element-date {
+    cursor: pointer;
+  }
+
   .vertical-timeline-element-date {
     color: var(--textDark);
   }
 `
 
-export const PrimaryElement = styled(
-  Element,
+export const JobElement = styled(
+  RecommendationElement,
 ).attrs<VerticalTimelineElementStyledProps>((props) => ({
   type: 'text',
   contentStyle: {
