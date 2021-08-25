@@ -15,7 +15,7 @@ const Background: React.FC = () => (
   <div>
     <FullBackground />
     <Triangle
-      color="primary"
+      color="primaryLight"
       height={['30vh', '30vh']}
       width={['100vw', '100vw']}
       invertY
