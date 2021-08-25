@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, StaticQuery } from 'gatsby'
 
 import { VerticalTimeline } from 'react-vertical-timeline-component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -13,17 +14,58 @@ import {
 } from './StyledComponents'
 
 import { JobIcon } from './JobIcon'
+import Section from '../../components/Section'
 import { JobElement, RecommendationElement } from './Elements'
 import useTheme from '../../hooks/useTheme'
 
 import 'react-vertical-timeline-component/style.min.css'
 import { data } from './data'
+import Background from './Background'
 
 const Timeline: React.FC = () => {
   const theme = useTheme()
 
   return (
-    <div style={{ backgroundColor: theme.colors.primaryLight }}>
+    // <StaticQuery
+    //   query={graphql`
+    //     query BlogPostQuery2 {
+    //       allContentfulBlogPost {
+    //         edges {
+    //           node {
+    //             id
+    //             tags
+    //             title
+    //             createdAt
+    //             body {
+    //               body
+    //               childMarkdownRemark {
+    //                 htmlAst
+    //               }
+    //             }
+    //             description {
+    //               description
+    //             }
+    //             heroImage {
+    //               id
+    //               file {
+    //                 fileName
+    //                 url
+    //               }
+    //             }
+    //             video {
+    //               video
+    //             }
+    //             dev
+    //             slug
+    //           }
+    //         }
+    //       }
+    //     }
+    //   `}
+    //   render={() => {
+    // return (
+    <Section.Container id="blog-posts" Background={Background}>
+      <Section.Header name="Career" icon="⏳" label="hourglass" />
       <VerticalTimeline className="vertical-timeline-custom-line">
         {data.map((item) => {
           switch (item.type) {
@@ -82,7 +124,10 @@ const Timeline: React.FC = () => {
           }
         })}
       </VerticalTimeline>
-    </div>
+    </Section.Container>
+    // )
+    //   }}
+    // />
   )
 }
 

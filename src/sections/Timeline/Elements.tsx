@@ -50,6 +50,17 @@ export const RecommendationElement = styled(
   .vertical-timeline-element-date {
     color: var(--textDark);
   }
+
+  .vertical-timeline-element-content {
+    transition: all 0.2s;
+    position: relative;
+    box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
+    top: 0;
+    &:hover {
+      top: -5px;
+      box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
 `
 
 export const JobElement = styled(

@@ -13,12 +13,13 @@ const Fade = require('react-reveal/Fade')
 const Background: React.FC = () => (
   <div>
     {/* Bottom Left */}
-    {/* <Triangle
-      color="secondaryLight"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
+    <Triangle
+      color="secondary"
+      height={['20vh', '20vh']}
+      width={['100vw', '100vw']}
       invertY
-    /> */}
+      invertX
+    />
 
     {/* Top Right */}
     {/* <Triangle

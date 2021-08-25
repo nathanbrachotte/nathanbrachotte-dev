@@ -6,6 +6,7 @@ export interface ThemeType {
   textDark: string
 
   primary: string
+  primaryVery: string
   primaryLight: string
   primaryDark: string
 
