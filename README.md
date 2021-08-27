@@ -6,7 +6,6 @@
 ![Dependencies status](https://david-dm.org/EmaSuriano/gatsby-starter-mate.svg)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Ema-suriano/gatsby-starter-mate)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7f442e93-3220-4b82-b8c7-635681c15d11/deploy-status)](https://app.netlify.com/sites/nathanbrachotte-dev/deploys)
-![Gatsby Starter Mate logo](./media/gatsby-starter-mate-logo.png)
 
 > An accessible and fast portfolio starter for Gatsby integrated with Contentful CMS.
 
