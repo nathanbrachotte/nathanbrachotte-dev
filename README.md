@@ -5,8 +5,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 ![Dependencies status](https://david-dm.org/EmaSuriano/gatsby-starter-mate.svg)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/Ema-suriano/gatsby-starter-mate)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f532a32d-4fc1-441d-aa28-cdc5e2c2e79c/deploy-status)](https://app.netlify.com/sites/gatsby-starter-mate/deploys)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7f442e93-3220-4b82-b8c7-635681c15d11/deploy-status)](https://app.netlify.com/sites/nathanbrachotte-dev/deploys)
 ![Gatsby Starter Mate logo](./media/gatsby-starter-mate-logo.png)
 
 > An accessible and fast portfolio starter for Gatsby integrated with Contentful CMS.
@@ -268,7 +267,7 @@ $ yarn
 # Build the project to see if everything is working as expected
 $ yarn build
 ```
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7f442e93-3220-4b82-b8c7-635681c15d11/deploy-status)](https://app.netlify.com/sites/nathanbrachotte-dev/deploys)
+
 
 ---
 # nathanbrachotte-dev
