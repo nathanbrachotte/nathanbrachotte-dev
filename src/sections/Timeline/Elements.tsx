@@ -21,11 +21,11 @@ export const RecommendationElement = styled(
   type: 'text',
   contentStyle: {
     borderRadius: BOX_BORDER_RADIUS,
-    background: props.theme.colors.alwaysWhite,
+    // background: props.theme.colors.alwaysWhite,
     color: props.theme.colors.textLight,
   },
   iconStyle: {
-    backgroundColor: props.theme.colors.alwaysWhite,
+    backgroundColor: props.theme.colors.primary,
   },
   ...(props.link
     ? {

@@ -13,7 +13,7 @@ const FullBackground = styled.div`
 `
 const Background: React.FC = () => (
   <div>
-    <FullBackground />
+    {/* <FullBackground /> */}
     <Triangle
       color="primaryLight"
       height={['30vh', '30vh']}
@@ -23,13 +23,7 @@ const Background: React.FC = () => (
     />
     <Triangle
       color="secondaryLight"
-      height={['30vh', '30vh']}
-      width={['100vw', '100vw']}
-    />
-
-    <Triangle
-      color="secondaryLight"
-      height={['30vh', '30vh']}
+      height={['3vh', '8vh']}
       width={['100vw', '100vw']}
     />
   </div>

@@ -30,7 +30,7 @@ export const Card = styled(CardRebass).attrs({
 })<CardProps>`
   position: relative;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s;
+  transition: all 0.2s;
   top: 0;
   border-radius: ${BORDER_RADIUS};
   cursor: ${(props) => (props.onClick ? 'pointer' : 'default')};

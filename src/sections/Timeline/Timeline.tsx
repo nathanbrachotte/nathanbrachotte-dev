@@ -1,11 +1,10 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-
-import { VerticalTimeline } from 'react-vertical-timeline-component'
+import { VerticalTimeline as VerticalTimelineLib } from 'react-vertical-timeline-component'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 import { Text } from 'rebass/styled-components'
+import styled from 'styled-components'
 import {
   BlockQuote,
   BottomRightSection,
@@ -16,15 +15,18 @@ import {
 import { JobIcon } from './JobIcon'
 import Section from '../../components/Section'
 import { JobElement, RecommendationElement } from './Elements'
-import useTheme from '../../hooks/useTheme'
 
-import 'react-vertical-timeline-component/style.min.css'
 import { data } from './data'
 import Background from './Background'
+import 'react-vertical-timeline-component/style.min.css'
+
+const VerticalTimeline = styled(VerticalTimelineLib)`
+  &::before {
+    background: ${(props) => props.theme.colors.primaryLight};
+  }
+`
 
 const Timeline: React.FC = () => {
-  const theme = useTheme()
-
   return (
     // <StaticQuery
     //   query={graphql`
