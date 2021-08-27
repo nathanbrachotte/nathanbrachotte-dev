@@ -1,5 +1,4 @@
 import React from 'react'
-import FontAwesomeIcon from 'react-fontawesome'
 import { Flex } from 'rebass'
 
 export const JobIcon: React.FC<{ icon: string }> = ({ icon }) => (
@@ -8,6 +7,8 @@ export const JobIcon: React.FC<{ icon: string }> = ({ icon }) => (
     justifyContent="center"
     alignItems="center"
     flexWrap="wrap">
-    <FontAwesomeIcon name={icon} />
+    <span aria-label="engineer logo" role="img">
+      {icon}
+    </span>
   </Flex>
 )

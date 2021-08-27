@@ -4,38 +4,11 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
-import Section from '../components/Section'
-import Triangle from '../shared/Triangle'
-import markdownRenderer from '../components/MarkdownRenderer'
+import Section from '../../components/Section'
+import { Background } from './Background'
+import markdownRenderer from '../../components/MarkdownRenderer'
 
 const Fade = require('react-reveal/Fade')
-
-const Background: React.FC = () => (
-  <div>
-    {/* Bottom Left */}
-    {/* <Triangle
-      color="secondaryLight"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      invertY
-    /> */}
-
-    {/* Top Right */}
-    {/* <Triangle
-      color="primaryDark"
-      height={['20vh', '40vh']}
-      width={['75vw', '70vw']}
-      invertX
-    /> */}
-
-    {/* Top Left */}
-    <Triangle
-      color="secondary"
-      height={['5vh', '12vh']}
-      width={['100vw', '100vw']}
-    />
-  </div>
-)
 
 const ProfilePicture = styled(Image)`
   border-radius: 50%;

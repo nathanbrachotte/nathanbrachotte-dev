@@ -7,6 +7,7 @@ module.exports = {
     text: '#29314C',
     textDark: '#222426',
 
+    primaryVeryLight: '#fcf4f4',
     primaryLight: '#ffe2e2',
     primary: '#ffc8dd',
     primaryDark: '#c3aed6',

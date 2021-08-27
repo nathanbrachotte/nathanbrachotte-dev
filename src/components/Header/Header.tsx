@@ -91,6 +91,7 @@ const Header: React.FC = () => {
               />
             )
 
+            console.log(links)
             const navLinks = links.map(({ name, value }) => (
               <RouteLink
                 key={name}
