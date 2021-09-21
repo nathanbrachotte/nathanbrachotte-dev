@@ -6,10 +6,8 @@ import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { SectionLinks } from 'react-scroll-section'
 
-import DarkModeToggle from './DarkModeToggle'
 import RouteLink from '../RouteLink'
 import useTheme from '../../hooks/useTheme'
-// import Logo from '../Logo/Contenful.svg'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
 
@@ -91,7 +89,6 @@ const Header: React.FC = () => {
               />
             )
 
-            console.log(links)
             const navLinks = links.map(({ name, value }) => (
               <RouteLink
                 key={name}

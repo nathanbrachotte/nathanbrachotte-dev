@@ -6,13 +6,13 @@ const Background: React.FC = () => (
     {/* top left */}
     <Triangle
       color="primaryDark"
-      height={['10vh', '0vh']}
+      height={['20vh', '0vh']}
       width={['100vw', '100vw']}
     />
     {/* top right */}
     <Triangle
       color="primaryDark"
-      height={['12vh', '15vh']}
+      height={['15vh', '15vh']}
       width={['100vw', '80vw']}
       invertX
     />
