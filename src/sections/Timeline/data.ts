@@ -1,3 +1,8 @@
+interface Link {
+  internal?: string
+  external?: string
+}
+
 interface Job {
   type: 'job'
   title: string
@@ -6,6 +11,7 @@ interface Job {
   location: string
   keywords: string
   fontAwesomeIcon: string
+  link: Link
 }
 
 export interface Review {
@@ -14,10 +20,7 @@ export interface Review {
   personPosition: string
   workedTogetherTimeframe: string
   description: string
-  link?: {
-    internal?: string
-    external?: string
-  }
+  link: Link
 }
 
 export const data: (Job | Review)[] = [
@@ -40,6 +43,9 @@ export const data: (Job | Review)[] = [
     timeframe: 'Jan 2020 - Present',
     location: 'Berlin 🇩🇪',
     fontAwesomeIcon: 'laptop',
+    link: {
+      external: 'https://www.klarna.com/',
+    },
   },
   {
     type: 'review',
@@ -64,15 +70,15 @@ export const data: (Job | Review)[] = [
       external: 'https://www.linkedin.com/in/nathan-brachotte/',
     },
   },
-  {
-    type: 'job',
-    title: 'React Native Developer',
-    company: 'colorfy GmbH',
-    keywords: 'React-Native / React / IoT',
-    timeframe: 'Aug 2018 - Dec 2019',
-    location: 'Berlin 🇩🇪',
-    fontAwesomeIcon: 'laptop',
-  },
+  // {
+  //   type: 'job',
+  //   title: 'React Native Developer',
+  //   company: 'colorfy GmbH',
+  //   keywords: 'React-Native / React / IoT',
+  //   timeframe: 'Aug 2018 - Dec 2019',
+  //   location: 'Berlin 🇩🇪',
+  //   fontAwesomeIcon: 'laptop',
+  // },
   {
     type: 'review',
     name: 'Hemang Pandya',
@@ -86,20 +92,23 @@ export const data: (Job | Review)[] = [
   },
   {
     type: 'job',
-    title: 'React Native Developer Intern',
+    title: 'React Native Developer',
     company: 'colorfy GmbH',
     keywords: 'React-Native / React / IoT',
-    timeframe: 'Feb 2018 - Aug 2018',
+    timeframe: 'Feb 2018 - Dec 2019',
     location: 'Berlin 🇩🇪',
     fontAwesomeIcon: 'laptop',
+    link: {
+      external: 'https://colorfy.me/',
+    },
   },
-  {
-    type: 'job',
-    title: 'Web Developer Intern',
-    company: 'IAD Territoire Digital',
-    keywords: 'SPIP 3.1 / HTML / CSS / JQuery',
-    timeframe: 'Mar 2016 - Jul 2016',
-    location: 'Besançon 🇫🇷',
-    fontAwesomeIcon: 'laptop',
-  },
+  // {
+  //   type: 'job',
+  //   title: 'Web Developer Intern',
+  //   company: 'IAD Territoire Digital',
+  //   keywords: 'SPIP 3.1 / HTML / CSS / JQuery',
+  //   timeframe: 'Mar 2016 - Jul 2016',
+  //   location: 'Besançon 🇫🇷',
+  //   fontAwesomeIcon: 'laptop',
+  // },
 ]

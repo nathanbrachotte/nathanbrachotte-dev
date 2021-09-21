@@ -20,6 +20,8 @@ import { data } from './data'
 import Background from './Background'
 import 'react-vertical-timeline-component/style.min.css'
 
+const Fade = require('react-reveal/Fade')
+
 const VerticalTimeline = styled(VerticalTimelineLib)`
   &::before {
     background: ${(props) => props.theme.colors.primaryLight};
@@ -66,66 +68,68 @@ const Timeline: React.FC = () => {
     //   `}
     //   render={() => {
     // return (
-    <Section.Container id="career" Background={Background}>
-      <Section.Header name="Career" icon="⏳" label="hourglass" />
-      <VerticalTimeline className="vertical-timeline-custom-line">
-        {data.map((item) => {
-          switch (item.type) {
-            case 'job':
-              return (
-                <JobElement
-                  className="vertical-timeline-element--work"
-                  date={item.timeframe}
-                  icon={<JobIcon icon="💻" />}>
-                  <EllipsisHeading
-                    className="vertical-timeline-element-title"
-                    color="textDark"
-                    as="h3">
-                    {item.title}
-                  </EllipsisHeading>
-                  <h4 className="vertical-timeline-element-subtitle">
-                    {item.company}
-                  </h4>
-                  <p>{item.keywords}</p>
-                  <p>{item.location}</p>
-                </JobElement>
-              )
-            case 'review':
-              return (
-                <RecommendationElement
-                  link={item.link}
-                  className="vertical-timeline-element"
-                  date={item.workedTogetherTimeframe}
-                  icon={<JobIcon icon="💬" />}>
-                  <EllipsisHeading
-                    className="vertical-timeline-element-title"
-                    color="textDark"
-                    as="h3">
-                    Recommendation
-                  </EllipsisHeading>
-                  <BlockQuote>
-                    <TextEllipsis>{item.description}</TextEllipsis>
-                  </BlockQuote>
-                  <Text>
-                    {item.name}
-                    {'\n'}-{'\n'}
-                    {item.personPosition}
-                  </Text>
-                  <BottomRightSection>
-                    <FontAwesomeIcon
-                      size="1x"
-                      icon={faExternalLinkAlt}
-                      aria-label="Visit"
-                    />
-                  </BottomRightSection>
-                </RecommendationElement>
-              )
+    <Section.Container id="Endorsements" Background={Background}>
+      <Section.Header name="Endorsements" icon="✨" label="speech bubble" />
+      <Fade bottom>
+        <VerticalTimeline
+          className="vertical-timeline-custom-line"
+          animate={false}>
+          {data.map((item) => {
+            switch (item.type) {
+              case 'job':
+                return (
+                  <JobElement
+                    link={item.link}
+                    className="vertical-timeline-element--work"
+                    date={item.timeframe}
+                    icon={<JobIcon icon="⬆️" />}>
+                    <EllipsisHeading
+                      className="vertical-timeline-element-title"
+                      color="textDark"
+                      as="h3">
+                      {item.title} at {item.company}
+                    </EllipsisHeading>
+                  </JobElement>
+                )
+              case 'review':
+                return (
+                  <RecommendationElement
+                    link={item.link}
+                    className="vertical-timeline-element"
+                    date={item.workedTogetherTimeframe}
+                    icon={<JobIcon icon="💬" />}>
+                    <EllipsisHeading
+                      className="vertical-timeline-element-title"
+                      color="textDark"
+                      as="h3">
+                      Recommendation
+                    </EllipsisHeading>
+                    <BlockQuote>
+                      <TextEllipsis>{item.description}</TextEllipsis>
+                    </BlockQuote>
+                    <Text>
+                      {item.name}
+                      {'\n'}-{'\n'}
+                      {item.personPosition}
+                    </Text>
+                    <BottomRightSection>
+                      <FontAwesomeIcon
+                        size="1x"
+                        icon={faExternalLinkAlt}
+                        aria-label="Visit"
+                      />
+                    </BottomRightSection>
+                  </RecommendationElement>
+                )
 
-            default:
-              throw new Error('Unrecognized data sample in Timeline component')
-          }
-        })}
-      </VerticalTimeline>
+              default:
+                throw new Error(
+                  'Unrecognized data sample in Timeline component',
+                )
+            }
+          })}
+        </VerticalTimeline>
+      </Fade>
     </Section.Container>
     // )
     //   }}
