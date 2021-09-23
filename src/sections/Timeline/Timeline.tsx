@@ -89,6 +89,7 @@ const Timeline: React.FC = () => {
                       as="h3">
                       {item.title} at {item.company}
                     </EllipsisHeading>
+                    <Text />
                   </JobElement>
                 )
               case 'review':
