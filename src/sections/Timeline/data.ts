@@ -26,6 +26,17 @@ export interface Review {
 export const data: (Job | Review)[] = [
   {
     type: 'review',
+    name: 'Roney Castro',
+    personPosition: 'Product Manager at Klarna GmbH',
+    description:
+      'I had the pleasure of working with Nathan for almost one year. He always demonstrated a significant ability to think about the entire user journey beyond the "happy path", proposing solutions and ensuring that the end user experience will always be consistent and optimal. This is also reflected on his behavior as a team member, where he was always very active discussing and proposing solutions and engaging other engineers and designers with the goal of providing the best possible experience for the users.',
+    workedTogetherTimeframe: 'Sep 2020 - Sep 2021',
+    link: {
+      external: 'https://www.linkedin.com/in/nathan-brachotte/',
+    },
+  },
+  {
+    type: 'review',
     name: 'Varun Pal',
     personPosition: 'Associate Engineering Manager at Klarna GmbH',
     description:
@@ -70,15 +81,6 @@ export const data: (Job | Review)[] = [
       external: 'https://www.linkedin.com/in/nathan-brachotte/',
     },
   },
-  // {
-  //   type: 'job',
-  //   title: 'React Native Developer',
-  //   company: 'colorfy GmbH',
-  //   keywords: 'React-Native / React / IoT',
-  //   timeframe: 'Aug 2018 - Dec 2019',
-  //   location: 'Berlin 🇩🇪',
-  //   fontAwesomeIcon: 'laptop',
-  // },
   {
     type: 'review',
     name: 'Hemang Pandya',
@@ -102,13 +104,4 @@ export const data: (Job | Review)[] = [
       external: 'https://colorfy.me/',
     },
   },
-  // {
-  //   type: 'job',
-  //   title: 'Web Developer Intern',
-  //   company: 'IAD Territoire Digital',
-  //   keywords: 'SPIP 3.1 / HTML / CSS / JQuery',
-  //   timeframe: 'Mar 2016 - Jul 2016',
-  //   location: 'Besançon 🇫🇷',
-  //   fontAwesomeIcon: 'laptop',
-  // },
 ]
