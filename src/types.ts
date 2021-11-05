@@ -2,7 +2,7 @@ export interface BlogPost {
   id: string
   body: string
   bodyAst: any[]
-  description: string
+  preview: string
   createdAt: string
   image: string
   title: string

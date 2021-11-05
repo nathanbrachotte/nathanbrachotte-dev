@@ -10,13 +10,6 @@ const Background: React.FC = () => (
       width={['100vw', '100vw']}
       invertX
     />
-    {/* Bottom Left */}
-    {/* <Triangle
-      color="secondary"
-      height={['50vh', '40vh']}
-      width={['70vw', '40vw']}
-      invertY
-    /> */}
     {/* Bottom Right */}
     <Triangle
       color="primaryLight"

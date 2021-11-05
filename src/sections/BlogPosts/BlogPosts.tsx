@@ -10,7 +10,7 @@ import { getBlogPostsFromData } from './getBlogPostsFromData'
 
 const Fade = require('react-reveal/Fade')
 
-const Writing: React.FC = () => (
+const BlogPosts: React.FC = () => (
   <StaticQuery
     query={graphql`
       query BlogPostQuery {
@@ -27,8 +27,8 @@ const Writing: React.FC = () => (
                   htmlAst
                 }
               }
-              description {
-                description
+              preview {
+                preview
               }
               heroImage {
                 id
@@ -49,27 +49,28 @@ const Writing: React.FC = () => (
     `}
     render={(data) => {
       const blogPosts = getBlogPostsFromData(data)
-
       return (
         <Section.Container id="blog-posts" Background={Background}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <Fade right>
             <CardContainer>
-              {blogPosts.map((post) => (
-                <InternalArticle
-                  onClick={() =>
-                    navigate(`blog/${post.slug}`, {
-                      state: { blogPosts, id: post.id },
-                    })
-                  }
-                  time={3}
-                  title={post.title}
-                  image={post.image}
-                  text={post.description}
-                  date={post.createdAt}
-                  key={post.id}
-                />
-              ))}
+              {blogPosts.map((post) => {
+                console.log({ post })
+                return (
+                  <InternalArticle
+                    onClick={() =>
+                      navigate(`blog/${post.slug}`, {
+                        state: { blogPosts, id: post.id },
+                      })
+                    }
+                    title={post.title}
+                    image={post.image}
+                    text={post.preview}
+                    date={post.createdAt}
+                    key={post.id}
+                  />
+                )
+              })}
             </CardContainer>
           </Fade>
         </Section.Container>
@@ -78,4 +79,4 @@ const Writing: React.FC = () => (
   />
 )
 
-export default Writing
+export default BlogPosts

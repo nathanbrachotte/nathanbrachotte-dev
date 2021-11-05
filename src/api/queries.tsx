@@ -9,14 +9,7 @@ export const allBlogPostsQuery = graphql`
           tags
           title
           createdAt
-          childContentfulBlogPostBodyTextNode {
-            id
-            body
-          }
-          childContentfulBlogPostDescriptionTextNode {
-            id
-            description
-          }
+
           body {
             id
             body

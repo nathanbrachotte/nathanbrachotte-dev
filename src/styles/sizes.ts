@@ -8,3 +8,10 @@ export const breakpoints = {
   md: '@media screen and (min-width: 52em) and (max-width: 64em)',
   lg: '@media screen and (min-width: 64em)',
 }
+
+export const sizeUpperBand = {
+  xs: '40em',
+  sm: '52em',
+  md: '64em',
+  lg: '100%',
+}

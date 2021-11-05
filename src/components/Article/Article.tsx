@@ -3,7 +3,8 @@ import { Heading, Text } from 'rebass/styled-components'
 import styled from 'styled-components'
 import ImageSubtitle from '../ImageSubtitle'
 import { Card } from '../Card'
-import { BORDER_RADIUS } from './constants'
+
+const WORD_PER_MINUTE = 200
 
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
@@ -19,7 +20,6 @@ interface SharedArticleProps {
   text: string
   image: string
   date: string
-  time: number
 }
 
 interface ExternalArticleProps extends SharedArticleProps {
@@ -70,7 +70,6 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
   image,
   onClick,
   date,
-  time,
 }) => (
   <Card pb={4} onClick={onClick}>
     <EllipsisHeading m={3} p={1} color="text">
@@ -81,7 +80,9 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
       {text}
     </Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-      {`${new Date(date).toLocaleDateString()} - ${Math.ceil(time)} min`}
+      {`${new Date(date).toLocaleDateString()} - ${Math.ceil(
+        text?.length / WORD_PER_MINUTE,
+      )} min`}
     </ImageSubtitle>
   </Card>
 )
