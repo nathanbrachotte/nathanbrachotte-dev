@@ -79,6 +79,7 @@ const Timeline: React.FC = () => {
               case 'job':
                 return (
                   <JobElement
+                    key={`job-${item.title}-${item.company}`}
                     link={item.link}
                     className="vertical-timeline-element--work"
                     date={item.timeframe}
@@ -95,6 +96,7 @@ const Timeline: React.FC = () => {
               case 'review':
                 return (
                   <RecommendationElement
+                    key={`job-${item.name}-${item.personPosition}`}
                     link={item.link}
                     className="vertical-timeline-element"
                     date={item.workedTogetherTimeframe}

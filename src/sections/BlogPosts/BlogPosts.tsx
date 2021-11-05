@@ -55,7 +55,6 @@ const BlogPosts: React.FC = () => (
           <Fade right>
             <CardContainer>
               {blogPosts.map((post) => {
-                console.log({ post })
                 return (
                   <InternalArticle
                     onClick={() =>
