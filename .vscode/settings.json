@@ -3,7 +3,13 @@
     "statusBar.background": "#ffe1d0",
     "statusBarItem.hoverBackground": "#ffc09d",
     "statusBar.foreground": "#15202b",
-    "tab.activeBorder": "#ffffff"
+    "tab.activeBorder": "#ffffff",
+    "editorGroup.border": "#ffffff",
+    "panel.border": "#ffffff",
+    "sash.hoverBorder": "#ffffff",
+    "sideBar.border": "#ffffff",
+    "statusBarItem.remoteBackground": "#ffe1d0",
+    "statusBarItem.remoteForeground": "#15202b"
   },
   "peacock.color": "#FFE1D0",
   "editor.defaultFormatter": "esbenp.prettier-vscode"

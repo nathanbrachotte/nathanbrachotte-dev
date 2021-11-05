@@ -81,7 +81,7 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
       {text}
     </Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-      {`${date} - ${Math.ceil(time)} min`}
+      {`${new Date(date).toLocaleDateString()} - ${Math.ceil(time)} min`}
     </ImageSubtitle>
   </Card>
 )

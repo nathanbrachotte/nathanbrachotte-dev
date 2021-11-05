@@ -55,23 +55,21 @@ const Writing: React.FC = () => (
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <Fade right>
             <CardContainer>
-              {blogPosts.map((post) => {
-                return (
-                  <InternalArticle
-                    onClick={() =>
-                      navigate(`blog/${post.slug}`, {
-                        state: { blogPosts, id: post.id },
-                      })
-                    }
-                    time={3}
-                    title={post.title}
-                    image={post.image}
-                    text={post.description}
-                    date={post.createdAt}
-                    key={post.id}
-                  />
-                )
-              })}
+              {blogPosts.map((post) => (
+                <InternalArticle
+                  onClick={() =>
+                    navigate(`blog/${post.slug}`, {
+                      state: { blogPosts, id: post.id },
+                    })
+                  }
+                  time={3}
+                  title={post.title}
+                  image={post.image}
+                  text={post.description}
+                  date={post.createdAt}
+                  key={post.id}
+                />
+              ))}
             </CardContainer>
           </Fade>
         </Section.Container>
