@@ -11,6 +11,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-closing-bracket-location': 'off',
     'import/prefer-default-export': 'off',
+    'react/jsx-one-expression-per-line': 'off',
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/prop-types': 'off',
