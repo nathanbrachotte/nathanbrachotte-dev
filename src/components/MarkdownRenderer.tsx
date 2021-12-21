@@ -20,7 +20,7 @@ const StyledLink = styled.a`
     content: '';
     width: 100%;
     height: 3px;
-    background-color: ${(props) => props.theme.colors.primaryLight};
+    background-color: ${(props) => props.theme.colors.primaryDark};
     transition: all 250ms;
   }
 
@@ -50,7 +50,7 @@ const MarkdownListItem = styled.li`
   line-height: 2em;
 `
 
-const MarkdownLink = ({ href, children }) => {
+export const MarkdownLink = ({ href, children }) => {
   const isInnerLink = href.startsWith('#')
   return isInnerLink ? (
     <SectionLink section={href.substring(1, href.length)}>

@@ -5,26 +5,17 @@ import { Box, Flex, Link } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { Tooltip } from '../../shared/Tooltip'
 
-import { Color } from '../../typings/colors'
-
-interface SocialLinkProps {
-  fontAwesomeIcon: string
-  name: string
-  url: string
-  color?: Color
-}
+import { Color } from '../../../colors'
 
 interface IconLinkProps {
-  style: {
-    color?: Color
-  }
+  color?: Color
 }
 
 const IconLink = styled(Link)<IconLinkProps>`
   transition: color 0.5s;
   color: ${(props) => {
-    return props.style.color
-      ? props.theme.colors[props.style.color]
+    return props.color
+      ? props.theme.colors[props.color]
       : props.theme.colors.primaryDark
   }};
   text-decoration: none;
@@ -33,6 +24,13 @@ const IconLink = styled(Link)<IconLinkProps>`
     color: ${(props) => props.theme.colors.primaryLight};
   }
 `
+
+interface SocialLinkProps {
+  fontAwesomeIcon: string
+  name: string
+  url: string
+  color?: Color
+}
 
 export const SocialLink: React.FC<SocialLinkProps> = ({
   fontAwesomeIcon,
@@ -44,7 +42,7 @@ export const SocialLink: React.FC<SocialLinkProps> = ({
     <IconLink
       href={url}
       target="_blank"
-      style={{ color }}
+      color={color}
       rel="noreferrer"
       aria-label={name}>
       <FontAwesomeIcon name={fontAwesomeIcon} />
@@ -52,15 +50,19 @@ export const SocialLink: React.FC<SocialLinkProps> = ({
   </Tooltip>
 )
 
-export const SocialLinksWrapper = ({
-  socialLinks,
-}: {
+interface SocialLinksWrapperProps {
   socialLinks: Links[]
+  color: Color
+}
+
+export const SocialLinksWrapper: React.FC<SocialLinksWrapperProps> = ({
+  socialLinks,
+  color,
 }) => (
   <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
     {socialLinks.map(({ id, ...rest }) => (
       <Box mx={3} fontSize={[5, 6, 6]} key={id}>
-        <SocialLink {...rest} />
+        <SocialLink {...rest} color={color} />
       </Box>
     ))}
   </Flex>

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
 import { Text, Box, Link, Flex } from 'rebass/styled-components'
-import { SocialLink } from '../../screens/Landing/SocialLink'
+import { SocialLink } from '../../sections/Landing/SocialLink'
 import { breakpoints } from '../../styles/sizes'
 
 const Fade = require('react-reveal/Fade')
@@ -60,8 +60,8 @@ const Footer: React.FC = () => (
         <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
           <FooterContainer>
             <Fade left>
-              <TextFooter fontSize={[2, 3]}>
-                <span> Powered by </span>
+              <TextFooter fontSize={[1, 2]}>
+                <span> Written with </span>
                 <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
                 <span>, </span>
                 <Link href="https://www.contentful.com/" mr={1}>
@@ -71,16 +71,21 @@ const Footer: React.FC = () => (
                 <Link href="https://www.netlify.com/" mr={1}>
                   Netlify
                 </Link>
-                <span role="img" aria-label="heart">
+                {/* <span role="img" aria-label="heart">
                   ❤️
-                </span>
+                </span> */}
               </TextFooter>
             </Fade>
             <Flex>
               <Fade right>
                 {socialLinks.map(({ id, ...rest }) => (
                   <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
-                    <SocialLink {...rest} color="background" />
+                    <SocialLink
+                      fontAwesomeIcon={rest.fontAwesomeIcon}
+                      name={rest.name}
+                      url={rest.url}
+                      color="alwaysWhite"
+                    />
                   </Box>
                 ))}
               </Fade>

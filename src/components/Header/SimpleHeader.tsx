@@ -42,7 +42,7 @@ const Header: React.FC = () => {
               <Fragment>
                 {homeLink}
                 <Flex mb={10} mr={[0, 3, 5]} />
-                <DarkModeToggle />
+                {/* <DarkModeToggle /> */}
               </Fragment>
             )
           }}

@@ -6,10 +6,8 @@ import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { SectionLinks } from 'react-scroll-section'
 
-import DarkModeToggle from './DarkModeToggle'
 import RouteLink from '../RouteLink'
 import useTheme from '../../hooks/useTheme'
-// import Logo from '../Logo/Contenful.svg'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
 
@@ -106,7 +104,7 @@ const Header: React.FC = () => {
                 <Flex mb={10} mr={[0, 3, 5]}>
                   {navLinks}
                 </Flex>
-                <DarkModeToggle />
+                {/* <DarkModeToggle /> */}
               </Fragment>
             )
           }}

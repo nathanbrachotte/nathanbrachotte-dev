@@ -8,7 +8,7 @@ export const getBlogPostsFromData = (data: any): BlogPost[] => {
         id: node.id,
         body: node?.body?.body,
         bodyAst: node?.body?.childMarkdownRemark?.htmlAst,
-        description: node?.description?.description,
+        preview: node?.preview?.preview,
         createdAt: node?.createdAt,
         image: node?.heroImage?.file?.url,
         title: node?.title,

@@ -4,35 +4,11 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
-import Section from '../components/Section'
-import Triangle from '../shared/Triangle'
-import markdownRenderer from '../components/MarkdownRenderer'
+import Section from '../../components/Section'
+import { Background } from './Background'
+import markdownRenderer from '../../components/MarkdownRenderer'
 
 const Fade = require('react-reveal/Fade')
-
-const Background: React.FC = () => (
-  <div>
-    <Triangle
-      color="secondaryLight"
-      height={['50vh', '20vh']}
-      width={['50vw', '50vw']}
-      invertY
-    />
-
-    <Triangle
-      color="primaryDark"
-      height={['20vh', '40vh']}
-      width={['75vw', '70vw']}
-      invertX
-    />
-
-    <Triangle
-      color="backgroundDark"
-      height={['25vh', '20vh']}
-      width={['100vw', '100vw']}
-    />
-  </div>
-)
 
 const ProfilePicture = styled(Image)`
   border-radius: 50%;
@@ -43,9 +19,9 @@ const ProfilePicture = styled(Image)`
   }
 `
 
-const About = () => (
-  <Section.Container id="about" Background={Background}>
-    <Section.Header name="About me" icon="🙋‍♂️" label="person" />
+const About: React.FC = () => (
+  <Section.Container id="About Me" Background={Background}>
+    <Section.Header name="About Me" icon="🙋‍♂️" label="person" />
     <StaticQuery
       query={graphql`
         query AboutMeQuery {
@@ -79,7 +55,10 @@ const About = () => (
 
             <Box
               width={[1, 1, 2 / 6]}
-              style={{ maxWidth: '300px', margin: 'auto' }}>
+              style={{
+                maxWidth: '300px',
+                margin: 'auto',
+              }}>
               <Fade right>
                 <ProfilePicture
                   src={profile.image.src}

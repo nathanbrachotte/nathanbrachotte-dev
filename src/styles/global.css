@@ -1,2 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Should always match color.js */
+:root {
+  --background: #fff;
+  --backgroundDark: #eddcd2;
+
+  --textLight: #464e66;
+  --text: #29314c;
+  --textDark: #222426;
+
+  --primaryLight: #ffe2e2;
+  --primary: #ffc8dd;
+  --primaryDark: #c3aed6;
+
+  --secondaryLight: #d6e2e9;
+  --secondary: #bcd4e6;
+  --secondaryDark: #99c1de;
+
+  --alwaysWhite: #fff;
+}

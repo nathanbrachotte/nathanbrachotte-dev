@@ -24,8 +24,8 @@ exports.createPages = async ({ graphql, actions }) => {
                 htmlAst
               }
             }
-            description {
-              description
+            preview {
+              preview
             }
             heroImage {
               id
