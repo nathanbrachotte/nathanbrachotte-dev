@@ -72,7 +72,7 @@ const renderAst = new RehypeReact({
         {...props}
       />
     ),
-    a: (props: amy) => <MarkdownLink {...props} />,
+    a: (props: any) => <MarkdownLink {...props} />,
   },
 }).Compiler
 
