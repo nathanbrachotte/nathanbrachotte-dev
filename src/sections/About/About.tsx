@@ -4,11 +4,10 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 
+import Fade from 'react-reveal/Fade'
 import Section from '../../components/Section'
 import { Background } from './Background'
 import markdownRenderer from '../../components/MarkdownRenderer'
-
-const Fade = require('react-reveal/Fade')
 
 const ProfilePicture = styled(Image)`
   border-radius: 50%;
@@ -37,6 +36,11 @@ const About: React.FC = () => (
                 src
               }
             }
+            logo {
+              file {
+                url
+              }
+            }
           }
         }
       `}
@@ -52,7 +56,6 @@ const About: React.FC = () => (
                 />
               </Fade>
             </Box>
-
             <Box
               width={[1, 1, 2 / 6]}
               style={{

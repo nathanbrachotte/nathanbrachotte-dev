@@ -28,55 +28,46 @@ const Helmet: React.FC<Props> = ({ theme = {} }) => (
               src
             }
           }
+          logo {
+            file {
+              url
+            }
+          }
         }
       }
     `}
     render={(data) => {
-      const { name, description, profile } = data.contentfulAbout
+      const { name, description, logo } = data.contentfulAbout
       const title = `${name}`
+      const logoUrl = logo.file.url
+
+      // console.log({ name, description, profile, logo })
 
       return (
         <ReactHelmet htmlAttributes={{ lang: 'en' }}>
           <meta charSet="utf-8" />
           <title>{title}</title>
           <meta name="description" content={description} />
-          <link rel="shortcut icon" href={`https:${profile.favicon32.src}`} />
+          <link rel="shortcut icon" href={logoUrl} />
           <meta name="theme-color" content={theme.background} />
-          <meta name="image" content={`https:${profile.favicon32.src}`} />
+          <meta name="image" content={logoUrl} />
           <meta itemProp="name" content={title} />
           <meta itemProp="description" content={description} />
-          <meta itemProp="image" content={`https:${profile.favicon32.src}`} />
+          <meta itemProp="image" content={logoUrl} />
           <meta name="og:title" content={title} />
           <meta name="og:description" content={description} />
-          <meta name="og:image" content={`https:${profile.bigIcon.src}`} />
+          <meta name="og:image" content={logoUrl} />
           <meta name="og:site_name" content={title} />
           <meta name="og:locale" content="en_US" />
           <meta name="og:type" content="website" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
-          <meta name="twitter:image" content={`https:${profile.bigIcon.src}`} />
-          <meta
-            name="twitter:image:src"
-            content={`https:${profile.bigIcon.src}`}
-          />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href={`https:${profile.appleIcon.src}`}
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href={`https:${profile.favicon32.src}`}
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href={`https:${profile.favicon16.src}`}
-          />
+          <meta name="twitter:image" content={logoUrl} />
+          <meta name="twitter:image:src" content={logoUrl} />
+          <link rel="apple-touch-icon" sizes="180x180" href={logoUrl} />
+          <link rel="icon" type="image/png" sizes="32x32" href={logoUrl} />
+          <link rel="icon" type="image/png" sizes="16x16" href={logoUrl} />
         </ReactHelmet>
       )
     }}

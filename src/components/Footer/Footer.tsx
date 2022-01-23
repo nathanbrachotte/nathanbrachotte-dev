@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql } from 'gatsby'
-import { Text, Box, Link, Flex } from 'rebass/styled-components'
+import { Text, Box, Image, Flex } from 'rebass/styled-components'
+import Fade from 'react-reveal/Fade'
+
 import { SocialLink } from '../../sections/Landing/SocialLink'
 import { breakpoints } from '../../styles/sizes'
-
-const Fade = require('react-reveal/Fade')
+import Logo from '../../shared/Logo'
 
 const FooterContainer = styled.div`
   max-width: 1366px;
@@ -50,18 +51,25 @@ const Footer: React.FC = () => (
             name
             fontAwesomeIcon
           }
+          logo {
+            file {
+              url
+            }
+          }
         }
       }
     `}
     render={(data) => {
-      const { name, socialLinks } = data.contentfulAbout
+      const { name, socialLinks, logo } = data.contentfulAbout
+
+      const logoUrl = logo.file.url
 
       return (
         <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
           <FooterContainer>
             <Fade left>
               <TextFooter fontSize={[1, 2]}>
-                <span> Written with </span>
+                {/* <span> Written with </span>
                 <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
                 <span>, </span>
                 <Link href="https://www.contentful.com/" mr={1}>
@@ -70,10 +78,11 @@ const Footer: React.FC = () => (
                 <span> and </span>
                 <Link href="https://www.netlify.com/" mr={1}>
                   Netlify
-                </Link>
+                </Link> */}
                 {/* <span role="img" aria-label="heart">
                   ❤️
                 </span> */}
+                <Logo logoUrl={logoUrl} />
               </TextFooter>
             </Fade>
             <Flex>

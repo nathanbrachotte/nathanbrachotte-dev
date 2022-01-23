@@ -1,15 +1,26 @@
 import React, { Fragment } from 'react'
 import Headroom from 'react-headroom'
 import FontAwesomeIcon from 'react-fontawesome'
-import { navigate } from 'gatsby'
+import { graphql, navigate, StaticQuery } from 'gatsby'
 import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { SectionLinks } from 'react-scroll-section'
+import Fade from 'react-reveal/Fade'
 
 import RouteLink from '../RouteLink'
 import useTheme from '../../hooks/useTheme'
+import Logo from '../../shared/Logo'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
+
+const ClickableLogo = styled.button`
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  height: 50px;
+  background-color: ${(props) => props.theme.colors.primaryLight};
+  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.2);
+`
 
 const HeaderContainer = styled(Headroom)`
   * {
@@ -50,67 +61,89 @@ const Header: React.FC = () => {
   const theme = useTheme()
 
   return (
-    <HeaderContainer>
-      <Flex
-        flexWrap="wrap"
-        justifyContent="space-between"
-        alignItems="center"
-        p={3}>
-        <SectionLinks>
-          {/* TODO: Type react-scroll-section SectionLinks component */}
-          {({ allLinks }) => {
-            const { home, links } = formatLinks(allLinks) as {
-              home: Link
-              links: {
-                name: string
-                value: Link
-              }[]
+    <StaticQuery
+      query={graphql`
+        query HeaderQuery {
+          contentfulAbout {
+            logo {
+              file {
+                url
+              }
             }
+          }
+        }
+      `}
+      render={(data) => {
+        const {
+          logo: {
+            file: { url: logoUrl },
+          },
+        } = data.contentfulAbout
 
-            const homeLink = home ? (
-              <FontAwesomeIcon
-                name="home"
-                size="2x"
-                onClick={home.onClick}
-                style={{
-                  color: theme.colors.alwaysWhite,
-                  cursor: 'pointer',
+        return (
+          <HeaderContainer>
+            <Flex
+              flexWrap="wrap"
+              justifyContent="space-between"
+              alignItems="center"
+              p={3}>
+              <SectionLinks>
+                {/* TODO: Type react-scroll-section SectionLinks component */}
+                {({ allLinks }) => {
+                  const { home, links } = formatLinks(allLinks) as {
+                    home: Link
+                    links: {
+                      name: string
+                      value: Link
+                    }[]
+                  }
+                  console.log({ home })
+                  const homeLink = home ? (
+                    <Fade left>
+                      <ClickableLogo onClick={home.onClick} type="button">
+                        <Logo
+                          logoUrl={logoUrl}
+                          // onClick={home.onClick}
+                        />
+                      </ClickableLogo>
+                    </Fade>
+                  ) : (
+                    <FontAwesomeIcon
+                      name="home"
+                      size="2x"
+                      onClick={() => navigate('/')}
+                      style={{
+                        color: theme.colors.alwaysWhite,
+                        cursor: 'pointer',
+                      }}
+                    />
+                  )
+
+                  const navLinks = links.map(({ name, value }) => (
+                    <RouteLink
+                      key={name}
+                      onClick={value.onClick}
+                      isSelected={value.isSelected}
+                      name={name}
+                    />
+                  ))
+
+                  return (
+                    <Fragment>
+                      {homeLink}
+                      <Flex mb={10} mr={[0, 3, 5]}>
+                        {navLinks}
+                      </Flex>
+                      {/* <DarkModeToggle /> */}
+                    </Fragment>
+                  )
                 }}
-              />
-            ) : (
-              <FontAwesomeIcon
-                name="home"
-                size="2x"
-                onClick={() => navigate('/')}
-                style={{
-                  color: theme.colors.alwaysWhite,
-                  cursor: 'pointer',
-                }}
-              />
-            )
-
-            const navLinks = links.map(({ name, value }) => (
-              <RouteLink
-                key={name}
-                onClick={value.onClick}
-                isSelected={value.isSelected}
-                name={name}
-              />
-            ))
-
-            return (
-              <Fragment>
-                {homeLink}
-                <Flex mb={10} mr={[0, 3, 5]}>
-                  {navLinks}
-                </Flex>
-                {/* <DarkModeToggle /> */}
-              </Fragment>
-            )
-          }}
-        </SectionLinks>
-      </Flex>
-    </HeaderContainer>
+              </SectionLinks>
+            </Flex>
+          </HeaderContainer>
+        )
+      }}
+    />
   )
 }
 

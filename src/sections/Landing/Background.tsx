@@ -21,6 +21,9 @@ const Background: React.FC = () => (
       color="primaryLight"
       height={['10vh', '25vh']}
       width={['100vw', '100vw']}
+      // style={{
+      //   marginLeft: '-50px',
+      // }}
       invertY
     />
   </div>
