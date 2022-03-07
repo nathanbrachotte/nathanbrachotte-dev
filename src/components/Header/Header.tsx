@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import Headroom from 'react-headroom'
 import FontAwesomeIcon from 'react-fontawesome'
+import { Flex, Box } from 'rebass/styled-components'
 import { graphql, navigate, StaticQuery } from 'gatsby'
-import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { SectionLinks } from 'react-scroll-section'
 import Fade from 'react-reveal/Fade'
@@ -17,8 +17,8 @@ const ClickableLogo = styled.button`
   cursor: pointer;
   padding: 0;
   border: 0;
-  height: 50px;
-  background-color: ${(props) => props.theme.colors.primaryLight};
+`
+const LogoBox = styled(Box)`
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.2);
 `
 
@@ -100,12 +100,14 @@ const Header: React.FC = () => {
                   console.log({ home })
                   const homeLink = home ? (
                     <Fade left>
-                      <ClickableLogo onClick={home.onClick} type="button">
-                        <Logo
-                          logoUrl={logoUrl}
-                          // onClick={home.onClick}
-                        />
-                      </ClickableLogo>
+                      <LogoBox size={[40, 50, 60, 70]} overflow="clip">
+                        <ClickableLogo onClick={home.onClick} type="button">
+                          <Logo
+                            logoUrl={logoUrl}
+                            // onClick={home.onClick}
+                          />
+                        </ClickableLogo>
+                      </LogoBox>
                     </Fade>
                   ) : (
                     <FontAwesomeIcon
@@ -131,7 +133,7 @@ const Header: React.FC = () => {
                   return (
                     <Fragment>
                       {homeLink}
-                      <Flex mb={10} mr={[0, 3, 5]}>
+                      <Flex mb={10} mr={[0, 3, 5]} mt={2}>
                         {navLinks}
                       </Flex>
                       {/* <DarkModeToggle /> */}
