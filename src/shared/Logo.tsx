@@ -6,6 +6,6 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ logoUrl }) => {
-  return <Image alt="Nathan logo" src={logoUrl} size={[40, 50, 60, 70]} />
+  return <Image alt="Nathan logo" src={logoUrl} size={[40, 50]} />
 }
 export default Logo

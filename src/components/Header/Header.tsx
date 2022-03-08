@@ -100,7 +100,7 @@ const Header: React.FC = () => {
                   console.log({ home })
                   const homeLink = home ? (
                     <Fade left>
-                      <LogoBox size={[40, 50, 60, 70]} overflow="clip">
+                      <LogoBox size={[40, 50]} overflow="clip">
                         <ClickableLogo onClick={home.onClick} type="button">
                           <Logo
                             logoUrl={logoUrl}
@@ -133,7 +133,7 @@ const Header: React.FC = () => {
                   return (
                     <Fragment>
                       {homeLink}
-                      <Flex mb={10} mr={[0, 3, 5]} mt={2}>
+                      <Flex mb={10} mr={[0, 3, 5]}>
                         {navLinks}
                       </Flex>
                       {/* <DarkModeToggle /> */}
