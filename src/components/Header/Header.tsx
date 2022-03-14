@@ -97,7 +97,7 @@ const Header: React.FC = () => {
                       value: Link
                     }[]
                   }
-                  console.log({ home })
+                  // console.log({ home })
                   const homeLink = home ? (
                     <Fade left>
                       <LogoBox size={[40, 50]} overflow="clip">
