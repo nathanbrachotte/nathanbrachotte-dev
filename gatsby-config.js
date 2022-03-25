@@ -36,6 +36,7 @@ const plugins = [
     },
   },
   'gatsby-plugin-use-dark-mode',
+  'gatsby-plugin-postcss',
 ]
 
 if (ANALYTICS_ID) {
