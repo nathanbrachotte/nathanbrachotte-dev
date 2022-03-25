@@ -12,6 +12,7 @@ import colors from '../colors'
 // eslint-disable-next-line import/no-unresolved
 import Helmet from './Helmet'
 import { GlobalStyle } from './shared/GlobalStyles'
+import { __DEV__ } from './constants'
 
 config({ ssrFadeout: true })
 

@@ -55,9 +55,8 @@ export const RecommendationElement = styled(
     transition: all 0.2s;
     position: relative;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
-    top: 0;
     &:hover {
-      top: -5px;
+      transform: scale(1.01);
       box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
     }
   }

@@ -100,7 +100,9 @@ const Project: React.FC<ProjectProps> = ({
       </TextContainer>
 
       <ImageContainer>
-        <ProjectImage src={logo.image.src} alt={logo.title} />
+        {logo?.image?.src && (
+          <ProjectImage src={logo.image.src} alt={logo.title} />
+        )}
         <ProjectTag>
           <Flex
             style={{

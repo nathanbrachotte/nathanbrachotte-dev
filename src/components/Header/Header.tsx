@@ -10,6 +10,7 @@ import Fade from 'react-reveal/Fade'
 import RouteLink from '../RouteLink'
 import useTheme from '../../hooks/useTheme'
 import Logo from '../../shared/Logo'
+import { __DEV__ } from '../../constants'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
 
