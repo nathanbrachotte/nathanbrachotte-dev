@@ -50,7 +50,10 @@ const BlogPosts: React.FC = () => (
     render={(data) => {
       const blogPosts = getBlogPostsFromData(data)
       return (
-        <Section.Container id="blog-posts" Background={Background}>
+        <Section.Container
+          id="blog-posts"
+          Background={Background}
+          maxHeight={50}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <Fade right>
             <CardContainer>

@@ -18,3 +18,16 @@ export const MAIN_PAGES = {
   PROJECT: 'PROJECT',
   WRITING: 'WRITING',
 } as const
+
+export interface Reference {
+  // eslint-disable-next-line camelcase
+  contentful_id: string
+  createdAt: string
+  file: {
+    contentType: 'image/png' | 'application/pdf'
+    details: { image: { height: number; width: number } }
+    fileName: string
+    url: string
+  }
+  id: string
+}

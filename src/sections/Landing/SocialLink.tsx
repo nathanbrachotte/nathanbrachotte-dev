@@ -61,7 +61,7 @@ export const SocialLinksWrapper: React.FC<SocialLinksWrapperProps> = ({
 }) => (
   <Flex alignItems="center" justifyContent="center" flexWrap="wrap">
     {socialLinks.map(({ id, ...rest }) => (
-      <Box mx={3} fontSize={[5, 6, 6]} key={id}>
+      <Box mx={[3]} fontSize={[5, 6]} key={id}>
         <SocialLink {...rest} color={color} />
       </Box>
     ))}

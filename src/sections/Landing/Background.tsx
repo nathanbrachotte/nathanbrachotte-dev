@@ -4,26 +4,24 @@ import Triangle from '../../shared/Triangle'
 const Background: React.FC = () => (
   <div>
     {/* top left */}
-    <Triangle
-      color="primaryDark"
-      height={['20vh', '0vh']}
-      width={['100vw', '100vw']}
-    />
+    {/* <Triangle
+      color="primaryLight"
+      height={['20vh', '18vh']}
+      width={['100vw', '190vw']}
+    /> */}
     {/* top right */}
     <Triangle
-      color="primaryDark"
-      height={['15vh', '15vh']}
-      width={['100vw', '80vw']}
+      color="secondary"
+      height={['15vh', '20vh']}
+      width={['100vw', '100vw']}
       invertX
     />
     {/* bottom left */}
     <Triangle
       color="primaryLight"
-      height={['10vh', '25vh']}
-      width={['100vw', '100vw']}
-      // style={{
-      //   marginLeft: '-50px',
-      // }}
+      height={['10vh', '18vh']}
+      width={['100vw', '120vw']}
+      invertX
       invertY
     />
   </div>

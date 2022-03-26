@@ -7,7 +7,10 @@ module.exports = {
       colors: {
         ...colors.light,
       },
+      fontFamily: {
+        body: ['"Cabin"'],
+      },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }

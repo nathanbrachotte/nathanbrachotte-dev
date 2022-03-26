@@ -10,27 +10,27 @@ import ProjectCard from '../../components/ProjectCard'
 
 const Background = () => (
   <div>
-    <Triangle
+    {/* <Triangle
       color="secondaryLight"
       height={['80vh', '80vh']}
       width={['100vw', '100vw']}
       invertX
-    />
+    /> */}
     <Triangle
-      color="background"
+      color="secondaryLight"
       height={['50vh', '20vh']}
       width={['50vw', '50vw']}
       invertX
     />
-    <Triangle
+    {/* <Triangle
       color="primaryDark"
       height={['25vh', '40vh']}
       width={['75vw', '60vw']}
       invertX
       invertY
-    />
+    /> */}
     <Triangle
-      color="backgroundDark"
+      color="primaryLight"
       height={['25vh', '20vh']}
       width={['100vw', '100vw']}
       invertY
@@ -39,7 +39,7 @@ const Background = () => (
 )
 
 const Projects: React.FC = () => (
-  <Section.Container id="projects" Background={Background}>
+  <Section.Container id="projects" Background={Background} maxHeight={20}>
     <Section.Header name="Projects" icon="💻" label="notebook" />
     <StaticQuery
       query={graphql`
@@ -70,7 +70,7 @@ const Projects: React.FC = () => (
             return (
               <Fade bottom delay={i * 200} key={p.id}>
                 <ProjectCard {...p} />
-                <Project {...p} />
+                {/* <Project {...p} /> */}
               </Fade>
             )
           })}

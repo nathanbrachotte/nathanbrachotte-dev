@@ -8,15 +8,15 @@ import Writing from '../sections/Writing/Writing'
 import Timeline from '../sections/Timeline/Timeline'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
+import TwTriangles from '../shared/TwTriangles'
 
 const IndexPage: React.FC = () => (
   <Layout>
     <Header />
-    <Landing />
     <About />
+    <Projects />
     <BlogPosts />
     <Timeline />
-    <Projects />
     {/* <Writing /> */}
     <Footer />
   </Layout>

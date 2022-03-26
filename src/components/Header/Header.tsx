@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade'
 
 import RouteLink from '../RouteLink'
 import useTheme from '../../hooks/useTheme'
-import Logo from '../../shared/Logo'
+import Logo, { LOGO_SIZES } from '../../shared/Logo'
 import { __DEV__ } from '../../constants'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
@@ -87,7 +87,8 @@ const Header: React.FC = () => {
               flexWrap="wrap"
               justifyContent="space-between"
               alignItems="center"
-              p={3}>
+              p={3}
+              backgroundColor="primaryDark">
               <SectionLinks>
                 {/* TODO: Type react-scroll-section SectionLinks component */}
                 {({ allLinks }) => {
@@ -101,7 +102,7 @@ const Header: React.FC = () => {
                   // console.log({ home })
                   const homeLink = home ? (
                     <Fade left>
-                      <LogoBox size={[40, 50]} overflow="clip">
+                      <LogoBox size={LOGO_SIZES} overflow="clip">
                         <ClickableLogo onClick={home.onClick} type="button">
                           <Logo
                             logoUrl={logoUrl}
@@ -134,7 +135,7 @@ const Header: React.FC = () => {
                   return (
                     <Fragment>
                       {homeLink}
-                      <Flex mb={10} mr={[0, 3, 5]}>
+                      <Flex mb={10} mr={[0, 3, 5]} mt={[10, 0, 0, 0]}>
                         {navLinks}
                       </Flex>
                       {/* <DarkModeToggle /> */}

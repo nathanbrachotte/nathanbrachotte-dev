@@ -52,4 +52,36 @@ exports.createPages = async ({ graphql, actions }) => {
       context: edge.node,
     })
   })
+
+  const projectTemplate = path.resolve(`src/templates/project.tsx`)
+  const projects = await graphql(`
+    query ProjectsQuery {
+      contentfulAbout {
+        projects {
+          id
+          name
+          description
+          projectUrl
+          repositoryUrl
+          publishedDate(formatString: "YYYY")
+          type
+          logo {
+            title
+            image: resize(width: 200, quality: 100) {
+              src
+            }
+          }
+        }
+      }
+    }
+  `)
+  console.log(JSON.stringify(projects, null, 2))
+
+  projects.data.contentfulAbout.projects.forEach((edge) => {
+    createPage({
+      path: `project/${edge.node.slug}`,
+      component: projectTemplate,
+      context: edge.node,
+    })
+  })
 }

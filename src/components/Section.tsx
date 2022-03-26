@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react'
 import Slide from 'react-reveal/Slide'
+import clsx from 'clsx'
 import { Section } from 'react-scroll-section'
 import { Heading } from 'rebass/styled-components'
 import styled from 'styled-components'
@@ -7,9 +8,14 @@ import LinkAnimated from './LinkAnimated'
 import { breakpoints } from '../styles/sizes'
 import Spacer from '../shared/Spacer'
 
-const SectionContainer = styled.div`
-  min-height: 70vh;
-  /* min-height: 100vh; */
+interface ContainerProps {
+  id: string
+  Background: FunctionComponent
+  maxHeight?: number
+}
+
+const SectionContainer = styled.div<{ maxHeight: number }>`
+  min-height: ${(props) => props.maxHeight}vh;
   min-width: 320px;
   max-width: 1366px;
   display: flex;
@@ -27,19 +33,15 @@ const SectionContainer = styled.div`
 
 const DefaultBackground = () => <div />
 
-interface ContainerProps {
-  id: string
-  Background: FunctionComponent
-}
-
 const Container: React.FC<ContainerProps> = ({
   id,
   children,
   Background = DefaultBackground,
+  maxHeight = 70,
 }) => (
   <Section id={id} style={{ position: 'relative' }}>
     <Background />
-    <SectionContainer>
+    <SectionContainer maxHeight={maxHeight}>
       <Spacer />
       {children}
       <Spacer />

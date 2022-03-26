@@ -28,8 +28,8 @@ const StyledLink = styled.a`
     color: white;
 
     &::after {
-      height: 110%;
-      width: 110%;
+      height: 105%;
+      width: 105%;
     }
   }
 `

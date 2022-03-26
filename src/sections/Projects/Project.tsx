@@ -9,7 +9,7 @@ import { breakpoints } from '../../styles/sizes'
 
 const CARD_HEIGHT = '200px'
 
-const Title = styled(Text)`
+export const Title = styled(Text)`
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;

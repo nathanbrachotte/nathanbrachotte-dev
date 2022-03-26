@@ -16,8 +16,8 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
         textAlign="center"
         as="h1"
         color="text"
-        fontSize={[6, 7]}
-        mb={[3, 4, 5]}>
+        fontSize={[4, 5]}
+        mb={[3, 4]}>
         Hi{' '}
         <span role="img" aria-label="hand-emoji">
           👋
@@ -28,8 +28,8 @@ const CentralInfo: React.FC<CentralInfoProps> = ({
       <Heading
         as="h2"
         color="textDark"
-        fontSize={[5, 6]}
-        mb={[3, 5]}
+        fontSize={[4, 5]}
+        mb={[3, 4]}
         textAlign="center"
         style={centerHorizontally}>
         <TextLoop interval={1000}>
