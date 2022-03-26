@@ -12,6 +12,7 @@ import useTheme from '../../hooks/useTheme'
 const HeaderContainer = styled(Headroom)`
   background-color: ${(props) => props.theme.colors.primaryDark};
   width: 100%;
+  height: 100px;
 `
 
 const Header: React.FC = () => {
