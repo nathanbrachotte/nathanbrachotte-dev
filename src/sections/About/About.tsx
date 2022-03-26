@@ -23,16 +23,12 @@ const ProfilePicture = styled(Image)`
 
 const About: React.FC = () => (
   <Section.Container id="home" Background={Background} maxHeight={100}>
+    <div className="h-8 w-full  sm:h-0" />
     <Section.Header name="About Me" icon="🙋‍♂️" label="person" />
     <StaticQuery
       query={graphql`
         query AboutMeQuery {
           contentfulAbout {
-            aboutMe {
-              childMarkdownRemark {
-                rawMarkdownBody
-              }
-            }
             childContentfulAboutAboutMeRichRichTextNode {
               aboutMeRich
             }
@@ -60,14 +56,13 @@ const About: React.FC = () => (
       `}
       render={(data) => {
         const {
-          aboutMe,
           profile,
           name,
           socialLinks,
           roles,
           childContentfulAboutAboutMeRichRichTextNode: { aboutMeRich },
         } = data.contentfulAbout
-        console.log({ aboutMeRich })
+
         return (
           <div>
             <Flex
@@ -77,13 +72,7 @@ const About: React.FC = () => (
               mb={[2, 3, 0]}>
               <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
                 <Fade left>
-                  <p className="text-md lg:text-lg">
-                    {richText(aboutMeRich)}
-                    {/* <ReactMarkdown
-                      source={aboutMe.childMarkdownRemark.rawMarkdownBody}
-                      renderers={markdownRenderer}
-                    /> */}
-                  </p>
+                  <p className="text-md lg:text-lg">{richText(aboutMeRich)}</p>
                 </Fade>
               </Box>
               <Box
