@@ -5,7 +5,6 @@ import Fade from 'react-reveal/Fade'
 import Section from '../../components/Section'
 import { CardContainer } from '../../components/Card'
 import Triangle from '../../shared/Triangle'
-import Project from './Project'
 import ProjectCard from '../../components/ProjectCard'
 
 const Background = () => (
@@ -59,6 +58,7 @@ const Projects: React.FC = () => (
                   src
                 }
               }
+              slug
             }
           }
         }
@@ -66,11 +66,9 @@ const Projects: React.FC = () => (
       render={({ contentfulAbout }) => (
         <CardContainer minWidth="350px">
           {contentfulAbout.projects.map((p, i) => {
-            console.log({ p })
             return (
               <Fade bottom delay={i * 200} key={p.id}>
                 <ProjectCard {...p} />
-                {/* <Project {...p} /> */}
               </Fade>
             )
           })}

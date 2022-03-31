@@ -9,29 +9,30 @@ import { SectionLinks } from 'react-scroll-section'
 import DarkModeToggle from './DarkModeToggle'
 import useTheme from '../../hooks/useTheme'
 
-const HeaderContainer = styled(Headroom)`
+const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryDark};
   width: 100%;
-  height: 100px;
 `
 
 const Header: React.FC = () => {
   const theme = useTheme()
 
   const homeLink = (
-    <FontAwesomeIcon
-      name="arrow-left"
-      size="2x"
-      onClick={() => navigate('/')}
-      style={{
-        color: theme.colors.alwaysWhite,
-        cursor: 'pointer',
-      }}
-    />
+    <div className="aspect-1 w-8 h-8">
+      <FontAwesomeIcon
+        name="arrow-left"
+        size="2x"
+        onClick={() => navigate('/')}
+        style={{
+          color: theme.colors.alwaysWhite,
+          cursor: 'pointer',
+        }}
+      />
+    </div>
   )
 
   return (
-    <HeaderContainer disable>
+    <HeaderContainer>
       <Flex
         flexWrap="wrap"
         justifyContent="space-between"

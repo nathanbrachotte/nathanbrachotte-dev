@@ -13,6 +13,7 @@ import {
   Options,
 } from '@contentful/rich-text-react-renderer'
 import styled from 'styled-components'
+import { faChessKnight } from '@fortawesome/free-solid-svg-icons'
 import Heading1 from '../shared/Heading1'
 import Heading2 from '../shared/Heading2'
 import Heading3 from '../shared/Heading3'
@@ -20,6 +21,7 @@ import Heading3 from '../shared/Heading3'
 import { Reference } from '../types'
 import { MarkdownLink } from './MarkdownRenderer'
 import LinkAnimated from './LinkAnimated'
+import Image from '../shared/Image'
 // import Game from './Game'
 
 const AnimatedLink = (node: Node, children: JSX.Element): ReactNode => {
@@ -81,34 +83,20 @@ export const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: Node): ReactNode =>
       defaultInline(INLINES.ASSET_HYPERLINK, node as Inline),
-    // [BLOCKS.EMBEDDED_ASSET]: (node: Node): ReactNode => {
-    //   const { id } = node.data.target.sys
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      const data = node.data.target.fields.file['en-US']
 
-    //   const asset = getAssetFromId(references, id)
-
-    //   if (!asset) {
-    //     return null
-    //   }
-
-    //   switch (asset.file.contentType) {
-    //     // case 'application/pdf':
-    //     //   return (
-    //     //     <div className="w-2/3 my-4 mx-auto">
-    //     //       <PDF url={asset.file.url} title={asset.file.fileName} />
-    //     //     </div>
-    //     //   )
-    //     case 'image/png':
-    //       return (
-    //         <img
-    //           src={asset.file.url}
-    //           alt={asset.file.fileName}
-    //           className="rounded-lg aspect-video w-1/2 my-4 mx-auto"
-    //         />
-    //       )
-    //     default:
-    //       return 'Nothing to see here...'
-    //   }
-    // },
+      return (
+        <div className="my-4">
+          <Image
+            alt={data.filename}
+            height={data.details.image.height}
+            width={data.details.image.width}
+            url={data.url}
+          />
+        </div>
+      )
+    },
     [INLINES.HYPERLINK]: AnimatedLink,
     [BLOCKS.DOCUMENT]: (_: Node, children: JSX.Element): ReactNode => children,
     [BLOCKS.PARAGRAPH]: (_: Node, children: JSX.Element): ReactNode => (
@@ -173,6 +161,24 @@ export const options = {
       defaultInline(INLINES.ENTRY_HYPERLINK, node as Inline),
     [INLINES.EMBEDDED_ENTRY]: (node: Node): ReactNode =>
       defaultInline(INLINES.EMBEDDED_ENTRY, node as Inline),
+  },
+  renderText: (text: string) => {
+    return text
+      .split('\n')
+      .reduce(
+        (
+          children: (string | false | Element | JSX.Element)[],
+          textSegment: string | false | Element | JSX.Element,
+          index: number,
+        ) => {
+          return [
+            ...children,
+            index > 0 && <br key={textSegment.toString()} />,
+            textSegment,
+          ]
+        },
+        [],
+      )
   },
 }
 
