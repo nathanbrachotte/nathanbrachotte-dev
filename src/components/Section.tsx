@@ -11,11 +11,11 @@ import Spacer from '../shared/Spacer'
 interface ContainerProps {
   id: string
   Background: FunctionComponent
-  maxHeight?: number
+  minHeight?: number
 }
 
-const SectionContainer = styled.div<{ maxHeight: number }>`
-  min-height: ${(props) => props.maxHeight}vh;
+const SectionContainer = styled.div<{ minHeight: number }>`
+  min-height: ${(props) => props.minHeight}vh;
   min-width: 320px;
   max-width: 1366px;
   display: flex;
@@ -37,11 +37,11 @@ const Container: React.FC<ContainerProps> = ({
   id,
   children,
   Background = DefaultBackground,
-  maxHeight = 70,
+  minHeight = 70,
 }) => (
   <Section id={id} style={{ position: 'relative' }}>
     <Background />
-    <SectionContainer maxHeight={maxHeight}>
+    <SectionContainer minHeight={minHeight}>
       <Spacer />
       {children}
       <Spacer />

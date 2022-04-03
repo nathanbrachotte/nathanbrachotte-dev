@@ -22,7 +22,7 @@ const ProfilePicture = styled(Image)`
 `
 
 const About: React.FC = () => (
-  <Section.Container id="home" Background={Background} maxHeight={100}>
+  <Section.Container id="home" Background={Background} minHeight={100}>
     <div className="h-8 w-full  sm:h-0" />
     <Section.Header name="About Me" icon="🙋‍♂️" label="person" />
     <StaticQuery

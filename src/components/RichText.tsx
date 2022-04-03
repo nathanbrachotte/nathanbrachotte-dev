@@ -36,7 +36,7 @@ const AnimatedLink = (node: Node, children: JSX.Element): ReactNode => {
   //     </div>
   //   )
   // }
-
+  console.log(node.data.uri)
   return (
     <MarkdownLink
       href={node.data.uri}

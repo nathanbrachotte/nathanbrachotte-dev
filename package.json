@@ -34,6 +34,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.15",
+    "@iconify/react": "^3.2.1",
     "@rebass/forms": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "@tailwindcss/line-clamp": "^0.3.1",

@@ -53,7 +53,7 @@ const BlogPosts: React.FC = () => (
         <Section.Container
           id="blog-posts"
           Background={Background}
-          maxHeight={50}>
+          minHeight={50}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <Fade right>
             <CardContainer>

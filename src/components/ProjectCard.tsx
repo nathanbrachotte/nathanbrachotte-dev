@@ -1,15 +1,7 @@
 import React from 'react'
-import {
-  Image,
-  Text,
-  Flex,
-  Box,
-  Card as CardRebass,
-} from 'rebass/styled-components'
+import { Text, Box } from 'rebass/styled-components'
 import styled from 'styled-components'
 
-import { breakpoints, sizeUpperBand } from '../styles/sizes'
-import { BORDER_RADIUS } from './Article/constants'
 import ImageSubtitle from './ImageSubtitle'
 import { SocialLink } from '../sections/Landing/SocialLink'
 
@@ -84,7 +76,6 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 className="w-16 aspect-square"
               />
             )}
-            {/* <div>{publishedDate}</div> */}
             <ImageSubtitle
               bg="primary"
               color="white"

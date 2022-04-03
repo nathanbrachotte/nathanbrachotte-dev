@@ -65,15 +65,23 @@ exports.createPages = async ({ graphql, actions }) => {
           description
           projectUrl
           repositoryUrl
+          playStoreUrl
+          appleStoreUrl
           publishedDate(formatString: "YYYY")
           type
           content {
             content
           }
+          tool
           logo {
             title
             image: resize(width: 200, quality: 100) {
               src
+            }
+          }
+          headerImage {
+            file {
+              url
             }
           }
         }

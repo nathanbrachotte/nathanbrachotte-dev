@@ -38,7 +38,7 @@ const Background = () => (
 )
 
 const Projects: React.FC = () => (
-  <Section.Container id="projects" Background={Background} maxHeight={20}>
+  <Section.Container id="projects" Background={Background} minHeight={20}>
     <Section.Header name="Projects" icon="💻" label="notebook" />
     <StaticQuery
       query={graphql`
