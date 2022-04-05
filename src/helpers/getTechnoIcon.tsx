@@ -32,71 +32,70 @@ import AWS from '../../media/AWS'
 import Github from '../../media/Github'
 import MongoDB from '../../media/MongoDB'
 
-export const getTechnoIcon = (techno: string): JSX.Element => {
+export const getTechnoIcon = (techno: string, size?: number): JSX.Element => {
   switch (techno) {
     case 'AWS'.toLowerCase():
-      return <AWS />
+      return <AWS width={size} />
     case 'Bitbucket'.toLowerCase():
-      return <Bitbucket />
+      return <Bitbucket width={size} />
     case 'CSS'.toLowerCase():
-      return <CSS />
+      return <CSS width={size} />
     case 'Cypress'.toLowerCase():
-      return <Cypress />
+      return <Cypress width={size} />
     case 'Expo'.toLowerCase():
-      return <Expo />
+      return <Expo width={size} />
     case 'Express'.toLowerCase():
-      return <Express />
+      return <Express height={size} />
     case 'Figma'.toLowerCase():
-      return <Figma />
+      return <Figma height={size} />
     case 'Gatsby'.toLowerCase():
-      return <Gatsby />
+      return <Gatsby width={size} />
     case 'GraphQl'.toLowerCase():
-      return <GraphQl />
+      return <GraphQl width={size} />
     case 'Github'.toLowerCase():
-      return <Github />
+      return <Github width={size} />
     case 'Html'.toLowerCase():
-      return <Html />
+      return <Html width={size} />
     case 'Iterm'.toLowerCase():
-      return <Iterm />
+      return <Iterm width={size} />
     case 'JavaScript'.toLowerCase():
-      return <JavaScript />
+      return <JavaScript width={size} />
     case 'Jest'.toLowerCase():
-      return <Jest />
+      return <Jest width={size} />
     case 'Jira'.toLowerCase():
-      return <Jira />
+      return <Jira width={size} />
     case 'Netlify'.toLowerCase():
-      return <Netlify />
+      return <Netlify width={size} />
     case 'Next'.toLowerCase():
-      return <Next />
+      return <Next width={size} />
     case 'Notion'.toLowerCase():
-      return <Notion />
+      return <Notion width={size} />
     case 'mongodb':
-      return <MongoDB />
+      return <MongoDB height={size} />
     case 'Prisma'.toLowerCase():
-      return <Prisma />
+      return <Prisma width={size} />
     case 'react':
-      return <ReactLogo />
+      return <ReactLogo width={size} />
     case 'react-native':
-      return <ReactNative />
+      return <ReactNative width={size} />
     case 'Redis'.toLowerCase():
-      return <Redis />
+      return <Redis width={size} />
     case 'Sketch'.toLowerCase():
-      return <Sketch />
+      return <Sketch width={size} />
     case 'Tailwind'.toLowerCase():
-      return <Tailwind />
+      return <Tailwind height={size} />
     case 'TypeScript'.toLowerCase():
-      return <TypeScript />
+      return <TypeScript width={size} />
     case 'StyledComponents'.toLowerCase():
-      return <StyledComponents />
+      return <StyledComponents width={size} />
     case 'Webhooks'.toLowerCase():
-      return <Webhooks />
+      return <Webhooks width={size} />
 
     default:
-      console.log('default')
       return (
         <Tooltip content={techno}>
-          <div style={{ height: 40, backgroundColor: 'red' }}>
-            <Icon icon={`logos:${techno}`} height={40} />
+          <div style={{ height: size || 40 }}>
+            <Icon icon={`logos:${techno}`} height={size || 40} />
           </div>
         </Tooltip>
       )

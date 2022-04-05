@@ -7,7 +7,6 @@ interface ImageProps {
   height: number
   width: number
   alt: string
-  widthRatio?: string
 }
 
 const WIDTHS = [280, 560, 840, 1100, 1650, 2500, 2100, 3100]

@@ -25,19 +25,12 @@ const loadScript = (src: string) => {
 }
 
 const Layout: React.FC = ({ children }) => {
-  // const darkMode = useDarkMode(false, {
-  //   storageKey: 'darkMode',
-  // })
-
-  // console.log(darkMode.value)
-
   useEffect(() => {
     loadScript('https://use.fontawesome.com/fd58d214b9.js')
   }, [])
 
   const theme = {
     ...preset,
-    // colors: darkMode.value ? colors.dark : colors.light,
     colors: colors.light,
     fonts: {
       body: 'Cabin, Open Sans, sans-serif',

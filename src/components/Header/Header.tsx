@@ -83,6 +83,9 @@ const Header: React.FC = () => {
 
         return (
           <HeaderContainer>
+            {__DEV__ && (
+              <div className="bg-pink-500 sm:bg-yellow-400 md:bg-green-400 lg:bg-blue-400 xl:bg-purple-400 2xl:bg-indigo-900 h-1" />
+            )}
             <Flex
               flexWrap="wrap"
               justifyContent="space-between"

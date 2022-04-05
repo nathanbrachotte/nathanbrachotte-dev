@@ -8,7 +8,7 @@ interface SVGProps {
 
 const SVG: React.FC<SVGProps> = ({ width = 40 }) => {
   return (
-    <Tooltip content="Jest (Unit Testing Library)">
+    <Tooltip content="Jest (Unit testing)">
       <div style={{ width, height: width }} className="self-center">
         <Icon icon="logos:jest" width={width} height={width} />
       </div>

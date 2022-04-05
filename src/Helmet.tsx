@@ -41,8 +41,6 @@ const Helmet: React.FC<Props> = ({ theme = {} }) => (
       const title = `${name}`
       const logoUrl = logo.file.url
 
-      // console.log({ name, description, profile, logo })
-
       return (
         <ReactHelmet htmlAttributes={{ lang: 'en' }}>
           <meta charSet="utf-8" />
