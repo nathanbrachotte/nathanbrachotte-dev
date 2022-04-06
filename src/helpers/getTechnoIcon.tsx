@@ -31,8 +31,9 @@ import Jira from '../../media/Jira'
 import AWS from '../../media/AWS'
 import Github from '../../media/Github'
 import MongoDB from '../../media/MongoDB'
+import Storybook from '../../media/Storybook'
 
-export const getTechnoIcon = (techno: string, size?: number): JSX.Element => {
+export const getTechnoIcon = (techno: string, size: number): JSX.Element => {
   switch (techno) {
     case 'AWS'.toLowerCase():
       return <AWS width={size} />
@@ -45,7 +46,7 @@ export const getTechnoIcon = (techno: string, size?: number): JSX.Element => {
     case 'Expo'.toLowerCase():
       return <Expo width={size} />
     case 'Express'.toLowerCase():
-      return <Express height={size} />
+      return <Express height={size * 0.5} />
     case 'Figma'.toLowerCase():
       return <Figma height={size} />
     case 'Gatsby'.toLowerCase():
@@ -83,9 +84,12 @@ export const getTechnoIcon = (techno: string, size?: number): JSX.Element => {
     case 'Sketch'.toLowerCase():
       return <Sketch width={size} />
     case 'Tailwind'.toLowerCase():
-      return <Tailwind height={size} />
+      return <Tailwind height={size * 0.65} />
     case 'TypeScript'.toLowerCase():
       return <TypeScript width={size} />
+    case 'storybook':
+    case 'storybook-icon':
+      return <Storybook width={size * 0.9} />
     case 'StyledComponents'.toLowerCase():
       return <StyledComponents width={size} />
     case 'Webhooks'.toLowerCase():

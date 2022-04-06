@@ -54,17 +54,19 @@ const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
             {technos && technos.length > 0 && (
               <div className="flex flex-row items-end mb-8">
                 <span className="mr-2 text-md">Built with:</span>
-                {data.tool.map((t) => {
-                  return (
-                    <div className="transition duration-200  hover:scale-110 mr-2">
-                      {getTechnoIcon(t, 35)}
-                    </div>
-                  )
-                })}
+                <div className="flex flex-row justify-center">
+                  {data.tool.map((t) => {
+                    return (
+                      <div className="transition duration-200 hover:scale-110 mr-2 xl:mr-4 flex justify-center items-center">
+                        {getTechnoIcon(t, 35)}
+                      </div>
+                    )
+                  })}
+                </div>
               </div>
             )}
             {appleStoreUrl || playStoreUrl ? (
-              <div className="flex flex-row w-full items-center justify-center">
+              <div className="flex flex-row items-center justify-center">
                 {!!appleStoreUrl && (
                   <a href={appleStoreUrl} target="_blank" rel="noreferrer">
                     <AppStore width={100} />

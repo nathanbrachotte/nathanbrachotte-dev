@@ -8,9 +8,9 @@ interface SVGProps {
 
 const SVG: React.FC<SVGProps> = ({ width = 40 }) => {
   return (
-    <Tooltip content="Amazon Web Services">
+    <Tooltip content="Storybook (Visual Testing)">
       <div style={{ width }}>
-        <Icon icon="logos:aws" width={width} />
+        <Icon icon="logos:storybook-icon" width={width} />
       </div>
     </Tooltip>
   )

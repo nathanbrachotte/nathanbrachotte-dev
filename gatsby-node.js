@@ -57,8 +57,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const projects = await graphql(`
     query ProjectsQuery {
-      contentfulAbout {
-        projects {
+      allContentfulProject {
+        nodes {
           id
           slug
           name
@@ -67,12 +67,12 @@ exports.createPages = async ({ graphql, actions }) => {
           repositoryUrl
           playStoreUrl
           appleStoreUrl
+          tool
           publishedDate(formatString: "YYYY")
           type
           content {
             content
           }
-          tool
           logo {
             title
             image: resize(width: 200, quality: 100) {
@@ -90,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  projects.data.contentfulAbout.projects.forEach((edge) => {
+  projects.data.allContentfulProject.nodes.forEach((edge) => {
     createPage({
       path: `project/${edge.slug}`,
       component: projectTemplate,

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import Slide from 'react-reveal/Slide'
 import clsx from 'clsx'
 import { Section } from 'react-scroll-section'
@@ -53,21 +53,33 @@ interface HeaderProps {
   name: string
   icon?: string
   label?: string
+  Subtitle?: ReactNode
 }
 
-const Header: React.FC<HeaderProps> = ({ name, icon = '', label = '' }) => {
+const Header: React.FC<HeaderProps> = ({
+  name,
+  icon = '',
+  label = '',
+  Subtitle,
+}) => {
   return (
     <Slide left>
-      <Heading fontSize={[3, 4, 5]} color="textDark" mb={4}>
-        <LinkAnimated color="secondaryDark" selected>
-          {name}
-          {icon && (
-            <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
-              {icon}
-            </span>
-          )}
-        </LinkAnimated>
-      </Heading>
+      <>
+        <Heading fontSize={[3, 4, 5]} color="textDark" mb={Subtitle ? 3 : 4}>
+          <LinkAnimated color="secondaryDark" selected>
+            {name}
+            {icon && (
+              <span
+                role="img"
+                aria-label={label}
+                style={{ marginLeft: '10px' }}>
+                {icon}
+              </span>
+            )}
+          </LinkAnimated>
+        </Heading>
+        {Subtitle}
+      </>
     </Slide>
   )
 }
