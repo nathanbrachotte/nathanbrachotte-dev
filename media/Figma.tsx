@@ -9,7 +9,9 @@ const RATIO = 200 / 300
 const SVG: React.FC<SVGProps> = ({ height = 40 }) => {
   return (
     <Tooltip content="Figma">
-      <div style={{ height, width: RATIO * height }} className="self-center">
+      <div
+        style={{ height, width: height }}
+        className="self-center flex justify-center">
         <svg
           height={height}
           width={RATIO * height}

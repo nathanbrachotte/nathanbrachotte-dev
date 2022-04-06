@@ -17,7 +17,7 @@ const HeaderProjectImage: React.FC<HeaderProjectImageProps> = ({
   }).join('\n')
 
   return (
-    <div className="overflow-hidden rounded-bl-3xl max-h-[70vh]">
+    <div className="overflow-hidden lg:rounded-bl-3xl max-h-[70vh]">
       <img
         className="object-cover object-center w-full"
         src={`https://${url}?w=560&fm=webp`}
