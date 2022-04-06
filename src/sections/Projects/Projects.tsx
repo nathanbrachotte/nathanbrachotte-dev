@@ -54,7 +54,7 @@ const Projects: React.FC = () => (
     <StaticQuery
       query={graphql`
         query ProjectsQuery {
-          allContentfulProject {
+          allContentfulProject(sort: { fields: publishedDate, order: DESC }) {
             nodes {
               id
               name

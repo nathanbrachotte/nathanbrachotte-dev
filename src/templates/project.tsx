@@ -14,22 +14,24 @@ import PlayStore from '../../media/PlayStore'
 import { getTechnoIcon } from '../helpers/getTechnoIcon'
 import HeaderProjectImage from '../components/Project/HeaderProjectImage'
 import { SocialLink } from '../sections/Landing/SocialLink'
+import { Project } from '../types'
 
 const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
-  const data = pageContext
-  const currentPost = null
-  const createdAt2 = 'dsa'
-  const headerImageUrl = data?.headerImage?.file?.url
-  const title = data?.name
-  const workDone = data?.workDone
-  const description = data?.description
-  const projectUrl = data?.projectUrl
-  const appleStoreUrl = data?.appleStoreUrl
-  const playStoreUrl = data?.playStoreUrl
+  const data = pageContext as Project
 
-  console.log(pageContext)
-
-  const technos = data?.tool
+  const {
+    name: title,
+    workDone,
+    description,
+    projectUrl,
+    appleStoreUrl,
+    playStoreUrl,
+    tool: technos,
+    headerImage: {
+      file: { url: headerImageUrl },
+    },
+    content: { content: body },
+  } = data
 
   return (
     <Layout>
@@ -43,7 +45,7 @@ const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
                 <span className={clsx(projectUrl && 'mr-2')}>{title}</span>
                 {projectUrl ? (
                   <SocialLink
-                    name="See project"
+                    name="Go to project"
                     fontAwesomeIcon="globe"
                     url={projectUrl}
                   />
@@ -55,7 +57,7 @@ const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
               <div className="flex flex-row items-end mb-8">
                 <span className="mr-2 text-md">Built with:</span>
                 <div className="flex flex-row justify-center">
-                  {data.tool.map((t) => {
+                  {technos.map((t) => {
                     return (
                       <div className="transition duration-200 hover:scale-110 mr-2 xl:mr-4 flex justify-center items-center">
                         {getTechnoIcon(t, 35)}
@@ -87,7 +89,7 @@ const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
           </div>
         </div>
         <div className="self-center w-full sm:w-4/5  md:w-2/3">
-          {richText(data.content.content)}
+          {richText(body)}
         </div>
       </div>
       <Footer />

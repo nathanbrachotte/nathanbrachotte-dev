@@ -4,22 +4,7 @@ import styled from 'styled-components'
 
 import ImageSubtitle from './ImageSubtitle'
 import { SocialLink } from '../sections/Landing/SocialLink'
-
-interface ProjectProps {
-  name: string
-  description: string
-  projectUrl?: string
-  repositoryUrl?: string
-  type: string
-  publishedDate: string
-  logo: {
-    image: {
-      src: string
-    }
-    title: string
-  }
-  slug: string
-}
+import { Project } from '../types'
 
 export const Title = styled(Text)`
   font-size: 14px;
@@ -29,7 +14,7 @@ export const Title = styled(Text)`
   border-bottom: ${(props) => props.theme.colors.primary} 5px solid;
 `
 
-const ProjectCard: React.FC<ProjectProps> = ({
+const ProjectCard: React.FC<Project> = ({
   name,
   description,
   projectUrl,
@@ -62,7 +47,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
               {projectUrl && (
                 <Box fontSize={5}>
                   <SocialLink
-                    name="See project"
+                    name="Go to project"
                     fontAwesomeIcon="globe"
                     url={projectUrl}
                   />

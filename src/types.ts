@@ -31,3 +31,25 @@ export interface Reference {
   }
   id: string
 }
+
+export interface Project {
+  name: string
+  description: string
+  projectUrl?: string
+  repositoryUrl?: string
+  type: string
+  publishedDate: string
+  logo: {
+    image: {
+      src: string
+    }
+    title: string
+  }
+  slug: string
+  headerImage: { file: { url: string } }
+  workDone: string
+  appleStoreUrl: string
+  playStoreUrl: string
+  tool: string[]
+  content: { content: string }
+}

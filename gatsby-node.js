@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const projects = await graphql(`
     query ProjectsQuery {
-      allContentfulProject {
+      allContentfulProject(sort: { fields: publishedDate, order: DESC }) {
         nodes {
           id
           slug
