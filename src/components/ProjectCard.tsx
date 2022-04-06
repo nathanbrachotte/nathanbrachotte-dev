@@ -25,16 +25,18 @@ const ProjectCard: React.FC<Project> = ({
 }) => {
   return (
     <a href={`/project/${slug}`}>
-      <div className="bg-background rounded-3xl shadow-xl overflow-hidden p-0 transition hover:scale-105 cursor-pointer w-full h-full pb-10">
+      <div className="bg-background rounded-3xl shadow-xl overflow-hidden p-0 transition hover:scale-105 cursor-pointer w-full h-full">
         <div className="flex flex-row p-4 h-full">
-          <div className="w-2/3">
+          <div className="w-2/3 pb-10">
             <Title my={2} pb={1} color="text">
               {name}
             </Title>
             <p className="line-clamp-4">{description}</p>
           </div>
           <div className="flex items-center justify-center w-1/3">
-            <div className="flex flex-row absolute top-0 right-4">
+            {/* //? Should I keep this component on the top right corner? */}
+            {/* //? It looks ugly but it's a nice shortcut */}
+            {/* <div className="flex flex-row absolute top-0 right-4">
               {repositoryUrl && (
                 <Box fontSize={5} mr={2}>
                   <SocialLink
@@ -53,24 +55,21 @@ const ProjectCard: React.FC<Project> = ({
                   />
                 </Box>
               )}
-            </div>
+            </div> */}
             {logo.image.src && (
-              <img
-                src={logo.image.src}
-                alt={logo.title}
-                className="w-16 aspect-square"
-              />
+              <div className="h-full flex justify-center items-center">
+                <img
+                  src={logo.image.src}
+                  alt={logo.title}
+                  className="w-full px-2 max-h-20"
+                />
+              </div>
             )}
-            <ImageSubtitle
-              bg="primary"
-              color="white"
-              y="bottom"
-              x="right"
-              round>
-              {type}
-            </ImageSubtitle>
           </div>
         </div>
+        <ImageSubtitle bg="primary" color="white" y="bottom" x="right" round>
+          {type}
+        </ImageSubtitle>
       </div>
     </a>
   )

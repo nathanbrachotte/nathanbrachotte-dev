@@ -52,9 +52,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
         <span className="mt-4 mb-4">{description}</span>
         {techs && techs.length > 0 && (
           <div className="flex flex-row items-end mb-8">
-            <span className="mr-2 pt-2 text-md self-center">
-              Built{NON_BREAKING_SPACE}with:
-            </span>
+            <span className="mr-2 pt-2 text-md self-center">Tools:</span>
             <div className="flex flex-row justify-start items-center flex-wrap">
               {techs.map((t: string) => {
                 return (
@@ -67,7 +65,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
           </div>
         )}
         {appleStoreUrl || playStoreUrl ? (
-          <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-row w-full items-center justify-center mb-4 lg:mb-0">
             {!!appleStoreUrl && (
               <a href={appleStoreUrl} target="_blank" rel="noreferrer">
                 <AppStore width={100} />
@@ -81,7 +79,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
           </div>
         ) : null}
       </div>
-      <div className="col-span-6 bg-red-100">
+      <div className="col-span-6">
         {headerImageUrl && (
           <HeaderProjectImage url={headerImageUrl} alt="project header" />
         )}

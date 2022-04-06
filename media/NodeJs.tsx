@@ -8,7 +8,7 @@ interface SVGProps {
 
 const SVG: React.FC<SVGProps> = ({ height = 40 }) => {
   return (
-    <Tooltip content="Redis (Database)">
+    <Tooltip content="NodeJS (Backend)">
       <div style={{ height }}>
         <Icon icon="logos:nodejs" height={height} />
       </div>

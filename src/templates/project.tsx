@@ -41,7 +41,9 @@ const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
           techs={techs}
           headerImageUrl={headerImageUrl}
         />
-        <div className="self-center w-full px-8 lg:px-16">{richText(body)}</div>
+        <div className="self-center w-full px-8 lg:w-2/3 lg:px-16">
+          {richText(body)}
+        </div>
       </div>
       <Footer />
     </Layout>

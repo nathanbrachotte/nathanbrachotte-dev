@@ -32,6 +32,7 @@ import AWS from '../../media/AWS'
 import Github from '../../media/Github'
 import MongoDB from '../../media/MongoDB'
 import Storybook from '../../media/Storybook'
+import NodeJs from '../../media/NodeJs'
 
 export const getTechnoIcon = (techno: string, size: number): JSX.Element => {
   switch (techno) {
@@ -71,6 +72,8 @@ export const getTechnoIcon = (techno: string, size: number): JSX.Element => {
       return <Next width={size} />
     case 'Notion'.toLowerCase():
       return <Notion width={size} />
+    case 'nodejs':
+      return <NodeJs height={size} />
     case 'mongodb':
       return <MongoDB height={size} />
     case 'Prisma'.toLowerCase():
