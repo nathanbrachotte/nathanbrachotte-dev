@@ -2,11 +2,11 @@ import React from 'react'
 import Triangle from '../../shared/Triangle'
 
 export const Background: React.FC = () => (
-  <div>
+  <div className="overflow-hidden">
     {/* Top Left */}
     <Triangle
       color="secondary"
-      height={['5vh', '12vh']}
+      height={['13vh', '20vh']}
       width={['100vw', '100vw']}
     />
     {/* Bottom Right */}

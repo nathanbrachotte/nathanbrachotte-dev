@@ -1,16 +1,13 @@
-import React from 'react'
 import { PageProps } from 'gatsby'
-
+import React from 'react'
+import Footer from '../components/Footer/Footer'
+import SimpleHeader from '../components/Header/SimpleHeader'
+import HeaderSection from '../components/Project/HeaderSection'
 import { richText } from '../components/RichText'
 import Layout from '../Layout'
-
-import SimpleHeader from '../components/Header/SimpleHeader'
-import Footer from '../components/Footer/Footer'
-
 import { Project } from '../types'
-import HeaderSection from '../components/Project/HeaderSection'
 
-const project: React.FC<PageProps> = ({ pageContext, ...rest }) => {
+const project: React.FC<PageProps> = ({ pageContext }) => {
   const data = pageContext as Project
 
   const {

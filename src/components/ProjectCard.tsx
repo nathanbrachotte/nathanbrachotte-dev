@@ -1,10 +1,11 @@
+import { SparklesIcon } from '@heroicons/react/solid'
 import React from 'react'
-import { Text, Box } from 'rebass/styled-components'
+import { Text } from 'rebass/styled-components'
 import styled from 'styled-components'
-
-import ImageSubtitle from './ImageSubtitle'
-import { SocialLink } from '../sections/Landing/SocialLink'
+import Heading2 from '../shared/Heading2'
+import { Tooltip } from '../shared/Tooltip'
 import { Project } from '../types'
+import ImageSubtitle from './ImageSubtitle'
 
 export const Title = styled(Text)`
   font-size: 14px;
@@ -17,20 +18,30 @@ export const Title = styled(Text)`
 const ProjectCard: React.FC<Project> = ({
   name,
   description,
-  projectUrl,
-  repositoryUrl,
+  // projectUrl,
+  // repositoryUrl,
   type,
   logo,
   slug,
+  isSideProject,
 }) => {
   return (
     <a href={`/project/${slug}`}>
       <div className="bg-background rounded-3xl shadow-xl overflow-hidden p-0 transition hover:scale-105 cursor-pointer w-full h-full">
         <div className="flex flex-row p-4 h-full">
           <div className="w-2/3 pb-10">
-            <Title my={2} pb={1} color="text">
-              {name}
-            </Title>
+            <div className="mb-2">
+              <Heading2>
+                <span className="border-b-4 border-primaryLight">
+                  {name}
+                  {isSideProject ? (
+                    <Tooltip content="Side Project">
+                      <SparklesIcon className="absolute top-4 right-2 text-yellow-300 h-8 w-8" />
+                    </Tooltip>
+                  ) : null}
+                </span>
+              </Heading2>
+            </div>
             <p className="line-clamp-4">{description}</p>
           </div>
           <div className="flex items-center justify-center w-1/3">

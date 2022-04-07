@@ -1,16 +1,12 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import { Box, Image, Flex, Heading, Text } from 'rebass/styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import ReactMarkdown from 'react-markdown'
-
 import Fade from 'react-reveal/Fade'
-import Section from '../../components/Section'
-import { Background } from './Background'
-import markdownRenderer from '../../components/MarkdownRenderer'
-import CentralInfo from '../Landing/CentralInfo'
-import { SocialLinksWrapper } from '../Landing/SocialLink'
+import { Box, Flex, Image } from 'rebass/styled-components'
+import styled from 'styled-components'
 import { richText } from '../../components/RichText'
+import Section from '../../components/Section'
+import { SocialLinksWrapper } from '../Landing/SocialLink'
+import { Background } from './Background'
 
 const ProfilePicture = styled(Image)`
   border-radius: 50%;
@@ -57,9 +53,7 @@ const About: React.FC = () => (
       render={(data) => {
         const {
           profile,
-          name,
           socialLinks,
-          roles,
           childContentfulAboutAboutMeRichRichTextNode: { aboutMeRich },
         } = data.contentfulAbout
 

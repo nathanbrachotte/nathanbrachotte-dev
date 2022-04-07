@@ -1,27 +1,21 @@
-import React, { ReactNode } from 'react'
-
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
   BLOCKS,
+  Inline,
   INLINES,
   MARKS,
-  Document,
-  Inline,
   Node,
 } from '@contentful/rich-text-types'
-import {
-  documentToReactComponents,
-  Options,
-} from '@contentful/rich-text-react-renderer'
-import styled from 'styled-components'
-import { faChessKnight } from '@fortawesome/free-solid-svg-icons'
+import React, { ReactNode } from 'react'
 import Heading1 from '../shared/Heading1'
 import Heading2 from '../shared/Heading2'
 import Heading3 from '../shared/Heading3'
+import Image from '../shared/Image'
 // import PDF from './PDF'
 import { Reference } from '../types'
-import { MarkdownLink } from './MarkdownRenderer'
 import LinkAnimated from './LinkAnimated'
-import Image from '../shared/Image'
+import { MarkdownLink } from './MarkdownRenderer'
+
 // import Game from './Game'
 
 const AnimatedLink = (node: Node, children: JSX.Element): ReactNode => {

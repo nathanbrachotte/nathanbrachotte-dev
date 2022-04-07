@@ -1,24 +1,16 @@
+import { ExternalLinkIcon } from '@heroicons/react/solid'
 import React from 'react'
 import { VerticalTimeline as VerticalTimelineLib } from 'react-vertical-timeline-component'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-
+import 'react-vertical-timeline-component/style.min.css'
 import { Text } from 'rebass/styled-components'
 import styled from 'styled-components'
-import {
-  BlockQuote,
-  BottomRightSection,
-  EllipsisHeading,
-  TextEllipsis,
-} from './StyledComponents'
-
-import { JobIcon } from './JobIcon'
 import Section from '../../components/Section'
-import { JobElement, RecommendationElement } from './Elements'
-
-import { data } from './data'
+import { Tooltip } from '../../shared/Tooltip'
 import Background from './Background'
-import 'react-vertical-timeline-component/style.min.css'
+import { data } from './data'
+import { JobElement, RecommendationElement } from './Elements'
+import { JobIcon } from './JobIcon'
+import { BlockQuote, EllipsisHeading, TextEllipsis } from './StyledComponents'
 
 const Fade = require('react-reveal/Fade')
 
@@ -68,8 +60,8 @@ const Timeline: React.FC = () => {
     //   `}
     //   render={() => {
     // return (
-    <Section.Container id="Endorsements" Background={Background}>
-      <Section.Header name="Endorsements" icon="✨" label="speech bubble" />
+    <Section.Container id="Recommendations" Background={Background}>
+      <Section.Header name="Recommendations" icon="✨" label="speech bubble" />
       <Fade bottom>
         <VerticalTimeline
           className="vertical-timeline-custom-line"
@@ -101,27 +93,19 @@ const Timeline: React.FC = () => {
                     className="vertical-timeline-element"
                     date={item.workedTogetherTimeframe}
                     icon={<JobIcon icon="💬" />}>
-                    <EllipsisHeading
-                      className="vertical-timeline-element-title"
-                      color="textDark"
-                      as="h3">
-                      Recommendation
-                    </EllipsisHeading>
-                    <BlockQuote>
-                      <TextEllipsis>{item.description}</TextEllipsis>
-                    </BlockQuote>
                     <Text>
                       {item.name}
                       {'\n'}-{'\n'}
                       {item.personPosition}
                     </Text>
-                    <BottomRightSection>
-                      <FontAwesomeIcon
-                        size="1x"
-                        icon={faExternalLinkAlt}
-                        aria-label="Visit"
-                      />
-                    </BottomRightSection>
+                    <BlockQuote>
+                      <TextEllipsis>{item.description}</TextEllipsis>
+                    </BlockQuote>
+                    <div className="absolute top-2 right-2 h-8 w-8">
+                      <Tooltip content="Go to recommendation">
+                        <ExternalLinkIcon className="text-secondaryDark" />
+                      </Tooltip>
+                    </div>
                   </RecommendationElement>
                 )
 

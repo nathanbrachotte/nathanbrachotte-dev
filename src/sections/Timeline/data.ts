@@ -67,7 +67,7 @@ export const data: (Job | Review)[] = [
     workedTogetherTimeframe: 'Feb 2018 - Dec 2019',
     link: {
       external:
-        'https://drive.google.com/file/d/16XswK-McH1n98iElgjSFxXjcFugKzNMi/view?usp=sharing',
+        'https://drive.google.com/file/d/1OBdJPIpDbbQxoLmfAxmL_A7vHCMPwEJJ/view?usp=sharing',
     },
   },
   {

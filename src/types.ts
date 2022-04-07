@@ -52,4 +52,5 @@ export interface Project {
   playStoreUrl: string
   tool: string[]
   content: { content: string }
+  isSideProject: boolean
 }

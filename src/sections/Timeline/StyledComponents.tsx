@@ -1,6 +1,5 @@
-import styled from 'styled-components'
 import { Heading, Text } from 'rebass/styled-components'
-import { isPropertySignature } from 'typescript'
+import styled from 'styled-components'
 
 export const EllipsisHeading = styled(Heading)`
   overflow: hidden;
@@ -12,12 +11,6 @@ export const EllipsisHeading = styled(Heading)`
   color: ${(props) => props.theme.colors.primary} 5px solid;
 `
 
-export const BottomRightSection = styled.div`
-  position: absolute;
-  right: 3%;
-  bottom: 8%;
-  color: ${(props) => props.theme.colors.primary};
-`
 export const BlockQuote = styled.div`
   ::before {
     display: block;

@@ -1,33 +1,19 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
 import Fade from 'react-reveal/Fade'
-
-import Section from '../../components/Section'
-import Triangle from '../../shared/Triangle'
 import ProjectCard from '../../components/ProjectCard'
+import Section from '../../components/Section'
 import Heading3 from '../../shared/Heading3'
+import Triangle from '../../shared/Triangle'
 
 const Background = () => (
   <div>
-    {/* <Triangle
-      color="secondaryLight"
-      height={['80vh', '80vh']}
-      width={['100vw', '100vw']}
-      invertX
-    /> */}
     <Triangle
       color="secondaryLight"
       height={['50vh', '20vh']}
       width={['50vw', '50vw']}
       invertX
     />
-    {/* <Triangle
-      color="primaryDark"
-      height={['25vh', '40vh']}
-      width={['75vw', '60vw']}
-      invertX
-      invertY
-    /> */}
     <Triangle
       color="primaryLight"
       height={['25vh', '20vh']}
@@ -70,6 +56,7 @@ const Projects: React.FC = () => (
                 }
               }
               slug
+              isSideProject
             }
           }
         }
