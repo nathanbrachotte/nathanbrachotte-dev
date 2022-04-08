@@ -2,9 +2,8 @@ import {
   VerticalTimelineElement,
   VerticalTimelineElementProps,
 } from 'react-vertical-timeline-component'
-import styled from 'styled-components'
-
 import 'react-vertical-timeline-component/style.min.css'
+import styled from 'styled-components'
 import { Review } from './data'
 
 interface VerticalTimelineElementStyledProps
@@ -50,13 +49,12 @@ export const RecommendationElement = styled(
   .vertical-timeline-element-date {
     color: var(--textDark);
   }
-
   .vertical-timeline-element-content {
-    transition: all 0.2s;
+    transition: all 0.1s ease-in-out;
     position: relative;
     box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.1);
     &:hover {
-      transform: scale(1.01);
+      transform: scale(1.05);
       box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
     }
   }
@@ -72,7 +70,7 @@ export const JobElement = styled(
     color: props.theme.colors.alwaysWhite,
   },
   contentArrowStyle: {
-    borderRight: `7px solid  ${props.theme.colors.secondaryDark}`,
+    borderRight: `7px solid ${props.theme.colors.secondaryDark}`,
   },
   iconStyle: {
     background: props.theme.colors.secondaryDark,

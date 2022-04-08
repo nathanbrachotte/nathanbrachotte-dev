@@ -27,7 +27,7 @@ const ProjectCard: React.FC<Project> = ({
 }) => {
   return (
     <a href={`/project/${slug}`}>
-      <div className="bg-background rounded-3xl shadow-xl overflow-hidden p-0 transition hover:scale-105 cursor-pointer w-full h-full">
+      <div className="bg-background rounded-3xl shadow-xl overflow-hidden p-0 transition ease-in-out hover:scale-105 cursor-pointer w-full h-full">
         <div className="flex flex-row p-4 h-full">
           <div className="w-2/3 pb-10">
             <div className="mb-2">

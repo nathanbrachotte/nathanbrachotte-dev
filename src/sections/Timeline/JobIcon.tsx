@@ -7,7 +7,7 @@ export const JobIcon: React.FC<{ icon: string }> = ({ icon }) => (
     justifyContent="center"
     alignItems="center"
     flexWrap="wrap">
-    <span aria-label="engineer logo" role="img">
+    <span aria-label="speech bubble" role="img" className="text-2xl">
       {icon}
     </span>
   </Flex>
