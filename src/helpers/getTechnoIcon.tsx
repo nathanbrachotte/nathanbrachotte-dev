@@ -38,7 +38,6 @@ export const getTechnoIcon = (
   size: number,
   label?: string,
 ): JSX.Element => {
-  console.log({ techno })
   switch (techno) {
     case 'AWS'.toLowerCase():
       return <AWS width={size} />
