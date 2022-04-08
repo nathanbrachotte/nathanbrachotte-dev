@@ -68,22 +68,20 @@ const About: React.FC = () => (
               flexWrap="wrap"
               mb={[2, 3, 0]}>
               <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
-                <Fade left>
-                  <p className="text-md lg:text-lg">
-                    {richText(aboutMeRich, {
-                      // TODO - fix options types, it doesn't follow Options interface
-                      ...(options as Options),
-                      renderMark: {
-                        ...(options.renderMark as Options['renderMark']),
-                        [MARKS.BOLD]: (text: ReactNode) => (
-                          <span className="font-bold text-lg lg:text-xl">
-                            {text}
-                          </span>
-                        ),
-                      },
-                    })}
-                  </p>
-                </Fade>
+                <p className="text-md lg:text-lg">
+                  {richText(aboutMeRich, {
+                    // TODO - fix options types, it doesn't follow Options interface
+                    ...(options as Options),
+                    renderMark: {
+                      ...(options.renderMark as Options['renderMark']),
+                      [MARKS.BOLD]: (text: ReactNode) => (
+                        <span className="font-bold text-lg lg:text-xl">
+                          {text}
+                        </span>
+                      ),
+                    },
+                  })}
+                </p>
               </Box>
               <Box
                 width={[120, 200, 2 / 6]}
@@ -91,14 +89,12 @@ const About: React.FC = () => (
                   maxWidth: '300px',
                   margin: 'auto',
                 }}>
-                <Fade right>
-                  <ProfilePicture
-                    src={profile.image.src}
-                    alt={profile.title}
-                    mt={[4, 4, 0]}
-                    ml={[0, 0, 1]}
-                  />
-                </Fade>
+                <ProfilePicture
+                  src={profile.image.src}
+                  alt={profile.title}
+                  mt={[4, 4, 0]}
+                  ml={[0, 0, 1]}
+                />
               </Box>
             </Flex>
             <Fade bottom>
