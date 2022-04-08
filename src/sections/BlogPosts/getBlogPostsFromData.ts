@@ -1,4 +1,4 @@
-import { DEV } from '../../constants'
+import { __DEV__ } from '../../constants'
 import { BlogPost } from '../../types'
 
 export const getBlogPostsFromData = (data: any): BlogPost[] => {
@@ -23,7 +23,7 @@ export const getBlogPostsFromData = (data: any): BlogPost[] => {
   )
 
   const prodPost = posts.filter((post) => {
-    return DEV || !post.showInDevOnly
+    return __DEV__ || !post.showInDevOnly
   })
 
   return prodPost

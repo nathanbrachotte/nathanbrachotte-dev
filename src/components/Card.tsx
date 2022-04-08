@@ -1,6 +1,5 @@
-import styled from 'styled-components'
 import { Card as CardRebass } from 'rebass/styled-components'
-import { breakpoints, sizeUpperBand } from '../styles/sizes'
+import styled from 'styled-components'
 import { BORDER_RADIUS } from './Article/constants'
 
 interface CardContainerProps {
@@ -22,18 +21,16 @@ interface CardProps {
   onClick?: () => void
 }
 
-export const Card = styled(CardRebass).attrs({
-  bg: 'white',
-  boxShadow: 0,
-})<CardProps>`
+export const Card = styled(CardRebass)<CardProps>`
   position: relative;
   box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s;
-  top: 0;
+  transition: all 0.1s;
+
   border-radius: ${BORDER_RADIUS};
   cursor: ${(props) => (props.onClick ? 'pointer' : 'default')};
+  transition-timing-function: ease-in-out;
   &:hover {
-    top: -20px;
+    transform: scale(1.05);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
   }
   width: 100%;

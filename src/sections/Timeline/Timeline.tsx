@@ -1,26 +1,18 @@
+import { ExternalLinkIcon } from '@heroicons/react/solid'
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 import { VerticalTimeline as VerticalTimelineLib } from 'react-vertical-timeline-component'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-
+import 'react-vertical-timeline-component/style.min.css'
 import { Text } from 'rebass/styled-components'
 import styled from 'styled-components'
-import {
-  BlockQuote,
-  BottomRightSection,
-  EllipsisHeading,
-  TextEllipsis,
-} from './StyledComponents'
-
-import { JobIcon } from './JobIcon'
 import Section from '../../components/Section'
-import { JobElement, RecommendationElement } from './Elements'
-
-import { data } from './data'
+import Heading2 from '../../shared/Heading2'
+import { Tooltip } from '../../shared/Tooltip'
 import Background from './Background'
-import 'react-vertical-timeline-component/style.min.css'
-
-const Fade = require('react-reveal/Fade')
+import { data } from './data'
+import { JobElement, RecommendationElement } from './Elements'
+import { JobIcon } from './JobIcon'
+import { TextEllipsis } from './StyledComponents'
 
 const VerticalTimeline = styled(VerticalTimelineLib)`
   &::before {
@@ -29,47 +21,10 @@ const VerticalTimeline = styled(VerticalTimelineLib)`
 `
 
 const Timeline: React.FC = () => {
+  // TODO: Rewrite Timeline component in TailwindCSS
   return (
-    // <StaticQuery
-    //   query={graphql`
-    //     query BlogPostQuery2 {
-    //       allContentfulBlogPost {
-    //         edges {
-    //           node {
-    //             id
-    //             tags
-    //             title
-    //             createdAt
-    //             body {
-    //               body
-    //               childMarkdownRemark {
-    //                 htmlAst
-    //               }
-    //             }
-    //             description {
-    //               description
-    //             }
-    //             heroImage {
-    //               id
-    //               file {
-    //                 fileName
-    //                 url
-    //               }
-    //             }
-    //             video {
-    //               video
-    //             }
-    //             dev
-    //             slug
-    //           }
-    //         }
-    //       }
-    //     }
-    //   `}
-    //   render={() => {
-    // return (
-    <Section.Container id="Endorsements" Background={Background}>
-      <Section.Header name="Endorsements" icon="✨" label="speech bubble" />
+    <Section.Container id="Recommendations" Background={Background}>
+      <Section.Header name="Recommendations" icon="✨" label="speech bubble" />
       <Fade bottom>
         <VerticalTimeline
           className="vertical-timeline-custom-line"
@@ -84,12 +39,11 @@ const Timeline: React.FC = () => {
                     className="vertical-timeline-element--work"
                     date={item.timeframe}
                     icon={<JobIcon icon="⬆️" />}>
-                    <EllipsisHeading
-                      className="vertical-timeline-element-title"
-                      color="textDark"
-                      as="h3">
-                      {item.title} at {item.company}
-                    </EllipsisHeading>
+                    <Heading2>
+                      <span className="text-white">
+                        {item.title} at {item.company}
+                      </span>
+                    </Heading2>
                     <Text />
                   </JobElement>
                 )
@@ -101,27 +55,19 @@ const Timeline: React.FC = () => {
                     className="vertical-timeline-element"
                     date={item.workedTogetherTimeframe}
                     icon={<JobIcon icon="💬" />}>
-                    <EllipsisHeading
-                      className="vertical-timeline-element-title"
-                      color="textDark"
-                      as="h3">
-                      Recommendation
-                    </EllipsisHeading>
-                    <BlockQuote>
+                    <div className="p-2">
+                      <Heading2>
+                        {item.name}
+                        {'\n'}-{'\n'}
+                        {item.personPosition}
+                      </Heading2>
                       <TextEllipsis>{item.description}</TextEllipsis>
-                    </BlockQuote>
-                    <Text>
-                      {item.name}
-                      {'\n'}-{'\n'}
-                      {item.personPosition}
-                    </Text>
-                    <BottomRightSection>
-                      <FontAwesomeIcon
-                        size="1x"
-                        icon={faExternalLinkAlt}
-                        aria-label="Visit"
-                      />
-                    </BottomRightSection>
+                      <div className="absolute top-2 right-2 h-8 w-8">
+                        <Tooltip content="Go to recommendation">
+                          <ExternalLinkIcon className="text-secondaryDark" />
+                        </Tooltip>
+                      </div>
+                    </div>
                   </RecommendationElement>
                 )
 
@@ -134,9 +80,6 @@ const Timeline: React.FC = () => {
         </VerticalTimeline>
       </Fade>
     </Section.Container>
-    // )
-    //   }}
-    // />
   )
 }
 

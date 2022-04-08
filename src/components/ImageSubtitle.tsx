@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { Box } from 'rebass/styled-components'
+import styled from 'styled-components'
 import { BORDER_RADIUS, BORDER_SPACING } from './Article/constants'
 
 const BORDER_PATH_MAP = {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Heading, Text } from 'rebass/styled-components'
 import styled from 'styled-components'
-import ImageSubtitle from '../ImageSubtitle'
 import { Card } from '../Card'
+import ImageSubtitle from '../ImageSubtitle'
 
-const WORD_PER_MINUTE = 200
+const AVERAGE_WORD_PER_MINUTE_READ = 200
 
 const EllipsisHeading = styled(Heading)`
   overflow: hidden;
@@ -81,7 +81,7 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
     </Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
       {`${new Date(date).toLocaleDateString()} - ${Math.ceil(
-        text?.length / WORD_PER_MINUTE,
+        text?.length / AVERAGE_WORD_PER_MINUTE_READ,
       )} min`}
     </ImageSubtitle>
   </Card>

@@ -1,18 +1,17 @@
-import React from 'react'
 import { PageProps } from 'gatsby'
-import { Image, Text, Flex, Box, Heading } from 'rebass/styled-components'
-
+import React from 'react'
+import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components'
 import RehypeReact from 'rehype-react'
+import Footer from '../components/Footer/Footer'
+import SimpleHeader from '../components/Header/SimpleHeader'
 import Section from '../components/Section'
-import Background from './Background'
-import { BlogPost } from '../types'
-import { Badge } from '../shared/Badge'
 import VideoBox from '../components/VideoBox'
 import Layout from '../Layout'
-import SimpleHeader from '../components/Header/SimpleHeader'
-import Footer from '../components/Footer/Footer'
+import { Badge } from '../shared/Badge'
+import { MarkdownLink } from '../shared/RichText/options'
 import Spacer from '../shared/Spacer'
-import { MarkdownLink } from '../components/MarkdownRenderer'
+import { BlogPost } from '../types'
+import Background from './Background'
 
 function getBlogPostFromContext(pageContext: any) {
   const post: BlogPost = {
@@ -32,6 +31,8 @@ function getBlogPostFromContext(pageContext: any) {
   return post
 }
 
+// ! DEPRECATED use Rich Text component instead
+// TODO: remove this rendered and use Rich Text
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const renderAst = new RehypeReact({
@@ -58,20 +59,7 @@ const renderAst = new RehypeReact({
     p: (props: any) => (
       <Text fontSize={[1, 2, 3]} color="textLight" {...props} />
     ),
-    // a: (props: any) => (
-    //   <a {...props}>
-    //     <Text fontSize={[1, 2, 3]} color="textDark" {...props} />
-    //   </a>
-    // ),
-    // FIXME: some real styling for code should be added
-    code: (props: any) => (
-      <Text
-        fontSize={[1, 2, 3]}
-        color="red"
-        // color={['secondaryDark', 'primary', 'textDark']}
-        {...props}
-      />
-    ),
+    code: (props: any) => <Text fontSize={[1, 2, 3]} color="red" {...props} />,
     a: (props: any) => <MarkdownLink {...props} />,
   },
 }).Compiler

@@ -15,7 +15,6 @@ const Background: React.FC = () => (
       color="primaryDark"
       height={['5vh', '10vh']}
       width={['100vw', '100vw']}
-      // invertX
     />
     {/* Bottom Right */}
     <Triangle

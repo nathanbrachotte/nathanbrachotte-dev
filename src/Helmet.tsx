@@ -1,6 +1,6 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet as ReactHelmet } from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
 import { withTheme } from 'styled-components'
 
 interface Props {
@@ -40,8 +40,6 @@ const Helmet: React.FC<Props> = ({ theme = {} }) => (
       const { name, description, logo } = data.contentfulAbout
       const title = `${name}`
       const logoUrl = logo.file.url
-
-      // console.log({ name, description, profile, logo })
 
       return (
         <ReactHelmet htmlAttributes={{ lang: 'en' }}>

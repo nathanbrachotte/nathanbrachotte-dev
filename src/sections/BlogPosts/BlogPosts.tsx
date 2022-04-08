@@ -1,14 +1,11 @@
+import { graphql, navigate, StaticQuery } from 'gatsby'
 import React from 'react'
-import { StaticQuery, graphql, navigate } from 'gatsby'
-
-import Section from '../../components/Section'
-import { CardContainer } from '../../components/Card'
-import Background from './Background'
+import Fade from 'react-reveal/Fade'
 import { InternalArticle } from '../../components/Article/Article'
-
+import { CardContainer } from '../../components/Card'
+import Section from '../../components/Section'
+import Background from './Background'
 import { getBlogPostsFromData } from './getBlogPostsFromData'
-
-const Fade = require('react-reveal/Fade')
 
 const BlogPosts: React.FC = () => (
   <StaticQuery
@@ -50,7 +47,10 @@ const BlogPosts: React.FC = () => (
     render={(data) => {
       const blogPosts = getBlogPostsFromData(data)
       return (
-        <Section.Container id="blog-posts" Background={Background}>
+        <Section.Container
+          id="blog-posts"
+          Background={Background}
+          minHeight={50}>
           <Section.Header name="Blog" icon="✍️" label="notebook" />
           <Fade right>
             <CardContainer>

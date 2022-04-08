@@ -17,5 +17,6 @@ export const GlobalStyle = createGlobalStyle`
       return props.theme.colors.background
     }};
     color: ${(props) => props.theme.colors.text};
-  }
+  }  
+}
 `

@@ -1,13 +1,15 @@
-import React from 'react'
-import { Box, Image, Flex } from 'rebass/styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import ReactMarkdown from 'react-markdown'
-
+import { Options } from '@contentful/rich-text-react-renderer'
+import { MARKS } from '@contentful/rich-text-types'
+import { graphql, StaticQuery } from 'gatsby'
+import React, { ReactNode } from 'react'
 import Fade from 'react-reveal/Fade'
+import { Box, Flex, Image } from 'rebass/styled-components'
+import styled from 'styled-components'
 import Section from '../../components/Section'
+import { options } from '../../shared/RichText/options'
+import { richText } from '../../shared/RichText/RichText'
 import { Background } from './Background'
-import markdownRenderer from '../../components/MarkdownRenderer'
+import { SocialLinksWrapper } from './SocialLink'
 
 const ProfilePicture = styled(Image)`
   border-radius: 50%;
@@ -19,16 +21,15 @@ const ProfilePicture = styled(Image)`
 `
 
 const About: React.FC = () => (
-  <Section.Container id="About Me" Background={Background}>
+  <Section.Container id="home" Background={Background} minHeight={100}>
+    <div className="h-8 w-full  sm:h-0" />
     <Section.Header name="About Me" icon="🙋‍♂️" label="person" />
     <StaticQuery
       query={graphql`
         query AboutMeQuery {
           contentfulAbout {
-            aboutMe {
-              childMarkdownRemark {
-                rawMarkdownBody
-              }
+            childContentfulAboutAboutMeRichRichTextNode {
+              aboutMeRich
             }
             profile {
               title
@@ -41,37 +42,65 @@ const About: React.FC = () => (
                 url
               }
             }
+            name
+            roles
+            socialLinks {
+              id
+              url
+              name
+              fontAwesomeIcon
+            }
           }
         }
       `}
       render={(data) => {
-        const { aboutMe, profile } = data.contentfulAbout
+        const {
+          profile,
+          socialLinks,
+          childContentfulAboutAboutMeRichRichTextNode: { aboutMeRich },
+        } = data.contentfulAbout
+
         return (
-          <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
-            <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
-              <Fade bottom>
-                <ReactMarkdown
-                  source={aboutMe.childMarkdownRemark.rawMarkdownBody}
-                  renderers={markdownRenderer}
-                />
-              </Fade>
-            </Box>
-            <Box
-              width={[1, 1, 2 / 6]}
-              style={{
-                maxWidth: '300px',
-                margin: 'auto',
-              }}>
-              <Fade right>
+          <div>
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              flexWrap="wrap"
+              mb={[2, 3, 0]}>
+              <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
+                <p className="text-md lg:text-lg">
+                  {richText(aboutMeRich, {
+                    // TODO - fix options types, it doesn't follow Options interface
+                    ...(options as Options),
+                    renderMark: {
+                      ...(options.renderMark as Options['renderMark']),
+                      [MARKS.BOLD]: (text: ReactNode) => (
+                        <span className="font-bold text-lg lg:text-xl">
+                          {text}
+                        </span>
+                      ),
+                    },
+                  })}
+                </p>
+              </Box>
+              <Box
+                width={[120, 200, 2 / 6]}
+                style={{
+                  maxWidth: '300px',
+                  margin: 'auto',
+                }}>
                 <ProfilePicture
                   src={profile.image.src}
                   alt={profile.title}
                   mt={[4, 4, 0]}
                   ml={[0, 0, 1]}
                 />
-              </Fade>
-            </Box>
-          </Flex>
+              </Box>
+            </Flex>
+            <Fade bottom>
+              <SocialLinksWrapper socialLinks={socialLinks} color="textDark" />
+            </Fade>
+          </div>
         )
       }}
     />
