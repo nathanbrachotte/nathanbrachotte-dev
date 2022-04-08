@@ -75,8 +75,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           logo {
             title
-            image: resize(width: 200, quality: 100) {
-              src
+            file {
+              url
             }
           }
           headerImage {
