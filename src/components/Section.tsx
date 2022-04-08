@@ -1,12 +1,11 @@
 import React, { FunctionComponent, ReactNode } from 'react'
 import Slide from 'react-reveal/Slide'
-import clsx from 'clsx'
 import { Section } from 'react-scroll-section'
 import { Heading } from 'rebass/styled-components'
 import styled from 'styled-components'
-import LinkAnimated from './LinkAnimated'
-import { breakpoints } from '../styles/sizes'
 import Spacer from '../shared/Spacer'
+import { breakpoints } from '../styles/sizes'
+import LinkAnimated from './LinkAnimated'
 
 interface ContainerProps {
   id: string
@@ -65,7 +64,11 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <Slide left>
       <>
-        <Heading fontSize={[3, 4, 5]} color="textDark" mb={Subtitle ? 3 : 4}>
+        <Heading
+          as="h1"
+          fontSize={[3, 4, 5]}
+          color="textDark"
+          mb={Subtitle ? 3 : 4}>
           <LinkAnimated color="secondaryDark" selected>
             {name}
             {icon && (
