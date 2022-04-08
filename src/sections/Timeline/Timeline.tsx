@@ -21,6 +21,7 @@ const VerticalTimeline = styled(VerticalTimelineLib)`
 `
 
 const Timeline: React.FC = () => {
+  // TODO: Rewrite Timeline component in TailwindCSS
   return (
     <Section.Container id="Recommendations" Background={Background}>
       <Section.Header name="Recommendations" icon="✨" label="speech bubble" />
