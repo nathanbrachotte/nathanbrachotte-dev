@@ -15,6 +15,7 @@ import Iterm from '../assets/Iterm'
 import JavaScript from '../assets/JavaScript'
 import Jest from '../assets/Jest'
 import Jira from '../assets/Jira'
+import LinkedIn from '../assets/LinkedIn'
 import MongoDB from '../assets/MongoDB'
 import Netlify from '../assets/Netlify'
 import Next from '../assets/Next'
@@ -32,7 +33,12 @@ import TypeScript from '../assets/TypeScript'
 import Webhooks from '../assets/Webhooks'
 import { Tooltip } from '../shared/Tooltip'
 
-export const getTechnoIcon = (techno: string, size: number): JSX.Element => {
+export const getTechnoIcon = (
+  techno: string,
+  size: number,
+  label?: string,
+): JSX.Element => {
+  console.log({ techno })
   switch (techno) {
     case 'AWS'.toLowerCase():
       return <AWS width={size} />
@@ -88,6 +94,9 @@ export const getTechnoIcon = (techno: string, size: number): JSX.Element => {
       return <Tailwind height={size * 0.65} />
     case 'TypeScript'.toLowerCase():
       return <TypeScript width={size} />
+    case 'LinkedIn'.toLowerCase():
+    case 'logos:linkedin-icon':
+      return <LinkedIn height={size} />
     case 'storybook':
     case 'storybook-icon':
       return <Storybook width={size * 0.9} />
@@ -98,9 +107,12 @@ export const getTechnoIcon = (techno: string, size: number): JSX.Element => {
 
     default:
       return (
-        <Tooltip content={techno}>
+        <Tooltip content={label || techno}>
           <div style={{ height: size || 40 }}>
-            <Icon icon={`logos:${techno}`} height={size || 40} />
+            <Icon
+              icon={techno.includes(':') ? techno : `logos:${techno}`}
+              height={size || 40}
+            />
           </div>
         </Tooltip>
       )

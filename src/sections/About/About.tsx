@@ -102,10 +102,7 @@ const About: React.FC = () => (
               </Box>
             </Flex>
             <Fade bottom>
-              <SocialLinksWrapper
-                socialLinks={socialLinks}
-                color="primaryDark"
-              />
+              <SocialLinksWrapper socialLinks={socialLinks} color="textDark" />
             </Fade>
           </div>
         )

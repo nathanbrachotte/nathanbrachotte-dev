@@ -1,9 +1,7 @@
 import React from 'react'
-import FontAwesomeIcon from 'react-fontawesome'
 import { Box, Link } from 'rebass/styled-components'
-import styled from 'styled-components'
 import { Color } from '../../../colors'
-import { Tooltip } from '../../shared/Tooltip'
+import { getTechnoIcon } from '../../helpers/getTechnoIcon'
 
 interface IconLinkProps {
   color?: Color
@@ -15,20 +13,6 @@ interface Links {
   name: string
   url: string
 }
-
-const IconLink = styled(Link)<IconLinkProps>`
-  transition: color 0.5s;
-  color: ${(props) => {
-    return props.color
-      ? props.theme.colors[props.color]
-      : props.theme.colors.primaryDark
-  }};
-  text-decoration: none;
-
-  &:hover {
-    color: ${(props) => props.theme.colors.primaryLight};
-  }
-`
 
 interface SocialLinkProps {
   fontAwesomeIcon: string
@@ -43,16 +27,15 @@ export const SocialLink: React.FC<SocialLinkProps> = ({
   url,
   color,
 }) => (
-  <Tooltip content={name}>
-    <IconLink
-      href={url}
-      target="_blank"
-      color={color}
-      rel="noreferrer"
-      aria-label={name}>
-      <FontAwesomeIcon name={fontAwesomeIcon} />
-    </IconLink>
-  </Tooltip>
+  <Link
+    href={url}
+    target="_blank"
+    color={color}
+    rel="noreferrer"
+    aria-label={name}
+    className="transition duration-200 hover:scale-110 mr-1 pt-2 xl:mr-2 flex justify-center items-center">
+    {getTechnoIcon(fontAwesomeIcon, 40, name)}
+  </Link>
 )
 
 interface SocialLinksWrapperProps {
@@ -66,7 +49,7 @@ export const SocialLinksWrapper: React.FC<SocialLinksWrapperProps> = ({
 }) => (
   <div className="flex justify-center flex-wrap mt-0 sm:mt-2 md:mt-6">
     {socialLinks.map(({ id, ...rest }) => (
-      <Box mx={[3]} fontSize={[5, 6]} key={id}>
+      <Box mx={[3]} key={id}>
         <SocialLink {...rest} color={color} />
       </Box>
     ))}
