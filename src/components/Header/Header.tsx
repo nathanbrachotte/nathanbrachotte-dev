@@ -142,7 +142,6 @@ const Header: React.FC = () => {
                           {navLinks}
                         </Flex>
                       </Fade>
-                      {/* <DarkModeToggle /> */}
                     </Fragment>
                   )
                 }}

@@ -1,38 +1,7 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { SectionLink } from 'react-scroll-section'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-
-const StyledLink = styled.a`
-  display: inline-block;
-  transition: color 250ms, text-shadow 250ms;
-  color: ${(props) => props.theme.colors.text};
-  cursor: pointer;
-  position: relative;
-  text-decoration: none;
-
-  &:after {
-    position: absolute;
-    z-index: -1;
-    bottom: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    content: '';
-    width: 100%;
-    height: 3px;
-    background-color: ${(props) => props.theme.colors.primaryDark};
-    transition: all 250ms;
-  }
-
-  &:hover {
-    color: white;
-
-    &::after {
-      height: 105%;
-      width: 105%;
-    }
-  }
-`
 
 const MarkdownParagraph = styled.p`
   line-height: 2em;

@@ -6,14 +6,57 @@ import {
   Node,
 } from '@contentful/rich-text-types'
 import React, { ReactNode } from 'react'
+import { SectionLink } from 'react-scroll-section'
+import styled from 'styled-components'
 import LinkAnimated from '../../components/LinkAnimated'
-import { MarkdownLink } from '../../components/MarkdownRenderer'
 import { Reference } from '../../types'
 import Heading1 from '../Heading1'
 import Heading2 from '../Heading2'
 import Heading3 from '../Heading3'
 import Image from '../Image'
 
+const StyledLink = styled.a`
+  display: inline-block;
+  transition: color 250ms, text-shadow 250ms;
+  color: ${(props) => props.theme.colors.text};
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    position: absolute;
+    z-index: -1;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: ${(props) => props.theme.colors.primaryDark};
+    transition: all 250ms;
+  }
+
+  &:hover {
+    color: white;
+
+    &::after {
+      height: 105%;
+      width: 105%;
+    }
+  }
+`
+export const MarkdownLink = ({ href, children }) => {
+  const isInnerLink = href.startsWith('#')
+  return isInnerLink ? (
+    <SectionLink section={href.substring(1, href.length)}>
+      {({ onClick }) => <StyledLink onClick={onClick}>{children}</StyledLink>}
+    </SectionLink>
+  ) : (
+    <StyledLink href={href} target="_blank" rel="noreferrer">
+      {children}
+    </StyledLink>
+  )
+}
 const AnimatedLink = (node: Node, children: JSX.Element): ReactNode => {
   // const isGenially =
   //   node.data.uri.includes('view.genial.ly') ||

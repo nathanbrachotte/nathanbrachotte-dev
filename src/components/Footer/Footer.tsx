@@ -8,12 +8,10 @@ import Logo from '../../shared/Logo'
 import { breakpoints } from '../../styles/sizes'
 
 const FooterContainer = styled.div`
-  max-width: 1366px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
 
   ${breakpoints.xs} {
     flex-direction: column-reverse;
@@ -69,23 +67,10 @@ const Footer: React.FC = () => (
             <FooterContainer>
               <Fade left>
                 <TextFooter fontSize={[1, 2]}>
-                  {/* <span> Written with </span>
-                <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
-                <span>, </span>
-                <Link href="https://www.contentful.com/" mr={1}>
-                  Contentful
-                </Link>
-                <span> and </span>
-                <Link href="https://www.netlify.com/" mr={1}>
-                  Netlify
-                </Link> */}
-                  {/* <span role="img" aria-label="heart">
-                  ❤️
-                </span> */}
                   <Logo logoUrl={logoUrl} />
                 </TextFooter>
               </Fade>
-              <Flex>
+              <Flex mr={5}>
                 <Fade right>
                   {socialLinks.map(({ id, ...rest }) => (
                     <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>

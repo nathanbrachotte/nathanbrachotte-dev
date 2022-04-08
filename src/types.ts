@@ -12,13 +12,6 @@ export interface BlogPost {
   slug: string
 }
 
-export const MAIN_PAGES = {
-  LANDING: 'LANDING',
-  ABOUT: 'ABOUT',
-  PROJECT: 'PROJECT',
-  WRITING: 'WRITING',
-} as const
-
 export interface Reference {
   // eslint-disable-next-line camelcase
   contentful_id: string

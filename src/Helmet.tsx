@@ -1,6 +1,6 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
 import { Helmet as ReactHelmet } from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
 import { withTheme } from 'styled-components'
 
 interface Props {

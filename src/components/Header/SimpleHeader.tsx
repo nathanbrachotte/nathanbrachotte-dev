@@ -1,14 +1,11 @@
-import React, { Fragment } from 'react'
-import Headroom from 'react-headroom'
-import FontAwesomeIcon from 'react-fontawesome'
 import { navigate } from 'gatsby'
+import React, { Fragment } from 'react'
+import FontAwesomeIcon from 'react-fontawesome'
+import { SectionLinks } from 'react-scroll-section'
 import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
-import { SectionLinks } from 'react-scroll-section'
-
-import DarkModeToggle from './DarkModeToggle'
-import useTheme from '../../hooks/useTheme'
 import { __DEV__ } from '../../constants'
+import useTheme from '../../hooks/useTheme'
 
 const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryDark};

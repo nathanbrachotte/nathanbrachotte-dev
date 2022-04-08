@@ -23,6 +23,7 @@ export interface Review {
   link: Link
 }
 
+// TODO: Add this data to Contentful
 export const data: (Job | Review)[] = [
   {
     type: 'review',

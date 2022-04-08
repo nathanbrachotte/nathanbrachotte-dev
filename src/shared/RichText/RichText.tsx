@@ -13,11 +13,3 @@ export const richText = (
 
   return data ? documentToReactComponents(data, extraOptions) : null
 }
-
-export const poorText = (text: string, charLimit: number): ReactNode | null => {
-  const data = text && JSON.parse(text)
-  const reactComps = documentToReactComponents(data)
-
-  // https://www.npmjs.com/package/@contentful/rich-text-react-renderer
-  return data ? reactComps : null
-}
