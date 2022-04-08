@@ -62,31 +62,29 @@ const Footer: React.FC = () => (
       const logoUrl = logo.file.url
 
       return (
-        <Fade bottom>
-          <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
-            <FooterContainer>
-              <Fade left>
-                <TextFooter fontSize={[1, 2]}>
-                  <Logo logoUrl={logoUrl} />
-                </TextFooter>
+        <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
+          <FooterContainer>
+            <Fade left>
+              <TextFooter fontSize={[1, 2]}>
+                <Logo logoUrl={logoUrl} />
+              </TextFooter>
+            </Fade>
+            <Flex mr={5}>
+              <Fade right>
+                {socialLinks.map(({ id, ...rest }) => (
+                  <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
+                    <SocialLink
+                      fontAwesomeIcon={rest.fontAwesomeIcon}
+                      name={rest.name}
+                      url={rest.url}
+                      color="alwaysWhite"
+                    />
+                  </Box>
+                ))}
               </Fade>
-              <Flex mr={5}>
-                <Fade right>
-                  {socialLinks.map(({ id, ...rest }) => (
-                    <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
-                      <SocialLink
-                        fontAwesomeIcon={rest.fontAwesomeIcon}
-                        name={rest.name}
-                        url={rest.url}
-                        color="alwaysWhite"
-                      />
-                    </Box>
-                  ))}
-                </Fade>
-              </Flex>
-            </FooterContainer>
-          </Box>
-        </Fade>
+            </Flex>
+          </FooterContainer>
+        </Box>
       )
     }}
   />
