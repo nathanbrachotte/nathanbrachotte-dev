@@ -3,16 +3,26 @@ import { MARKS } from '@contentful/rich-text-types'
 import { graphql, StaticQuery } from 'gatsby'
 import React, { ReactNode } from 'react'
 import Fade from 'react-reveal/Fade'
+import { Box, Flex, Image } from 'rebass/styled-components'
+import styled from 'styled-components'
 import Section from '../../components/Section'
-import Image from '../../shared/Image'
 import { options } from '../../shared/RichText/options'
 import { richText } from '../../shared/RichText/RichText'
 import { Background } from './Background'
 import { SocialLinksWrapper } from './SocialLink'
 
+const ProfilePicture = styled(Image)`
+  border-radius: 50%;
+  transition: all 0.25s ease-out;
+
+  &:hover {
+    border-radius: 20%;
+  }
+`
+
 const About: React.FC = () => (
   <Section.Container id="home" Background={Background} minHeight={100}>
-    <div className="h-12 w-full  sm:h-0" />
+    <div className="h-8 w-full  sm:h-0" />
     <Section.Header name="About Me" icon="🙋‍♂️" label="person" />
     <StaticQuery
       query={graphql`
@@ -23,8 +33,8 @@ const About: React.FC = () => (
             }
             profile {
               title
-              file {
-                url
+              image: resize(width: 450, quality: 100) {
+                src
               }
             }
             logo {
@@ -51,34 +61,45 @@ const About: React.FC = () => (
         } = data.contentfulAbout
 
         return (
-          <div className="grid grid-cols-1 md:grid-cols-3 px-4">
-            <div className="col-span-2 flex items-center">
-              <p className="text-md lg:text-lg">
-                {richText(aboutMeRich, {
-                  // TODO - fix options types, it doesn't follow Options interface
-                  ...(options as Options),
-                  renderMark: {
-                    ...(options.renderMark as Options['renderMark']),
-                    [MARKS.BOLD]: (text: ReactNode) => (
-                      <span className="font-bold text-lg lg:text-xl">
-                        {text}
-                      </span>
-                    ),
-                  },
-                })}
-              </p>
-            </div>
-            <div className="flex flex-col justify-center items-center col-span-1">
-              <div className="mt-10 w-1/2 lg:w-3/5">
-                <Image url={profile.file.url} alt={profile.title} />
-              </div>
-              <Fade bottom>
-                <SocialLinksWrapper
-                  socialLinks={socialLinks}
-                  color="textDark"
+          <div>
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              flexWrap="wrap"
+              mb={[2, 3, 0]}>
+              <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
+                <p className="text-md lg:text-lg">
+                  {richText(aboutMeRich, {
+                    // TODO - fix options types, it doesn't follow Options interface
+                    ...(options as Options),
+                    renderMark: {
+                      ...(options.renderMark as Options['renderMark']),
+                      [MARKS.BOLD]: (text: ReactNode) => (
+                        <span className="font-bold text-lg lg:text-xl">
+                          {text}
+                        </span>
+                      ),
+                    },
+                  })}
+                </p>
+              </Box>
+              <Box
+                width={[120, 200, 2 / 6]}
+                style={{
+                  maxWidth: '300px',
+                  margin: 'auto',
+                }}>
+                <ProfilePicture
+                  src={profile.image.src}
+                  alt={profile.title}
+                  mt={[4, 4, 0]}
+                  ml={[0, 0, 1]}
                 />
-              </Fade>
-            </div>
+              </Box>
+            </Flex>
+            <Fade bottom>
+              <SocialLinksWrapper socialLinks={socialLinks} color="textDark" />
+            </Fade>
           </div>
         )
       }}
