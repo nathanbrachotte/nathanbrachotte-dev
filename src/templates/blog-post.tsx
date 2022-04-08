@@ -1,6 +1,6 @@
 import { PageProps } from 'gatsby'
 import React from 'react'
-import { Box, Flex, Heading, Image, Text } from 'rebass/styled-components'
+import { Box, Flex, Heading, Text } from 'rebass/styled-components'
 import RehypeReact from 'rehype-react'
 import Footer from '../components/Footer/Footer'
 import SimpleHeader from '../components/Header/SimpleHeader'
@@ -8,6 +8,7 @@ import Section from '../components/Section'
 import VideoBox from '../components/VideoBox'
 import Layout from '../Layout'
 import { Badge } from '../shared/Badge'
+import Image from '../shared/Image'
 import { MarkdownLink } from '../shared/RichText/options'
 import Spacer from '../shared/Spacer'
 import { BlogPost } from '../types'
@@ -88,7 +89,7 @@ const BlogPostTemplate: React.FC<PageProps> = ({ pageContext }) => {
   ) : (
     currentPost?.image && (
       <>
-        <Image alt={currentPost?.title} src={currentPost?.image} />
+        <Image alt={currentPost?.title} url={currentPost?.image} />
         <Spacer height="10px" />
       </>
     )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Heading, Text } from 'rebass/styled-components'
 import styled from 'styled-components'
+import Image from '../../shared/Image'
 import { Card } from '../Card'
 import ImageSubtitle from '../ImageSubtitle'
 
@@ -53,7 +54,7 @@ export const ExternalArticle: React.FC<ExternalArticleProps> = ({
       <EllipsisHeading m={3} p={1} color="text">
         {title}
       </EllipsisHeading>
-      {image && <CoverImage src={image} height="200px" alt={title} />}
+      {image && <Image url={url} alt={title} height={200} width={400} />}
       <Text m={3} color="text">
         {text}
       </Text>
@@ -75,7 +76,7 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
     <EllipsisHeading m={3} p={1} color="text">
       {title}
     </EllipsisHeading>
-    {image && <CoverImage src={image} height="200px" alt={title} />}
+    {image && <Image url={image} alt={title} height={200} width={400} />}
     <Text m={3} color="textLight">
       {text}
     </Text>
