@@ -1,10 +1,11 @@
+import { Icon } from '@iconify/react'
 import clsx from 'clsx'
 import React from 'react'
 import Fade from 'react-reveal/Fade'
 import AppStore from '../../assets/AppStore'
 import PlayStore from '../../assets/PlayStore'
 import { getTechnoIcon } from '../../helpers/getTechnoIcon'
-import { SocialLink } from '../../sections/About/SocialLink'
+import { Tooltip } from '../../shared/Tooltip'
 import LinkAnimated from '../LinkAnimated'
 import HeaderProjectImage from './HeaderProjectImage'
 
@@ -35,16 +36,26 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
         <div className="flex flex-col justify-center items-start px-8 lg:px-16 col-span-4">
           <span className="text-sm mb-4 hidden lg:block ">{workDone}</span>
           <LinkAnimated selected>
-            <span className="text-3xl text-textDark">
-              <span className={clsx(projectUrl && 'mr-2')}>{title}</span>
-              {projectUrl ? (
-                <SocialLink
-                  name="Go to project"
-                  fontAwesomeIcon="globe"
-                  url={projectUrl}
-                />
-              ) : null}
-            </span>
+            {projectUrl ? (
+              <Tooltip content="Go to project">
+                <a href={projectUrl} target="_blank" rel="noreferrer">
+                  <span
+                    className={clsx(
+                      projectUrl && 'mr-2',
+                      'text-3xl text-textDark',
+                    )}>
+                    {title}
+                  </span>
+
+                  <Icon
+                    icon="ci:external-link"
+                    className="inline-block  w-6 text-primaryDark text-3xl align-top"
+                  />
+                </a>
+              </Tooltip>
+            ) : (
+              <span className={clsx('text-3xl text-textDark')}>{title}</span>
+            )}
           </LinkAnimated>
           <span className="text-sm mb-4 block mt-2 lg:hidden ">{workDone}</span>
           <span className="mt-4 mb-4">{description}</span>
