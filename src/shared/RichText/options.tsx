@@ -1,4 +1,3 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
   BLOCKS,
   Inline,
@@ -7,16 +6,13 @@ import {
   Node,
 } from '@contentful/rich-text-types'
 import React, { ReactNode } from 'react'
-import Heading1 from '../shared/Heading1'
-import Heading2 from '../shared/Heading2'
-import Heading3 from '../shared/Heading3'
-import Image from '../shared/Image'
-// import PDF from './PDF'
-import { Reference } from '../types'
-import LinkAnimated from './LinkAnimated'
-import { MarkdownLink } from './MarkdownRenderer'
-
-// import Game from './Game'
+import LinkAnimated from '../../components/LinkAnimated'
+import { MarkdownLink } from '../../components/MarkdownRenderer'
+import { Reference } from '../../types'
+import Heading1 from '../Heading1'
+import Heading2 from '../Heading2'
+import Heading3 from '../Heading3'
+import Image from '../Image'
 
 const AnimatedLink = (node: Node, children: JSX.Element): ReactNode => {
   // const isGenially =
@@ -60,11 +56,10 @@ function getAssetFromId(
 
   return matchingRef
 }
-
 export const options = {
   renderMark: {
     [MARKS.BOLD]: (text: string): ReactNode => (
-      <span className="font-bold text-lg lg:text-xl">{text}</span>
+      <span className="font-bold">{text}</span>
     ),
     [MARKS.ITALIC]: (text: string): ReactNode => <i>{text}</i>,
     [MARKS.UNDERLINE]: (text: string): ReactNode => (
@@ -174,26 +169,4 @@ export const options = {
         [],
       )
   },
-}
-
-interface DocType {
-  description: {
-    raw: string
-    references: Reference[]
-  }
-  [key: string | number]: any
-}
-
-export const richText = (text: string): ReactNode | null => {
-  const data = text && JSON.parse(text)
-
-  return data ? documentToReactComponents(data, options) : null
-}
-
-export const poorText = (text: string, charLimit: number): ReactNode | null => {
-  const data = text && JSON.parse(text)
-  const reactComps = documentToReactComponents(data)
-
-  // https://www.npmjs.com/package/@contentful/rich-text-react-renderer
-  return data ? reactComps : null
 }

@@ -4,9 +4,9 @@ interface Heading1Props {}
 
 const Heading1: React.FC<Heading1Props> = ({ children }) => {
   return (
-    <p className="text-primary-dark font-extrabold py-1 text-2xl md:text-3xl">
+    <h1 className="text-primary-dark font-extrabold py-1 text-2xl md:text-3xl">
       {children}
-    </p>
+    </h1>
   )
 }
 

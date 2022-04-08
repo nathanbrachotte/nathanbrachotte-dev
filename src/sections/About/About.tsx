@@ -1,12 +1,15 @@
+import { Options } from '@contentful/rich-text-react-renderer'
+import { MARKS } from '@contentful/rich-text-types'
 import { graphql, StaticQuery } from 'gatsby'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Fade from 'react-reveal/Fade'
 import { Box, Flex, Image } from 'rebass/styled-components'
 import styled from 'styled-components'
-import { richText } from '../../components/RichText'
 import Section from '../../components/Section'
-import { SocialLinksWrapper } from '../Landing/SocialLink'
+import { options } from '../../shared/RichText/options'
+import { richText } from '../../shared/RichText/RichText'
 import { Background } from './Background'
+import { SocialLinksWrapper } from './SocialLink'
 
 const ProfilePicture = styled(Image)`
   border-radius: 50%;
@@ -66,7 +69,20 @@ const About: React.FC = () => (
               mb={[2, 3, 0]}>
               <Box width={[1, 1, 4 / 6]} px={[1, 2, 4]}>
                 <Fade left>
-                  <p className="text-md lg:text-lg">{richText(aboutMeRich)}</p>
+                  <p className="text-md lg:text-lg">
+                    {richText(aboutMeRich, {
+                      // TODO - fix options types, it doesn't follow Options interface
+                      ...(options as Options),
+                      renderMark: {
+                        ...(options.renderMark as Options['renderMark']),
+                        [MARKS.BOLD]: (text: ReactNode) => (
+                          <span className="font-bold text-lg lg:text-xl">
+                            {text}
+                          </span>
+                        ),
+                      },
+                    })}
+                  </p>
                 </Fade>
               </Box>
               <Box

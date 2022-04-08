@@ -1,12 +1,11 @@
+import { graphql, StaticQuery } from 'gatsby'
 import React from 'react'
-import styled from 'styled-components'
-import { StaticQuery, graphql } from 'gatsby'
-import { Text, Box, Image, Flex } from 'rebass/styled-components'
 import Fade from 'react-reveal/Fade'
-
-import { SocialLink } from '../../sections/Landing/SocialLink'
-import { breakpoints } from '../../styles/sizes'
+import { Box, Flex, Text } from 'rebass/styled-components'
+import styled from 'styled-components'
+import { SocialLink } from '../../sections/About/SocialLink'
 import Logo from '../../shared/Logo'
+import { breakpoints } from '../../styles/sizes'
 
 const FooterContainer = styled.div`
   max-width: 1366px;
@@ -65,11 +64,12 @@ const Footer: React.FC = () => (
       const logoUrl = logo.file.url
 
       return (
-        <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
-          <FooterContainer>
-            <Fade left>
-              <TextFooter fontSize={[1, 2]}>
-                {/* <span> Written with </span>
+        <Fade bottom>
+          <Box p={[2, 3]} backgroundColor="primaryDark" id="footer">
+            <FooterContainer>
+              <Fade left>
+                <TextFooter fontSize={[1, 2]}>
+                  {/* <span> Written with </span>
                 <Link href="https://www.gatsbyjs.org/">Gatsby</Link>
                 <span>, </span>
                 <Link href="https://www.contentful.com/" mr={1}>
@@ -79,28 +79,29 @@ const Footer: React.FC = () => (
                 <Link href="https://www.netlify.com/" mr={1}>
                   Netlify
                 </Link> */}
-                {/* <span role="img" aria-label="heart">
+                  {/* <span role="img" aria-label="heart">
                   ❤️
                 </span> */}
-                <Logo logoUrl={logoUrl} />
-              </TextFooter>
-            </Fade>
-            <Flex>
-              <Fade right>
-                {socialLinks.map(({ id, ...rest }) => (
-                  <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
-                    <SocialLink
-                      fontAwesomeIcon={rest.fontAwesomeIcon}
-                      name={rest.name}
-                      url={rest.url}
-                      color="alwaysWhite"
-                    />
-                  </Box>
-                ))}
+                  <Logo logoUrl={logoUrl} />
+                </TextFooter>
               </Fade>
-            </Flex>
-          </FooterContainer>
-        </Box>
+              <Flex>
+                <Fade right>
+                  {socialLinks.map(({ id, ...rest }) => (
+                    <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>
+                      <SocialLink
+                        fontAwesomeIcon={rest.fontAwesomeIcon}
+                        name={rest.name}
+                        url={rest.url}
+                        color="alwaysWhite"
+                      />
+                    </Box>
+                  ))}
+                </Fade>
+              </Flex>
+            </FooterContainer>
+          </Box>
+        </Fade>
       )
     }}
   />

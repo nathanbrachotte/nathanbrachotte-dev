@@ -1,14 +1,19 @@
 import React from 'react'
-
 import FontAwesomeIcon from 'react-fontawesome'
-import { Box, Flex, Link } from 'rebass/styled-components'
+import { Box, Link } from 'rebass/styled-components'
 import styled from 'styled-components'
-import { Tooltip } from '../../shared/Tooltip'
-
 import { Color } from '../../../colors'
+import { Tooltip } from '../../shared/Tooltip'
 
 interface IconLinkProps {
   color?: Color
+}
+
+interface Links {
+  id: number
+  fontAwesomeIcon: string
+  name: string
+  url: string
 }
 
 const IconLink = styled(Link)<IconLinkProps>`

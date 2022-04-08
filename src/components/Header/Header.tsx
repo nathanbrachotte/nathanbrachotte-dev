@@ -1,16 +1,15 @@
-import React, { Fragment } from 'react'
-import Headroom from 'react-headroom'
-import FontAwesomeIcon from 'react-fontawesome'
-import { Flex, Box } from 'rebass/styled-components'
 import { graphql, navigate, StaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import { SectionLinks } from 'react-scroll-section'
+import React, { Fragment } from 'react'
+import FontAwesomeIcon from 'react-fontawesome'
+import Headroom from 'react-headroom'
 import Fade from 'react-reveal/Fade'
-
-import RouteLink from '../RouteLink'
+import { SectionLinks } from 'react-scroll-section'
+import { Box, Flex } from 'rebass/styled-components'
+import styled from 'styled-components'
+import { __DEV__ } from '../../constants'
 import useTheme from '../../hooks/useTheme'
 import Logo, { LOGO_SIZES } from '../../shared/Logo'
-import { __DEV__ } from '../../constants'
+import RouteLink from '../RouteLink'
 
 const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1)
 
@@ -138,9 +137,11 @@ const Header: React.FC = () => {
                   return (
                     <Fragment>
                       {homeLink}
-                      <Flex mb={10} mr={[0, 3, 5]} mt={[10, 0, 0, 0]}>
-                        {navLinks}
-                      </Flex>
+                      <Fade right>
+                        <Flex mb={10} mr={[0, 3, 5]} mt={[10, 0, 0, 0]}>
+                          {navLinks}
+                        </Flex>
+                      </Fade>
                       {/* <DarkModeToggle /> */}
                     </Fragment>
                   )

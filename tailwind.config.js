@@ -8,7 +8,7 @@ module.exports = {
         ...colors.light,
       },
       fontFamily: {
-        body: ['"Cabin"'],
+        body: ['Cabin'],
       },
     },
   },

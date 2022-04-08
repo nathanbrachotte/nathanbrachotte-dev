@@ -1,10 +1,11 @@
 import { PageProps } from 'gatsby'
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 import Footer from '../components/Footer/Footer'
 import SimpleHeader from '../components/Header/SimpleHeader'
 import HeaderSection from '../components/Project/HeaderSection'
-import { richText } from '../components/RichText'
 import Layout from '../Layout'
+import { richText } from '../shared/RichText/RichText'
 import { Project } from '../types'
 
 const project: React.FC<PageProps> = ({ pageContext }) => {
@@ -38,8 +39,8 @@ const project: React.FC<PageProps> = ({ pageContext }) => {
           techs={techs}
           headerImageUrl={headerImageUrl}
         />
-        <div className="self-center w-full px-8 lg:w-2/3 lg:px-16">
-          {richText(body)}
+        <div className="self-center w-full px-8 lg:w-2/3 lg:px-16 max-w-[1300px]">
+          <Fade bottom>{richText(body)}</Fade>
         </div>
       </div>
       <Footer />
