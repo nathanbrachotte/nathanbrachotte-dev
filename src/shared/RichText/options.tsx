@@ -58,18 +58,6 @@ export const MarkdownLink = ({ href, children }) => {
   )
 }
 const AnimatedLink = (node: Node, children: JSX.Element): ReactNode => {
-  // const isGenially =
-  //   node.data.uri.includes('view.genial.ly') ||
-  //   node.data.uri.includes('educaplay')
-
-  // if (isGenially) {
-  //   return (
-  //     <div className="w-2/3 my-4 mx-auto">
-  //       <Game link={node.data.uri} />
-  //     </div>
-  //   )
-  // }
-  console.log(node.data.uri)
   return (
     <MarkdownLink
       href={node.data.uri}

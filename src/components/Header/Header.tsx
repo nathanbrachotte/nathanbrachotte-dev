@@ -101,15 +101,11 @@ const Header: React.FC = () => {
                       value: Link
                     }[]
                   }
-                  // console.log({ home })
                   const homeLink = home ? (
                     <Fade left>
                       <LogoBox size={LOGO_SIZES} overflow="clip">
                         <ClickableLogo onClick={home.onClick} type="button">
-                          <Logo
-                            logoUrl={logoUrl}
-                            // onClick={home.onClick}
-                          />
+                          <Logo logoUrl={logoUrl} />
                         </ClickableLogo>
                       </LogoBox>
                     </Fade>
