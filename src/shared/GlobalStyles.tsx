@@ -20,17 +20,3 @@ export const GlobalStyle = createGlobalStyle`
   }  
 }
 `
-
-// p {
-//     color: #00F00F
-//   }
-// @media only screen and (max-width:1023px) {
-//   p {
-//     color: #ff0
-//   }
-// }
-// @media only screen and (min-width:1024px) and (max-width:1620px) {
-//   p {
-//     color: #FF0000
-//   }
-// }

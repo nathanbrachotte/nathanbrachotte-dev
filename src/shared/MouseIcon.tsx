@@ -50,7 +50,7 @@ const Scroll = styled.circle`
   fill: ${(props) => props.theme.colors.textDark};
 `
 
-const MouseIcon = ({ onClick }: { onClick: () => void }) => (
+const MouseIcon: React.FC<{ onClick: () => void }> = ({ onClick }) => (
   <ScrollLink onClick={onClick}>
     <MouseContainer viewBox="0 0 76 130">
       <g fill="none">

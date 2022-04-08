@@ -13,6 +13,7 @@ export interface BlogPost {
 }
 
 export interface Reference {
+  // Types come from Contentful
   // eslint-disable-next-line camelcase
   contentful_id: string
   createdAt: string

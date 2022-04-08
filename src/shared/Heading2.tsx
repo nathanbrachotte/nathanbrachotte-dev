@@ -1,8 +1,6 @@
 import React from 'react'
 
-interface Heading2Props {}
-
-const Heading2: React.FC<Heading2Props> = ({ children }) => {
+const Heading2: React.FC = ({ children }) => {
   return (
     <h2 className="text-primary-dark font-extrabold py-1 text-xl md:text-2xl">
       {children}

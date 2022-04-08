@@ -7,7 +7,6 @@ interface VideoBoxProps {
 }
 
 const VideoBox: React.FC<VideoBoxProps> = ({ video, title }) => {
-  console.log({ video, title })
   return (
     <Box
       sx={{
@@ -31,8 +30,6 @@ const VideoBox: React.FC<VideoBoxProps> = ({ video, title }) => {
         width="560"
         height="315"
         src={video}
-        // src="https://www.youtube.com/embed/64h3TKCx0jY"
-        // src="https://www.youtube.com/embed/GNCd_ERZvZM"
         frameBorder="0"
         allowFullScreen
       />

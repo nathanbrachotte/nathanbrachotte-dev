@@ -1,6 +1,5 @@
-import React from 'react'
-
 import Tippy from '@tippy.js/react'
+import React from 'react'
 import 'tippy.js/dist/tippy.css' // eslint-disable-line
 
 // TODO: Upgrade from Tippy to Floating UI Lib (https://github.com/atomiks/tippyjs-react)

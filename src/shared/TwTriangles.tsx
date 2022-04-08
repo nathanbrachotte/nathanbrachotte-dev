@@ -1,8 +1,6 @@
 import React from 'react'
 
-interface TwTrianglesProps {}
-
-const TwTriangles: React.FC<TwTrianglesProps> = ({}) => {
+const TwTriangles: React.FC = () => {
   return (
     <>
       <div className="w-16 overflow-hidden inline-block">
