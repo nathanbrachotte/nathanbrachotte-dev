@@ -6,20 +6,27 @@ interface ImageProps {
   height: number
   width: number
   alt: string
+  sizes?: number[]
 }
 
-const WIDTHS = [280, 560, 840, 1100, 1650, 2500, 2100, 3100]
-
-const Image: React.FC<ImageProps> = ({ url, height, width, alt }) => {
-  const srcSet = WIDTHS.map((w: number) => {
-    return `https://${url}?w=${w}&fm=webp   ${w}w,`
-  }).join('\n')
+const Image: React.FC<ImageProps> = ({
+  url,
+  height,
+  width,
+  alt,
+  sizes = [280, 560, 840, 1100, 1650, 2500, 2100, 3100],
+}) => {
+  const srcSet = sizes
+    .map((w: number) => {
+      return `https://${url}?w=${w}&fm=webp   ${w}w,`
+    })
+    .join('\n')
 
   return (
     <div className="rounded-lg overflow-hidden">
       <img
         className="object-cover object-center"
-        src={`https://${url}?w=560&fm=webp`}
+        src={`https://${url}?w=300&fm=webp`}
         srcSet={srcSet}
         height={height}
         width={width}

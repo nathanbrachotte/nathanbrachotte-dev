@@ -76,7 +76,15 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
     <EllipsisHeading m={3} p={1} color="text">
       {title}
     </EllipsisHeading>
-    {image && <Image url={image} alt={title} height={200} width={400} />}
+    {image && (
+      <Image
+        url={image}
+        alt={title}
+        height={200}
+        width={400}
+        sizes={[280, 560]}
+      />
+    )}
     <Text m={3} color="textLight">
       {text}
     </Text>
