@@ -6,8 +6,8 @@ export const Background: React.FC = () => (
     {/* Top Left */}
     <Triangle
       color="secondary"
-      height={['13vh', '20vh']}
-      width={['100vw', '100vw']}
+      height={['13vh', '15vh', '20vh']}
+      width={['100vw']}
     />
     {/* Bottom Right */}
     <Triangle
