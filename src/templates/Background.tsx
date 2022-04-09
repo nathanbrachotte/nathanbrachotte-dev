@@ -2,7 +2,7 @@ import React from 'react'
 import Triangle from '../shared/Triangle'
 
 const Background: React.FC = () => (
-  <>
+  <div className="absolute top-0 w-full left-0 bottom-0">
     <Triangle
       color="secondary"
       height={['5vh', '10vh']}
@@ -16,7 +16,7 @@ const Background: React.FC = () => (
       invertX
       invertY
     />
-  </>
+  </div>
 )
 
 export default Background

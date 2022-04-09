@@ -8,6 +8,7 @@ import Section from '../components/Section'
 import VideoBox from '../components/VideoBox'
 import Layout from '../Layout'
 import { Badge } from '../shared/Badge'
+import Heading1 from '../shared/Heading1'
 import Image from '../shared/Image'
 import { MarkdownLink } from '../shared/RichText/options'
 import Spacer from '../shared/Spacer'
@@ -103,10 +104,9 @@ const BlogPostTemplate: React.FC<PageProps> = ({ pageContext }) => {
         Background={Background}>
         <Flex flexWrap="wrap" justifyContent="center">
           <Box width={[0.95, 0.8, 0.7]}>
-            <Heading fontSize={[5, 6, 7]} color="textDark">
-              {currentPost?.title}
-            </Heading>
-            <Spacer height="30px" />
+            <div className="-mt-8 mb-6 flex flex-1 items-center justify-center">
+              <Heading1>{currentPost?.title}</Heading1>
+            </div>
             {AssetComponent}
             {currentPost?.tags?.map((text, id) => (
               <Badge key={`badge-${text}-${id}`}>{text}</Badge>

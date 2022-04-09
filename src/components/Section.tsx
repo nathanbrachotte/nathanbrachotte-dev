@@ -53,6 +53,7 @@ interface HeaderProps {
   icon?: string
   label?: string
   Subtitle?: ReactNode
+  shouldAnimate?: boolean
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -60,31 +61,28 @@ const Header: React.FC<HeaderProps> = ({
   icon = '',
   label = '',
   Subtitle,
+  shouldAnimate,
 }) => {
-  return (
-    <Slide left>
-      <>
-        <Heading
-          as="h1"
-          fontSize={[3, 4, 5]}
-          color="textDark"
-          mb={Subtitle ? 3 : 4}>
-          <LinkAnimated color="secondaryDark" selected>
-            {name}
-            {icon && (
-              <span
-                role="img"
-                aria-label={label}
-                style={{ marginLeft: '10px' }}>
-                {icon}
-              </span>
-            )}
-          </LinkAnimated>
-        </Heading>
-        {Subtitle}
-      </>
-    </Slide>
+  const Content = (
+    <>
+      <Heading
+        as="h1"
+        fontSize={[3, 4, 5]}
+        color="textDark"
+        mb={Subtitle ? 3 : 4}>
+        <LinkAnimated color="secondaryDark" selected>
+          {name}
+          {icon && (
+            <span role="img" aria-label={label} style={{ marginLeft: '10px' }}>
+              {icon}
+            </span>
+          )}
+        </LinkAnimated>
+      </Heading>
+      {Subtitle}
+    </>
   )
+  return <>{shouldAnimate ? <Slide left>{Content}</Slide> : Content}</>
 }
 
 export default {

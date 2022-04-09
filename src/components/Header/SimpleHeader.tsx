@@ -1,11 +1,10 @@
+import { Icon } from '@iconify/react'
 import { navigate } from 'gatsby'
-import React, { Fragment } from 'react'
-import FontAwesomeIcon from 'react-fontawesome'
+import React from 'react'
 import { SectionLinks } from 'react-scroll-section'
 import { Flex } from 'rebass/styled-components'
 import styled from 'styled-components'
 import { __DEV__ } from '../../constants'
-import useTheme from '../../hooks/useTheme'
 
 const HeaderContainer = styled.div`
   background-color: ${(props) => props.theme.colors.primaryDark};
@@ -13,22 +12,6 @@ const HeaderContainer = styled.div`
 `
 
 const Header: React.FC = () => {
-  const theme = useTheme()
-
-  const homeLink = (
-    <div className="aspect-1 w-8 h-8">
-      <FontAwesomeIcon
-        name="arrow-left"
-        size="2x"
-        onClick={() => navigate('/')}
-        style={{
-          color: theme.colors.alwaysWhite,
-          cursor: 'pointer',
-        }}
-      />
-    </div>
-  )
-
   return (
     <HeaderContainer>
       {__DEV__ && (
@@ -42,11 +25,17 @@ const Header: React.FC = () => {
         <SectionLinks>
           {() => {
             return (
-              <Fragment>
-                {homeLink}
+              <>
+                <div className="aspect-1 w-8 h-8">
+                  <Icon
+                    icon="bx:arrow-back"
+                    className="h-8 w-8 cursor-pointer text-white"
+                    onClick={() => navigate('/')}
+                  />
+                </div>
                 <Flex mb={10} mr={[0, 3, 5]} />
                 {/* <DarkModeToggle /> */}
-              </Fragment>
+              </>
             )
           }}
         </SectionLinks>

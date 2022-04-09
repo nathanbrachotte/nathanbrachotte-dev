@@ -52,7 +52,6 @@
     "prop-types": "^15.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-fontawesome": "^1.6.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.1.0",
     "react-markdown": "^4.3.1",
@@ -71,7 +70,6 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/react": "^16.9.49",
-    "@types/react-fontawesome": "^1.6.4",
     "@types/react-helmet": "^6.1.0",
     "@types/react-vertical-timeline-component": "^3.0.0",
     "@types/rebass": "^4.0.7",

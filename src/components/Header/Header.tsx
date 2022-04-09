@@ -1,6 +1,5 @@
-import { graphql, navigate, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import React, { Fragment } from 'react'
-import FontAwesomeIcon from 'react-fontawesome'
 import Headroom from 'react-headroom'
 import Fade from 'react-reveal/Fade'
 import { SectionLinks } from 'react-scroll-section'
@@ -109,17 +108,7 @@ const Header: React.FC = () => {
                         </ClickableLogo>
                       </LogoBox>
                     </Fade>
-                  ) : (
-                    <FontAwesomeIcon
-                      name="home"
-                      size="2x"
-                      onClick={() => navigate('/')}
-                      style={{
-                        color: theme.colors.alwaysWhite,
-                        cursor: 'pointer',
-                      }}
-                    />
-                  )
+                  ) : null
 
                   const navLinks = links.map(({ name, value }) => (
                     <RouteLink

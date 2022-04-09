@@ -69,7 +69,7 @@ const Footer: React.FC = () => (
                 <Logo logoUrl={logoUrl} />
               </TextFooter>
             </Fade>
-            <Flex mr={5}>
+            <Flex>
               <Fade right>
                 {socialLinks.map(({ id, ...rest }) => (
                   <Box mx={[2, 3]} fontSize={[4, 5]} key={id}>

@@ -1,5 +1,5 @@
 import preset from '@rebass/preset'
-import React, { useEffect } from 'react'
+import React from 'react'
 import config from 'react-reveal/globals'
 import { ScrollingProvider } from 'react-scroll-section'
 import { ThemeProvider } from 'styled-components'
@@ -19,10 +19,6 @@ const loadScript = (src: string) => {
 }
 
 const Layout: React.FC = ({ children }) => {
-  useEffect(() => {
-    loadScript('https://use.fontawesome.com/fd58d214b9.js')
-  }, [])
-
   const theme = {
     ...preset,
     colors: colors.light,

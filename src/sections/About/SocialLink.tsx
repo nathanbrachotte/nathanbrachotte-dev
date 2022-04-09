@@ -3,10 +3,6 @@ import { Box, Link } from 'rebass/styled-components'
 import { Color } from '../../../colors'
 import { getTechnoIcon } from '../../helpers/getTechnoIcon'
 
-interface IconLinkProps {
-  color?: Color
-}
-
 interface Links {
   id: number
   fontAwesomeIcon: string
