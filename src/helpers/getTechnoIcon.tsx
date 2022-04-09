@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react'
 import React from 'react'
 import AWS from '../assets/AWS'
 import Bitbucket from '../assets/Bitbucket'
+import Contentful from '../assets/Contentful'
 import CSS from '../assets/CSS'
 import Cypress from '../assets/Cypress'
 import Expo from '../assets/Expo'
@@ -43,6 +44,8 @@ export const getTechnoIcon = (
       return <AWS width={size} />
     case 'Bitbucket'.toLowerCase():
       return <Bitbucket width={size} />
+    case 'Contentful'.toLowerCase():
+      return <Contentful width={size * 0.9} />
     case 'CSS'.toLowerCase():
       return <CSS width={size} />
     case 'Cypress'.toLowerCase():

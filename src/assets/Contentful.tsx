@@ -8,7 +8,7 @@ interface SVGProps {
 
 const SVG: React.FC<SVGProps> = ({ width = 40 }) => {
   return (
-    <Tooltip content="Headless CMS">
+    <Tooltip content="Contentful (Headless CMS)">
       <div style={{ width }}>
         <Icon icon="logos:contentful" width={width} />
       </div>
