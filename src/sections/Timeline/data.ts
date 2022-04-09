@@ -52,7 +52,7 @@ export const data: (Job | Review)[] = [
     title: 'Software Engineer',
     company: 'Klarna GmbH',
     keywords: 'React / React Native / ExpressJS',
-    timeframe: 'Jan 2020 - Present',
+    timeframe: 'Jan 2020 - Jan 2022',
     location: 'Berlin 🇩🇪',
     fontAwesomeIcon: 'laptop',
     link: {
