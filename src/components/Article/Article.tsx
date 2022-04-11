@@ -65,6 +65,12 @@ export const ExternalArticle: React.FC<ExternalArticleProps> = ({
   </a>
 )
 
+const options = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+} as const
+
 export const InternalArticle: React.FC<InternalArticleProps> = ({
   title,
   text,
@@ -89,9 +95,9 @@ export const InternalArticle: React.FC<InternalArticleProps> = ({
       {text}
     </Text>
     <ImageSubtitle bg="primary" color="white" x="right" y="bottom" round>
-      {`${new Date(date).toLocaleDateString()} - ${Math.ceil(
+      {`${new Date(date).toLocaleDateString(undefined, options)} - ${Math.ceil(
         text?.length / AVERAGE_WORD_PER_MINUTE_READ,
-      )} min`}
+      )} min read`}
     </ImageSubtitle>
   </Card>
 )
