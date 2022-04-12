@@ -9,7 +9,7 @@ interface SVGProps {
 const RATIO = 512 / 149
 const SVG: React.FC<SVGProps> = ({ height = 40 }) => {
   return (
-    <Tooltip content="ExpressJS (Backend)">
+    <Tooltip content="Express.js (Backend)">
       <div style={{ height, width: RATIO * height }} className="self-center">
         <Icon icon="logos:express" height={height} />
       </div>
