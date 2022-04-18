@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-medium-image-zoom/dist/styles.css'
 
 interface HeaderProjectImageProps {
   url: string

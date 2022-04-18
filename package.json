@@ -2,7 +2,7 @@
   "name": "nathanbrachotte",
   "author": "Nathan Brachotte",
   "description": "my personal website",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "pre-build": "node scripts/get-about",
     "build": "yarn pre-build && gatsby build",
@@ -13,24 +13,12 @@
     "lint": "eslint ./src",
     "setup": "node ./bin/setup.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EmaSuriano/gatsby-starter-mate.git"
-  },
-  "keywords": [
-    "gatsby",
-    "starter",
-    "contentful",
-    "PWA",
-    "portfolio"
-  ],
   "dependencies": {
     "@babel/preset-env": "^7.11.5",
     "@contentful/rich-text-react-renderer": "^15.12.0",
     "@contentful/rich-text-types": "^15.12.0",
     "@heroicons/react": "^1.0.6",
     "@iconify/react": "^3.2.1",
-    "@rebass/forms": "^4.0.6",
     "@rebass/preset": "^4.0.5",
     "@tailwindcss/line-clamp": "^0.3.1",
     "@tippy.js/react": "^3.1.1",
@@ -49,16 +37,13 @@
     "gatsby-source-medium": "^2.3.10",
     "gatsby-transformer-remark": "^2.8.34",
     "postcss": "^8.4.12",
-    "prop-types": "^15.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.1.0",
     "react-markdown": "^4.3.1",
-    "react-medium-image-zoom": "^4.3.5",
     "react-reveal": "^1.2.2",
     "react-scroll-section": "^2.1.0",
-    "react-text-loop": "^2.0.1",
     "react-vertical-timeline-component": "^3.3.3",
     "rebass": "^4.0.7",
     "rehype-react": "^6.2.0",
@@ -76,7 +61,6 @@
     "@types/styled-components": "^5.1.4",
     "@typescript-eslint/eslint-plugin": "^4.11.0",
     "@typescript-eslint/parser": "^4.11.0",
-    "axe-core": "^4.0.1",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.1.0",
     "contentful-import": "^7.9.6",
@@ -87,8 +71,6 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.6",
-    "inquirer": "^7.3.3",
-    "prettier": "^2.1.1",
-    "start-server-and-test": "^1.11.3"
+    "prettier": "^2.1.1"
   }
 }
