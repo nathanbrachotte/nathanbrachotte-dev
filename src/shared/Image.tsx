@@ -1,5 +1,5 @@
 import React from 'react'
-import 'react-medium-image-zoom/dist/styles.css'
+// import 'react-medium-image-zoom/dist/styles.css'
 
 interface ImageProps {
   url: string

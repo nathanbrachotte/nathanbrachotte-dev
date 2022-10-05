@@ -18,8 +18,6 @@ export const Title = styled(Text)`
 const ProjectCard: React.FC<Project> = ({
   name,
   description,
-  // projectUrl,
-  // repositoryUrl,
   type,
   logo,
   slug,
@@ -72,7 +70,7 @@ const ProjectCard: React.FC<Project> = ({
                 <img
                   src={logo.image.src}
                   alt={logo.title}
-                  className="w-full px-2 max-h-20"
+                  className="w-full px-2 max-h-20 object-contain"
                 />
               </div>
             )}
