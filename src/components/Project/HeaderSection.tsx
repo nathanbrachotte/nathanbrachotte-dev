@@ -63,7 +63,9 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
             <div className="flex flex-row justify-start items-center flex-wrap">
               {techs.map((t: string) => {
                 return (
-                  <div className="transition duration-200 hover:scale-110 mr-1 pt-2 xl:mr-2 flex justify-center items-center">
+                  <div
+                    key={t}
+                    className="transition duration-200 hover:scale-110 mr-1 pt-2 xl:mr-2 flex justify-center items-center">
                     {getTechnoIcon(t, 35)}
                   </div>
                 )
@@ -86,7 +88,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({
           </div>
         ) : null}
       </div>
-      <div className="col-span-6">
+      <div className="col-span-6 min-h-max">
         {headerImageUrl && (
           <HeaderProjectImage url={headerImageUrl} alt="project header" />
         )}
