@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 
 interface HeaderProjectImageProps {
@@ -16,9 +17,9 @@ const HeaderProjectImage: React.FC<HeaderProjectImageProps> = ({
   }).join('\n')
 
   return (
-    <div className="overflow-hidden lg:rounded-bl-3xl max-h-[70vh]">
+    <div className={clsx('lg:rounded-bl-3xl', 'aspect-w-4 aspect-h-3')}>
       <img
-        className="object-cover object-center w-full"
+        className="object-cover"
         src={`https://${url}?w=560&fm=webp`}
         srcSet={srcSet}
         alt={alt}
