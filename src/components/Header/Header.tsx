@@ -89,7 +89,7 @@ const Header: React.FC = () => {
               justifyContent="space-between"
               alignItems="center"
               p={3}
-              backgroundColor="primaryDark">
+              backgroundColor="primary">
               <SectionLinks>
                 {/* TODO: Type react-scroll-section SectionLinks component */}
                 {({ allLinks }) => {

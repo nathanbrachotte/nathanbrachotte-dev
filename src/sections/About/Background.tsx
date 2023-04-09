@@ -5,7 +5,7 @@ export const Background: React.FC = () => (
   <div className="overflow-hidden">
     {/* Top Left */}
     <Triangle
-      color="secondary"
+      color="secondaryDark"
       height={['13vh', '15vh', '20vh']}
       width={['100vw']}
     />

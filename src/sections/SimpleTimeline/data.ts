@@ -98,11 +98,10 @@ export const data: (Job | Review)[] = [
     name: 'Erik Waterloo',
     personPosition: 'Head of Software at colorfy GmbH',
     description:
-      'Nathan was the first hire I made when I took over the software team at colorfy and I got the chance to work with him starting from an internship in February of 2018. At the time he was joining a small team of 3 developers and took over a challenging and important IoT project as a React Native developer. His deep care and feeling of responsibility for his work paired with him being an excellent team player enabled him to deliver critical contributions right from the start.',
+      'Nathan was the first hire I made when I took over the software team at colorfy and I got the chance to work with him starting from an internship in February of 2018. At the time he was joining a small team of 3 developers and took over a challenging and important IoT project as a React Native developer. His deep care and feeling of responsibility for his work paired with him being an excellent team player enabled him to deliver critical contributions right from the start. In the end of 2018 he finished his studies of Software and System Engineering with High Honours and became an even more important member of the team in his new role of a full time React Native developer. Nathan is a quick learner and during the growth of the team to 7 members right now he never stopped being vocal about his ideas on processes and more importantly was also candid when we were deriving from our standards. It was a pleasure being a part of his development from an intern to an intermediate developer. Nathan is constantly learning new technologies and frameworks within the React Native world but is also working on other technologies in his spare time which shows his commitment to software development in general.',
     workedTogetherTimeframe: 'Feb 2018 - Dec 2019',
     link: {
-      external:
-        'https://drive.google.com/file/d/1OBdJPIpDbbQxoLmfAxmL_A7vHCMPwEJJ/view?usp=sharing',
+      external: 'https://www.linkedin.com/in/nathan-brachotte/',
     },
   },
   {
