@@ -8,9 +8,11 @@ const Timeline: React.FC = () => {
   return (
     <Section.Container id="Recommendations" Background={Background}>
       <Section.Header name="Recommendations" icon="✨" label="speech bubble" />
-      <Fade bottom>
-        <SimpleTimeline />
-      </Fade>
+      <div className="pl-4 md:p-4">
+        <Fade bottom>
+          <SimpleTimeline />
+        </Fade>
+      </div>
     </Section.Container>
   )
 }
